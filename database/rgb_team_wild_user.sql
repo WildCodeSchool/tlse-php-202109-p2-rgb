@@ -26,9 +26,9 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nickname` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `avatar` varchar(45) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `pseudo_UNIQUE` (`nickname`)
+  UNIQUE KEY `nickname_UNIQUE` (`nickname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `content` longtext NOT NULL,
-  `date_submited` date NOT NULL,
+  `date_submitted` date NOT NULL,
   `game_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`,`game_id`,`user_id`),

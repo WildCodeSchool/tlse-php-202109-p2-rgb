@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `list_user`;
 CREATE TABLE `list_user` (
   `game_id` int NOT NULL,
   `user_id` int NOT NULL,
-  `favoris` tinyint NOT NULL DEFAULT '0',
-  `status` enum('wish','in progress','finished') NOT NULL DEFAULT 'wish',
+  `favorite` tinyint NOT NULL DEFAULT '0',
+  `status` enum('wished','in progress','finished') NOT NULL DEFAULT 'wish',
   PRIMARY KEY (`game_id`,`user_id`),
   KEY `fk_game_has_user_user1_idx` (`user_id`),
   KEY `fk_game_has_user_game_idx` (`game_id`),
