@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `like`;
 CREATE TABLE `like` (
   `user_id` int NOT NULL,
   `game_id` int NOT NULL,
-  `like` enum('like','unlike','unset') NOT NULL DEFAULT 'unset',
+  `like` enum('like','dislike','unset') NOT NULL DEFAULT 'unset',
   PRIMARY KEY (`user_id`,`game_id`),
   KEY `fk_user_has_game_game1_idx` (`game_id`),
   KEY `fk_user_has_game_user1_idx` (`user_id`),
