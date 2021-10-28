@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block stylesheet  %}    
+    <link rel="stylesheet" href="/assets/css/gameCategory.css">
+    <link rel="Stylesheet" href="Https://Stackpath.Bootstrapcdn.Com/Bootstrap/4.3.1/Css/Bootstrap.Min.Css">
+    <link rel="Stylesheet" href="Https://Cdnjs.Cloudflare.Com/Ajax/Libs/Font-Awesome/5.9.0/Css/All.Css">
+{% endblock %}
+    
+
+
+{% block content %}
+ 
+   <section id="gameCategory"> 
+   
+   {# Include de tous les composants nécessaires à la page game category #}
+             {% include 'gameCategory/component/_Header.html.twig' %}
+             {% include 'gameCategory/component/_searchBar.html.twig' %} 
+             {% include 'gameCategory/component/_titleCategory.html.twig' %} 
+             {% include 'gameCategory/component/_titleGame.html.twig' %} 
+             {% include 'gameCategory/component/_myList_opinion.html.twig' %} 
+             {% include 'gameCategory/component/_category.html.twig' %} 
+             {% include 'gameCategory/component/_img.html.twig' %} 
+
+</section>
+
+{% endblock %}
