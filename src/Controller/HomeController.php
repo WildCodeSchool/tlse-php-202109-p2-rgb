@@ -9,6 +9,8 @@
 
 namespace App\Controller;
 
+use App\Model\GenreModel;
+
 class HomeController extends AbstractController
 {
     /**
@@ -21,7 +23,10 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        require __DIR__ . '/../View/Home/index.php';
-        return $this->twig->render('Home/index.html.twig', ['cards' => $cards,'picture'=>$picture]);
+        $genreModel = new GenreModel();
+        return $this->twig->render(
+            'Home/index.html.twig',
+            ['cards' => $genreModel->getAll(),'picture' => $genreModel->getTrendingGamePicture()]
+        );
     }
 }
