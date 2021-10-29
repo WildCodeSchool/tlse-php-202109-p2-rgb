@@ -21,6 +21,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        require __DIR__ . '/../View/Home/index.php';
+        return $this->twig->render('Home/index.html.twig', ['cards' => $cards,'picture'=>$picture]);
     }
 }

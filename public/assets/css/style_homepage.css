@@ -1,0 +1,37 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.tendance{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    box-shadow: 12px 0px 20px 12px rgba(50, 50, 93, 0.25);  
+}
+h1{
+    text-align: center;
+    color: darkslategray;
+}
+.tendance img{
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10%;
+    box-shadow: 0px 0px 20px 12px rgba(50, 50, 93, 0.25);
+}
+.cards {
+    color: lime ;
+    text-align: center;
+    text-shadow: 0px 0px 5px white;
+    margin-bottom: 60px;
+}
+.cards img{
+    border-radius: 20%;
+    height: 100px;
+    width: 150px;
+    box-shadow: 0px 0px 20px 12px rgba(50, 50, 93, 0.25);
+
+}
