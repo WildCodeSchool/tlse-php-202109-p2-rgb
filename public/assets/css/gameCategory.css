@@ -1,11 +1,12 @@
 #gameCategory {
   display: grid;
-  grid-template-areas:"H H H H H H H H"
-                       ". . F F F F . ."
-                       ". . A A A A . ."
-                       "D D D D B B B B"
-                       "D D D D . C C C"
-                       "E E E E E . . .";
+  grid-template-areas:
+    "H H H H H H H H"
+    ". . F F F F . ."
+    ". . A A A A . ."
+    "D D D D B B B B"
+    "D D D D . C C C"
+    "E E E E E . . .";
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 5rem 3rem 4rem 3rem 6rem 2rem;
 }
@@ -27,10 +28,10 @@
 }
 
 #category p {
-border: 1px solid black;
-background-color: rgb(177, 167, 167);
-padding: 0.07rem;
-border-radius: 5%;
+  border: 1px solid black;
+  background-color: rgb(177, 167, 167);
+  padding: 0.07rem;
+  border-radius: 5%;
 }
 
 #Mylist_opinion {
@@ -47,49 +48,49 @@ border-radius: 5%;
 }
 
 #titleGame {
-    grid-area: B;
-    margin-left: 0.5rem;
-    display: flex;
-    align-items: center;
-    font-size: 1.7rem;
-    background-color: rgb(5, 18, 199);
-    border: 1px solid rgb(7, 7, 7);
-    border-radius: 5%;;
-  }
+  grid-area: B;
+  margin-right: 4rem;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+  background-color: rgb(5, 18, 199);
+  border: 1px solid rgb(7, 7, 7);
+  border-radius: 5%;
+}
 
 #titleGame p {
   color: white;
 }
 
 #titleCategory {
-    grid-area: A;
-    margin: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    background-color: darkgreen;
-    border: 1px solid rgb(7, 7, 7);
-    border-radius: 5%;
-  }
+  grid-area: A;
+  margin: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background-color: darkgreen;
+  border: 1px solid rgb(7, 7, 7);
+  border-radius: 5%;
+}
 
-  
 #titleCategory p {
   color: white;
 }
 
 #searchBar {
-    grid-area: F;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  grid-area: F;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .buttonGameCategory {
-    color: rgb(254, 254, 255);
-    background-color: blue;
-    border-radius: 5%;
+  color: rgb(254, 254, 255);
+  background-color: blue;
+  border-radius: 5%;
 }
 
 .Recherche-Input {
@@ -98,6 +99,6 @@ border-radius: 5%;
 
 #header {
   grid-area: H;
-  background-color: rgba(22, 29, 52, 0.9);; 
+  background-color: rgba(22, 29, 52, 0.9);
   height: 5.5rem;
 }
