@@ -1,4 +1,4 @@
-#gameCategory {
+.gameCategory {
   display: grid;
   grid-template-areas:
     "H H H H H H H H"
@@ -11,15 +11,19 @@
   grid-template-rows: 5rem 3rem 4rem 3rem 6rem 2rem;
 }
 
-#imgGameCategory {
+.imgGameCategory {
   grid-area: D;
+  width: 13rem;
+}
+
+.imgGameCategory img {
   height: 8.5rem;
   width: 13rem;
   border-radius: 10%;
   box-shadow: 1px 1px 1px black;
 }
 
-#category {
+.categories {
   grid-area: E;
   display: flex;
   flex-direction: row;
@@ -27,14 +31,14 @@
   gap: 0.5rem;
 }
 
-#category p {
+.categories p {
   border: 1px solid black;
   background-color: rgb(177, 167, 167);
   padding: 0.07rem;
   border-radius: 5%;
 }
 
-#Mylist_opinion {
+.Mylist_opinion {
   font-size: 0.9rem;
   grid-area: C;
   display: flex;
@@ -42,12 +46,12 @@
   flex-direction: column;
 }
 
-#Mylist_opinion p {
+.Mylist_opinion p {
   margin: 0;
   margin-bottom: 0.3rem;
 }
 
-#titleGame {
+.titleGame {
   grid-area: B;
   margin-right: 4rem;
   margin-left: 0.5rem;
@@ -59,11 +63,11 @@
   border-radius: 5%;
 }
 
-#titleGame p {
+.titleGame p {
   color: white;
 }
 
-#titleCategory {
+.titleCategory {
   grid-area: A;
   margin: 0.8rem;
   display: flex;
@@ -75,11 +79,11 @@
   border-radius: 5%;
 }
 
-#titleCategory p {
+.titleCategory p {
   color: white;
 }
 
-#searchBar {
+.searchBar {
   grid-area: F;
   height: 3rem;
   display: flex;
@@ -97,7 +101,7 @@
   border: 1px solid black;
 }
 
-#header {
+.header {
   grid-area: H;
   background-color: rgba(22, 29, 52, 0.9);
   height: 5.5rem;

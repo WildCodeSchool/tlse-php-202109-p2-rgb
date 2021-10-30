@@ -11,16 +11,40 @@
 
 {% block content %}
  
-   <section id="gameCategory"> 
+   <section class="gameCategory"> 
    
-   {# Include de tous les composants nécessaires à la page game category #}
-             {% include 'gameCategory/component/_Header.html.twig' %}
-             {% include 'gameCategory/component/_searchBar.html.twig' %} 
-             {% include 'gameCategory/component/_titleCategory.html.twig' %} 
-             {% include 'gameCategory/component/_titleGame.html.twig' %} 
-             {% include 'gameCategory/component/_myList_opinion.html.twig' %} 
-             {% include 'gameCategory/component/_category.html.twig' %} 
-             {% include 'gameCategory/component/_img.html.twig' %} 
+    <div class="header"> </div>
+
+    <div class="categories">
+        <p> Puzzle </p>
+        <p> Action </p>
+        <p> 3D Plateformer </p>
+    </div>
+
+    <div class="imgGameCategory">
+        <img src="https://th.bing.com/th/id/OIP.3UOhXt1r_k49dS8xn_NPuwHaEK?pid=ImgDet&rs=1" alt="">
+    </div> 
+
+    <div class="Mylist_opinion">
+        <p> recommandations (positive/negative) </p>
+            <button class="buttonGameCategory" type="submit">Ajouter à ma liste</button>
+    </div>
+
+    <div class="searchBar">
+
+        <Input Class="Recherche-Input" Type="Search" Placeholder="Recherche" Aria-Label="Search">
+            <A Href="#" Class="Recherche-Icone">
+                <I Class="Fas Fa-Search"></I>
+            </A>
+    </div> 
+
+    <div class="titleCategory">
+        <p> Action </p>
+    </div> 
+             
+    <div class="titleGame">
+        <p> Portal </p>
+    </div> 
 
 </section>
 
