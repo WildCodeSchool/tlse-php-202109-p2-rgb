@@ -9,8 +9,6 @@
 
 namespace App\Controller;
 
-use App\Model\HomeModel;
-
 class HomeController extends AbstractController
 {
     /**
@@ -23,10 +21,8 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $categoryModel = new HomeModel();
         return $this->twig->render(
-            'Home/index.html.twig',
-            ['cards' => $categoryModel->getAll(), 'picture' => $categoryModel->getTrendingGamePicture()]
+            'Home/descriptionJeu.html.twig'
         );
     }
 }
