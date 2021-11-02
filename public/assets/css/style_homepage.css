@@ -3,7 +3,7 @@ body{
     flex-direction: column;
     gap: 40px;
 }
-.tendance{
+.trending{
     display : flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +15,7 @@ h1{
     text-align: center;
     color: darkslategray;
 }
-.tendance img{
+.trending img{
     margin-top: 20px;
     max-width: 100%;
     height: auto;

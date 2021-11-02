@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class GenreModel
+class HomeModel
 {
     public function getAll(): array
     {
