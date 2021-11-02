@@ -11,18 +11,16 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgb(38, 39, 46);
-    
 }
-
 
 .nav__logo{
     width: 6rem;
-
 }
 
 .nav__menu__ul__li{
     list-style-type: none;
 }
+
 .nav__menu__ul__li__a{
     text-decoration: none;
     color: white;
@@ -30,8 +28,6 @@
 
 .nav__logo__a__img{
     width: 100%;
-
-
 }
 
 .nav__menu{
@@ -39,27 +35,21 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-
-
-    
 }
+
 .nav__menu__burgerButton{
     width: 2rem;
-
-
-
 }
 
 .nav__menu__burgerButton__img{
     width: 100%;
     border-radius: 50%;
-    
-
 }
 
 .nav__menu__ul{
     display: none;
 }
+
 .nav__menu__ul__li{
     font-size: 1em;
     height: 2.5em;
@@ -68,6 +58,7 @@
     align-items: center;
     text-align: center;
 }
+
 .nav__menu__ul--toogle{
     display: block;
     width: 13rem;
@@ -75,8 +66,6 @@
     top: 3rem;
     right: -32px;
     background-color: rgb(38, 39, 46);
-
-
 }
 
 .nav__menu__ul__li--admin{
@@ -87,6 +76,7 @@
     .nav__menu__burgerButton{
         display: none;
     }
+
     .nav__menu__ul{
         display: block;
         width: 100%;
@@ -98,8 +88,5 @@
 
     .nav__logo{
         width: 8rem;
-
     }
-    
-    
 }

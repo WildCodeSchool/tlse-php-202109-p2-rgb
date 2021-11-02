@@ -1,0 +1,102 @@
+.gameCategory {
+  display: grid;
+  grid-template-areas:
+    "H H H H H H H H"
+    ". . F F F F . ."
+    ". . A A A A . ."
+    "D D D D B B B B"
+    "D D D D . C C C"
+    "E E E E E . . .";
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 5rem 3rem 4rem 3rem 6rem 2rem;
+}
+
+.imgGameCategory {
+  grid-area: D;
+  width: 13rem;
+}
+
+.imgGameCategory img {
+  height: 8.5rem;
+  width: 13rem;
+  border-radius: 10%;
+  box-shadow: 1px 1px 1px black;
+}
+
+.categories {
+  grid-area: E;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.categories p {
+  border: 1px solid black;
+  background-color: rgb(177, 167, 167);
+  padding: 0.07rem;
+  border-radius: 5%;
+}
+
+.Mylist_opinion {
+  font-size: 0.9rem;
+  grid-area: C;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.Mylist_opinion p {
+  margin: 0;
+  margin-bottom: 0.3rem;
+}
+
+.titleGame {
+  grid-area: B;
+  margin-right: 4rem;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+  background-color: rgb(5, 18, 199);
+  border: 1px solid rgb(7, 7, 7);
+  border-radius: 5%;
+}
+
+.titleGame p {
+  color: white;
+}
+
+.titleCategory {
+  grid-area: A;
+  margin: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background-color: darkgreen;
+  border: 1px solid rgb(7, 7, 7);
+  border-radius: 5%;
+}
+
+.titleCategory p {
+  color: white;
+}
+
+.searchBar {
+  grid-area: F;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonGameCategory {
+  color: rgb(254, 254, 255);
+  background-color: blue;
+  border-radius: 5%;
+}
+
+.Recherche-Input {
+  border: 1px solid black;
+}

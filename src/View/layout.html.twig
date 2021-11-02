@@ -7,18 +7,19 @@
 
     <title>{% block title %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="/assets/css/style.css">
+    
     {% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/style.css">
     {% endblock %}
     <link rel="icon" href="/assets/images/favicon.png">
-    <script src="/assets/javascript/scriptBurger.js" defer></script>
-    
 </head>
 
 <body>
     {% include "/Item/_navbar.html.twig" %}
     {% block content %}{% endblock %}
-    {% block javascript %}{% endblock %}
+    {% block javascript %}
+    <script src="/assets/javascript/scriptBurger.js" defer></script>    
+    {% endblock %}
 </body>
 </html>
 
