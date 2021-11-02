@@ -100,9 +100,3 @@
 .Recherche-Input {
   border: 1px solid black;
 }
-
-.header {
-  grid-area: H;
-  background-color: rgba(22, 29, 52, 0.9);
-  height: 5.5rem;
-}
