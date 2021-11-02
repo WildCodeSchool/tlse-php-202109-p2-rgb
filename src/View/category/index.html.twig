@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block stylesheet  %}    
+    <link rel="stylesheet" href="/assets/css/category.css">
+    <link rel="Stylesheet" href="Https://Stackpath.Bootstrapcdn.Com/Bootstrap/4.3.1/Css/Bootstrap.Min.Css">
+    <link rel="Stylesheet" href="Https://Cdnjs.Cloudflare.Com/Ajax/Libs/Font-Awesome/5.9.0/Css/All.Css">
+{% endblock %}
+    
+
+
+{% block content %}
+ 
+<section class="gameCategory">
+
+    <div class="titleCategory">
+        <p> Action </p>
+    </div>
+ 
+    <div class="titleGame">
+        <p> Portal </p>
+    </div>
+
+    <div class="categories">
+        <p> Puzzle </p>
+        <p> Action </p>
+        <p> 3D Plateformer </p>
+    </div>
+
+    <div class="imgGameCategory">
+        <img src="https://th.bing.com/th/id/OIP.3UOhXt1r_k49dS8xn_NPuwHaEK?pid=ImgDet&rs=1" alt="">
+    </div> 
+
+    <div class="Mylist_opinion">
+        <p> recommandations (positive/negative) </p>
+        <button class="buttonGameCategory" type="submit">Ajouter à ma liste</button>
+    </div>
+
+    <div class="searchBar">
+        <Input Class="Recherche-Input" Type="Search" Placeholder="Recherche" Aria-Label="Search">
+            <A Href="#" Class="Recherche-Icone">
+                <I Class="Fas Fa-Search"></I>
+            </A>
+    </div> 
+
+</section>
+
+{% endblock %}
