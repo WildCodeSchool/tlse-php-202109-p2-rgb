@@ -4,7 +4,7 @@ namespace App\Model;
 
 use PDO;
 
-class GameCategoryManager extends AbstractManager
+class CategoryManager extends AbstractManager
 {
     public const TABLE = 'game_genre';
 
