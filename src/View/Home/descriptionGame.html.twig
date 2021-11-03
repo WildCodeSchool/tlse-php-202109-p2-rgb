@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 {% block title %}Jeu{% endblock %}
 {% block content %}
-<h2>{{game['title']}}</h2>
-<img src={{game['picture']}} alt={{game[title]}}>
+<h2>{{game['name']}}</h2>
+<img src={{game['picture']}} alt={{game['name']}}>
 <p>{{game['description']}}</p>
 {% endblock %}

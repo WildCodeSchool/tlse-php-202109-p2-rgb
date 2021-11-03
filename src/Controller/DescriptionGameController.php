@@ -21,12 +21,12 @@ class DescriptionGameController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index($id)
+    public function index(int $id)
     {
-
-        $gameModel = new DescriptionGameModel;
+        $gameModel = new DescriptionGameModel();
         return $this->twig->render(
-            'Home/descriptionGame.html.twig', ['game' => $gameModel->selectOneById($id)]
-        );
+            'Home/descriptionGame.html.twig',
+            ['game' => $gameModel->selectOneById($id)]
+    );
     }
 }
