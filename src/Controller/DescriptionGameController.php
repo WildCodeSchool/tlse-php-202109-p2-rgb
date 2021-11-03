@@ -27,6 +27,6 @@ class DescriptionGameController extends AbstractController
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             ['game' => $gameModel->selectOneById($id)]
-    );
+        );
     }
 }
