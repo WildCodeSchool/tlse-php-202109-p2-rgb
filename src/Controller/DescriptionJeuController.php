@@ -9,7 +9,10 @@
 
 namespace App\Controller;
 
-class HomeController extends AbstractController
+use App\Model\DescriptionJeuModel;
+
+
+class DescriptionJeuController extends AbstractController
 {
     /**
      * Display home page
