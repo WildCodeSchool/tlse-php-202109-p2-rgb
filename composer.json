@@ -25,6 +25,7 @@
         }
     },
     "scripts": {
+        "start": "php -S localhost:8000 -t public", 
         "grumphp": "php .\\vendor\\phpro\\grumphp\\bin\\grumphp run"
     }
 }
