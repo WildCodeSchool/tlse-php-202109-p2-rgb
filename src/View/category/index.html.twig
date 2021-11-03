@@ -8,14 +8,13 @@
 
 {% block content %}
 
-
 	<ul>
 		<div class="titleCategory">
 			<p>
 				{{ genre.name }}
 			</p>
 		</div>
-		
+
 		{% include 'Category/_search_bar.html.twig' %}
 
 		{% for gameInfo in gameInfos %}
