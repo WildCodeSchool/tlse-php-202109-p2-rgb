@@ -9,7 +9,7 @@
 
 namespace App\Controller;
 
-class HomeController extends AbstractController
+class DescriptionGameController extends AbstractController
 {
     /**
      * Display home page
@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     public function index()
     {
         return $this->twig->render(
-            'Home/descriptionJeu.html.twig'
+            'Home/descriptionGame.html.twig'
         );
     }
 }

@@ -26,7 +26,7 @@ class HomeController extends AbstractController
         $categoryModel = new HomeModel();
         return $this->twig->render(
             'Home/index.html.twig',
-            ['cards' => $categoryModel->getAll(), 'picture' => $categoryModel->getTrendingGamePicture()]
+            ['cards' => $categoryModel->selectAll('id')]
         );
     }
 }
