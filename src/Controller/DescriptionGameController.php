@@ -9,10 +9,7 @@
 
 namespace App\Controller;
 
-use App\Model\DescriptionJeuModel;
-
-
-class DescriptionJeuController extends AbstractController
+class DescriptionGamentroller extends AbstractController
 {
     /**
      * Display home page
@@ -25,7 +22,7 @@ class DescriptionJeuController extends AbstractController
     public function index()
     {
         return $this->twig->render(
-            'Home/descriptionJeu.html.twig'
+            'Home/descriptionGame.html.twig'
         );
     }
 }
