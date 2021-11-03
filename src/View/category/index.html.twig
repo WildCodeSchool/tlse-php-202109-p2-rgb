@@ -2,6 +2,7 @@
 
 
 {% block stylesheet  %}
+	{{ parent() }}
 	<link rel="stylesheet" href="/assets/css/category.css">
 {% endblock %}
 
@@ -19,11 +20,15 @@
 
 		{% for gameInfo in gameInfos %}
 			<li class="gameCategory">
-				<div class="titleGame">
+				<a href='descriptionGame?id={{gameInfo.game_id}}'<div class="titleGame">
 					<p>
 						{{ gameInfo.name }}
 					</p>
 				</div>
+<<<<<<< HEAD
+=======
+				</a>
+>>>>>>> bf87116ae2e41fcb06c89d3233943115775bc751
 
 				<div class="categories">
 					<p>

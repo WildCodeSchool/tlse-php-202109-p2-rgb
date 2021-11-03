@@ -4,7 +4,7 @@ namespace App\Model;
 
 use PDO;
 
-class MyGamesManager extends AbstractManager
+class ListMyGamesManager extends AbstractManager
 {
     public function selectByUserId(int $id)
     {
