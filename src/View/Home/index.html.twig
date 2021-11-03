@@ -6,16 +6,16 @@
 {% block content %}
     <div class="trending">
         <h1>Tendance du Moment</h1>
-        <img alt ="Tendance">
+        <img alt="Tendance">
     </div>
     <h1>Les Genres</h1>
     <div class="cards">
         <div class="row gap-3 row-cols-2 justify-content-center">
         {% for card in cards %} 
-            <div class ="col-auto">
+            <div class="col-auto">
                 <h2>{{ card['name'] }}</h2>
                 <div class="imagehomepage">
-                    <a href = "/category?id={{card['id']}}"><img src= {{ card['picture'] }} alt={{card['name']}}></a>
+                    <a href="/category?id={{card['id']}}"><img src={{ card['picture'] }} alt={{card['name']}}></a>
                 </div>
             </div>
         {% endfor %}
