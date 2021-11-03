@@ -9,7 +9,7 @@
 
 namespace App\Controller;
 
-class DescriptionGamentroller extends AbstractController
+class DescriptionGameController extends AbstractController
 {
     /**
      * Display home page

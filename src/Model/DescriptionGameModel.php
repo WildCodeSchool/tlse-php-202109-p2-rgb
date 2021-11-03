@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class HomeModel extends AbstractManager
+class DescriptionGameModel extends AbstractManager
 {
     public const TABLE = 'game';
 }
