@@ -15,7 +15,7 @@ ul {
     "D D D D . C C C"
     "E E E E E . . .";
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 3rem 6rem 2rem;
+  grid-template-rows: 4rem 6rem 2rem;
 }
 
 .imgGameCategory {
@@ -60,11 +60,10 @@ ul {
 
 .titleGame {
   grid-area: B;
-  margin-right: 4rem;
   margin-left: 0.5rem;
   display: flex;
   align-items: center;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   background-color: rgb(5, 18, 199);
   border: 1px solid rgb(7, 7, 7);
   border-radius: 5%;

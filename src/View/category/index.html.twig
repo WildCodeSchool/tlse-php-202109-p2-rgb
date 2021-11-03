@@ -12,7 +12,7 @@
 	<ul>
 		<div class="titleCategory">
 			<p>
-				{{ genre.genre_id }}
+				{{ genre.name }}
 			</p>
 		</div>
 
@@ -23,11 +23,11 @@
 			</A>
 		</div>
 
-		{% for genre in genres %}
+		{% for gameInfo in gameInfos %}
 			<li class="gameCategory">
 				<div class="titleGame">
 					<p>
-						{{ genre.game_id }}
+						{{ gameInfo.name }}
 					</p>
 				</div>
 
@@ -58,5 +58,6 @@
 		{% endfor %}
 	</ul>
 
-
 {% endblock %}
+
+
