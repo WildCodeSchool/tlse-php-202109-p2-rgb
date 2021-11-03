@@ -7,9 +7,9 @@
 .nav__logo {
     width: 6rem;
 }
-
 .nav__menu__ul__li {
     list-style-type: none;
+    text-align: center;
 }
 
 .nav__menu__ul__li__a {
@@ -17,7 +17,7 @@
 }
 
 .nav__logo__a__img {
-    width: 6rem;
+    width: 8rem;
     border-radius: 20px 20px;
 }
 
