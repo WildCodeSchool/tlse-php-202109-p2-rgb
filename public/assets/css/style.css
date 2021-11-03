@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav__logo {
+    width: 6rem;
+}
+
+.nav__menu__ul__li {
+    list-style-type: none;
+}
+
+.nav__menu__ul__li__a {
+    text-decoration: none;
+}
+
+.nav__logo__a__img {
+    width: 6rem;
+    border-radius: 20px 20px;
+}
+
+.nav__menu__ul__li--admin {
+    display:none;
+}
+
+@media screen and (min-width: 992px) {
+
+    .nav__logo__a__img {
+        width: 8rem;
+    }
+
+    .navbar-nav, .nav__menu__ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0;
+    }
+}

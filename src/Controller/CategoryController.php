@@ -4,9 +4,9 @@ namespace App\Controller;
 
 use App\Model\GameCategoryManager;
 
-class CategoryController extends AbstractController 
+class CategoryController extends AbstractController
 {
-    public function index(int $id) 
+    public function index(int $id)
     {
         $gameManager = new GameCategoryManager();
         $genre = $gameManager->selectByGenre($id);

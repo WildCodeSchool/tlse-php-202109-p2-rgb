@@ -12,7 +12,7 @@ class GameCategoryManager extends AbstractManager
     {
         $statement = $this->pdo->query("SELECT DISTINCT name FROM genre JOIN game_genre ON id=genre_id WHERE id=$id");         
         $genre = $statement->fetch(PDO::FETCH_ASSOC);
-
+      
         return $genre;
     }
 
