@@ -15,7 +15,8 @@ class CategoryManager extends AbstractManager
 
     public function selectAllGamesFromCategoryId(int $id)
     {
-        $statement = $this->pdo->query("SELECT name, picture, game_id, genre_id FROM game RIGHT JOIN game_genre ON id=game_id WHERE $id=genre_id");
+        $statement = $this->pdo->query("SELECT name, picture, game_id, genre_id FROM game " .
+            "RIGHT JOIN game_genre ON id=game_id WHERE $id=genre_id");
         $gameInfos = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $gameInfos;
     }
