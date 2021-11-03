@@ -9,7 +9,10 @@ class CategoryController extends AbstractController
     public function index(int $id)
     {
         $gameManager = new GameCategoryManager();
-        $genres = $gameManager->selectOneByGenreId($id);
-        return $this->twig->render('category/index.html.twig', ['genres' => $genres]);
+        $genre = $gameManager->selectByGenre($id);
+        $gameInfos = $gameManager->selectAllGamesFromCategoryId($id);
+        
+        return $this->twig->render('category/index.html.twig', ['genre' => $genre, 'gameInfos' => $gameInfos]);
     }
+
 }
