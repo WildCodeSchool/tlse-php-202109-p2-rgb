@@ -9,6 +9,8 @@
 
 namespace App\Controller;
 
+use App\Model\DescriptionGameModel;
+
 class DescriptionGameController extends AbstractController
 {
     /**
@@ -19,10 +21,12 @@ class DescriptionGameController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index()
+    public function index($id)
     {
+
+        $gameModel = new DescriptionGameModel;
         return $this->twig->render(
-            'Home/descriptionGame.html.twig'
+            'Home/descriptionGame.html.twig', ['game' => $gameModel->selectOneById($id)]
         );
     }
 }

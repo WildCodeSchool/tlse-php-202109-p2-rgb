@@ -25,12 +25,12 @@
 
 		{% for gameInfo in gameInfos %}
 			<li class="gameCategory">
-				<div class="titleGame">
+				<a href='descriptionGame?id={{gameInfo.game_id}}'<div class="titleGame">
 					<p>
 						{{ gameInfo.name }}
 					</p>
 				</div>
-
+				</a>
 
 				<div class="categories">
 					<p>
