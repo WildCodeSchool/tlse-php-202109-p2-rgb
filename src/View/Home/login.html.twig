@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Se connecter
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <form action="" method="post" class="row">
+            <div class="row mb-3">
+                <label for="nickname" class="col-sm-2 col-form-label">Pseudo</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nickname" id="nickname">
+                </div>
+                <div>{{ errors['nickname'] }}</div>
+            </div>
+            <div class="row mb-3">
+                <label for="passwordUser" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" name="passwordUser" class="form-control" id="passwordUser">
+                </div>
+                <div>{{ errors['passwordUser'] }}</div>
+            </div>
+            <div class="row">
+                <input type="submit" class="btn btn-primary m-auto col-3" value="Se connecter">
+            </div>
+        </form>
+    </div>
+    <section class="mt-4 row">
+        <p class="col-10 m-auto text-center">Pas encore enregistrer ? <a href="/signin">Créez un compte</a></p>
+    </section>
+{% endblock %}
