@@ -25,6 +25,7 @@ class UserConnectionController extends AbstractController
             }
             session_start();
             $_SESSION['username'] = $_POST['nickname'];
+            header('Location:/');
             return $this->twig->render('Home/index.html.twig');
         }
         return $this->twig->render('Home/login.html.twig');
