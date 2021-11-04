@@ -10,11 +10,12 @@ class DescriptionGameModel extends AbstractManager
     {
         // prepared request
         $statement = $this->pdo->prepare(
-            "SELECT `like`, game_id FROM " . static::TABLE . " RIGHT JOIN `like` ON id=game_id where `like`='like'"
+            "SELECT count(`like`) as 'count', `like` FROM `like`  WHERE :id = game_id GROUP BY `like`"
         );
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
-        return $statement->fetch();
+        $likes = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        return (round(($likes[1]['count'] - $likes[0]['count']) / ($likes[0]['count']+$likes[1]['count'])*100));
     }
 }

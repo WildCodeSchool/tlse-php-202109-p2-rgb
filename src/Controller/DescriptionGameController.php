@@ -24,6 +24,8 @@ class DescriptionGameController extends AbstractController
     public function index(int $id)
     {
         $gameModel = new DescriptionGameModel();
+        $like = 0;
+        $dislike = $gameModel->selectLikeById($id);
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             ['game' => $gameModel->selectOneById($id), 'like' => $gameModel->selectLikeById($id)]
