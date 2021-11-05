@@ -30,22 +30,22 @@ class UserConnectionModel
         $errors = [];
 
         foreach ($data as $key => $information) {
+            switch ($key) {
+                case 'nickname':
+                    $key = "pseudo";
+                    break;
+                case 'passwordUser':
+                    $key = "mot de passe";
+                    break;
+                case 'userMail':
+                    $key = "email";
+                    break;
+                default:
+                    break;
+            }
             if (empty($information)) {
-                switch ($key) {
-                    case 'nickname':
-                        $key = "pseudo";
-                        break;
-                    case 'passwordUser':
-                        $key = "mot de passe";
-                        break;
-                    case 'userMail':
-                        $key = "email";
-                        break;
-                    default:
-                        break;
-                }
                 $errors[$key] = "Le champ $key est requis";
-            } elseif ($key === "userMail") {
+            } elseif ($key === "email") {
                 if (filter_var($information, FILTER_VALIDATE_EMAIL) === false) {
                     $errors[$key] = "Veuillez saisir une adresse mail valide";
                 }
@@ -73,5 +73,25 @@ class UserConnectionModel
         $statement->execute();
         $isRegistered = $statement->fetch(\PDO::FETCH_ASSOC);
         return $isRegistered;
+    }
+
+    public function saveUser(array $data)
+    {
+        var_dump($_POST);
+        $connectionDB = new Connection();
+        $pdo = $connectionDB->getPdoConnection();
+        $passwordUser = $this->cleanData($data['passwordUser']);
+        $passwordUser = password_hash($passwordUser, PASSWORD_DEFAULT);
+        $query =
+            "INSERT INTO `rgb_team_wild`.`user` (`nickname`, `password`, `mail`)
+            VALUES (:nickname, :passwordUser, :mail);";
+        $statement = $pdo->prepare($query);
+        $statement->bindValue(':nickname', $data['nickname'], \PDO::PARAM_STR);
+        $statement->bindValue(':passwordUser', $passwordUser, \PDO::PARAM_STR);
+        $statement->bindValue(':mail', $data['userMail'], \PDO::PARAM_STR);
+        $statement->execute();
+        // if (!$isValidStatement) {
+        //     return "Une erreur est survenu lors de la création du compte";
+        // }
     }
 }

@@ -27,6 +27,10 @@ class UserConnectionController extends AbstractController
                 );
             }
 
+            foreach ($_POST as $key => $value) {
+                $_POST[$key] = $userConnection->cleanData($value);
+            }
+
             if ($userConnection->isRegistered($_POST) === false) {
                 return $this->twig->render(
                     'Home/login.html.twig',
@@ -74,11 +78,28 @@ class UserConnectionController extends AbstractController
             if (!empty($errors)) {
                 return $this->twig->render(
                     'Home/signin.html.twig',
-                    ['errors' => $errors,
-                    'classError' => 'alert alert-danger'
+                    [
+                        'errors' => $errors,
+                        'classError' => 'alert alert-danger'
                     ]
                 );
             }
+
+            foreach ($_POST as $key => $value) {
+                $_POST[$key] = $userConnection->cleanData($value);
+            }
+
+            if ($userConnection->isRegistered($_POST) !== false) {
+                return $this->twig->render(
+                    'Home/login.html.twig',
+                    [
+                        'pseudoAlreadyUsed' => 'Ce pseudo est déjà utilisé... Veuillez en choisir un autre',
+                        'classError' => 'alert alert-danger m-auto'
+                    ]
+                );
+            }
+
+            $userConnection->saveUser($_POST);
         }
 
         return $this->twig->render('Home/signin.html.twig');
