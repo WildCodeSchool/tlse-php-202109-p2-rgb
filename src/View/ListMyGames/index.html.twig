@@ -2,8 +2,85 @@
 
 
 {% block stylesheet  %}
-	<link rel="stylesheet" href="/assets/css/my_games.css">
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/List_my_games.css">
 {% endblock %}
 
 
-{% block content %}{% endblock %}
+{% block content %}
+
+	<section class="SearchBarMyGames">
+		<div>
+			<p>Mes Jeux</p>
+		</div>
+
+		<div>
+			<div>
+				{% include 'ListMyGames/_Search_Bar_List_My_Games.html.twig' %}
+			</div>
+
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+					Trier par:
+				</button>
+				<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+					<li>
+						<a class="dropdown-item active" href="#">Mes envies</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">En progression</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">Jeu terminé</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</section>
+
+	<ul>
+		<section class="Content">
+			<div>
+				<div>
+					<p>% positive</p>
+					<p>% negative</p>
+				</div>
+
+				<div>
+					<p>Titre du jeu</p>
+				</div>
+			</div>
+			<div>
+				<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
+			</div>
+
+			<div>
+				<div>
+					<p>Action</p>
+				</div>
+				<div>
+					<p>RPG</p>
+				</div>
+				<div>
+					<p>Adventure</p>
+				</div>
+			</div>
+
+			<div class="ListPictureMyGames">
+				<div>
+					<div>
+						<p>Titre du jeu</p>
+						<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
+					</div>
+					<div>
+						<p>Titre du jeu</p>
+						<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</ul>
+
+{% endblock %}
