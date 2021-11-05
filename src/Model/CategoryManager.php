@@ -4,15 +4,12 @@ namespace App\Model;
 
 use PDO;
 
-class GameCategoryManager extends AbstractManager
+class CategoryManager extends AbstractManager
 {
-    public const TABLE = 'game_genre';
-
     public function selectByGenre(int $id)
     {
         $statement = $this->pdo->query("SELECT DISTINCT name FROM genre JOIN game_genre ON id=genre_id WHERE id=$id");
         $genre = $statement->fetch(PDO::FETCH_ASSOC);
-
         return $genre;
     }
 
@@ -25,7 +22,6 @@ class GameCategoryManager extends AbstractManager
         WHERE $id=genre_id";
         $statement = $this->pdo->query($query);
         $gameInfos = $statement->fetchAll(PDO::FETCH_ASSOC);
-
         return $gameInfos;
     }
 }
