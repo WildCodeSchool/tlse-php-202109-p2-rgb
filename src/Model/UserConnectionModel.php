@@ -31,6 +31,19 @@ class UserConnectionModel
 
         foreach ($data as $key => $information) {
             if (empty($information)) {
+                switch ($key) {
+                    case 'nickname':
+                        $key = "pseudo";
+                        break;
+                    case 'passwordUser':
+                        $key = "mot de passe";
+                        break;
+                    case 'userMail':
+                        $key = "email";
+                        break;
+                    default:
+                        break;
+                }
                 $errors[$key] = "Le champ $key est requis";
             } elseif ($key === "userMail") {
                 if (filter_var($information, FILTER_VALIDATE_EMAIL) === false) {
@@ -51,10 +64,12 @@ class UserConnectionModel
     {
         $connectionDB = new Connection();
         $pdo = $connectionDB->getPdoConnection();
-        $query = "SELECT `nickname`, `password` from `user` WHERE  `nickname`=:nickname AND `password`=:passwordUser";
+        $query =
+            "SELECT `nickname`, `password`
+            FROM `user`
+            WHERE  `nickname` = :nickname";
         $statement = $pdo->prepare($query);
         $statement->bindValue(':nickname', $data['nickname'], \PDO::PARAM_STR);
-        $statement->bindValue(':passwordUser', $data['passwordUser'], \PDO::PARAM_STR);
         $statement->execute();
         $isRegistered = $statement->fetch(\PDO::FETCH_ASSOC);
         return $isRegistered;
