@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use PDO;
+
 class DescriptionGameModel extends AbstractManager
 {
     public const TABLE = 'game';
@@ -12,10 +14,10 @@ class DescriptionGameModel extends AbstractManager
         $statement = $this->pdo->prepare(
             "SELECT count(`like`) as 'count', `like` FROM `like`  WHERE :id = game_id GROUP BY `like`"
         );
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        $likes = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        $likes = $statement->fetchAll(PDO::FETCH_ASSOC);
         if (empty($likes)) {
             return $likes;
         } else {
@@ -45,4 +47,5 @@ class DescriptionGameModel extends AbstractManager
             }
         }
     }
+    
 }
