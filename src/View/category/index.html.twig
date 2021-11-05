@@ -9,7 +9,6 @@
 
 {% block content %}
 
-
 	<ul>
 		<div class="titleCategory">
 			<p>
@@ -17,21 +16,16 @@
 			</p>
 		</div>
 
-		<div class="searchBar">
-			<input class="search-input" type="search" placeholder="Recherche" aria-label="search">
-			<a href="#" class="search-icon">
-				<i class="fas-fa-search"></i>
-			</a>
-		</div>
+		{% include 'Category/_search_bar.html.twig' %}
 
 		{% for gameInfo in gameInfos %}
 			<li class="gameCategory">
-				<div class="titleGame">
+				<a href='descriptionGame?id={{gameInfo.game_id}}'<div class="titleGame">
 					<p>
 						{{ gameInfo.name }}
 					</p>
 				</div>
-
+				</a>
 
 				<div class="categories">
 					<p>
@@ -60,5 +54,3 @@
 	</ul>
 
 {% endblock %}
-
-
