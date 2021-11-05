@@ -6,7 +6,7 @@ class DescriptionGameModel extends AbstractManager
 {
     public const TABLE = 'game';
 
-    public function selectLikeById(int $id): ?array
+    public function selectLikeById(int $id): ?float
     {
         // prepared request
         $statement = $this->pdo->prepare(
@@ -16,24 +16,6 @@ class DescriptionGameModel extends AbstractManager
         $statement->execute();
 
         $likes = $statement->fetchAll(\PDO::FETCH_ASSOC);
-        if (empty($likes)){
-            return null;
-        }else{
-            $reviews = [ 80 => 'Tacos', 50 => 'Très Positif', 30 => 'Positif', 10 => 'Assez Positif', -10 => 'Moyen', -30 =>'Négatif', -50 => 'Très négatif' ];
-            $like = (round(($likes[1]['count'] - $likes[0]['count']) / ($likes[0]['count'] + $likes[1]['count']) * 100)); 
-            foreach ($reviews as $key => $value){
-                if ($like >= $key ) {
-                    if ($key >= 10){
-                        return [$value, 'green', $likes];
-                    }elseif ($key < 10) {
-                        return [$value, 'yellow', $likes];
-                    }else {
-                        return [$value, 'red', $likes];
-                    }
-                }elseif ($like < -50){
-                    return ['Conquistador', 'red', $likes];
-                }
-            }  
-        } 
+        return empty($likes) ? null : (round(($likes[1]['count'] - $likes[0]['count']) / ($likes[0]['count'] + $likes[1]['count']) * 100));
     }
 }

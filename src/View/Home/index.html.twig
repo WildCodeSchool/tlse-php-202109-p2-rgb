@@ -17,7 +17,7 @@
         <div class="row gap-3 justify-content-center">
         {% for card in cards %} 
             <div class="col-auto">
-                <h2>{{ card['name'] }}</h2>
+                <div class="text-truncate" style="max-width:140px;"><h2>{{ card['name'] }}</h2></div>
                 <div class="imagehomepage">
                     <a href="/category?id={{card['id']}}"><img src={{ card['picture'] }} alt={{card['name']}}></a>
                 </div>
