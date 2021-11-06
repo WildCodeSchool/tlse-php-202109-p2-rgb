@@ -8,9 +8,14 @@ class CategoryManager extends AbstractManager
 {
     public function selectByGenre(int $id)
     {
-        $statement = $this->pdo->query("SELECT DISTINCT name FROM genre JOIN game_genre ON id=genre_id WHERE id=$id");
-        $genre = $statement->fetch(PDO::FETCH_ASSOC);
-        return $genre;
+        $statement = $this->pdo->query(
+            "SELECT * 
+            FROM genre 
+            JOIN game_genre 
+            ON id=genre_id 
+            WHERE id=$id"
+        );
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
     public function selectAllGamesFromCategoryId(int $id)
@@ -22,7 +27,7 @@ class CategoryManager extends AbstractManager
             ON id=game_id
             WHERE :id=genre_id"
         );
-        $statement->bindValue(":id",$id, PDO::PARAM_INT);
+        $statement->bindValue(":id", $id, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -34,9 +39,9 @@ class CategoryManager extends AbstractManager
             FROM game_genre
             WHERE :id=game_id"
         );
-        $statement->bindValue(":id",$id, PDO::PARAM_INT);
+        $statement->bindValue(":id", $id, PDO::PARAM_INT);
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);           
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function selectNameByTagId($id)
@@ -46,7 +51,7 @@ class CategoryManager extends AbstractManager
             FROM genre
             WHERE :id=id"
         );
-        $statement->bindValue(":id",$id, PDO::PARAM_INT);
+        $statement->bindValue(":id", $id, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }

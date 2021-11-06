@@ -1,0 +1,166 @@
+ol,
+ul {
+  padding-left: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.Content img {
+  width: 20rem;
+  height: 12rem;
+  border: 3px solid black;
+  border-radius: 5%;
+}
+
+.Content div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Content div:nth-child(1) div:nth-child(1) {
+  gap: 0.5rem;
+  margin-right: 2rem;
+}
+
+.Content div:nth-child(1) div:nth-child(1) > p {
+  background-color: green;
+  color: aliceblue;
+  font-size: 0.8rem;
+}
+
+.Content div:nth-child(1) div:nth-child(1) p:nth-child(2) {
+  background-color: red;
+  color: aliceblue;
+  font-size: 0.8rem;
+}
+
+.Content div:nth-child(1) div:nth-child(2) p {
+  background-color: blue;
+  color: aliceblue;
+  font-size: 1.2rem;
+}
+
+.Content div:nth-child(2) {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.Content div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.Content div:nth-child(3) div {
+  margin: 0.4rem;
+  border: 1px solid black;
+  background-color: rgb(177, 167, 167);
+}
+
+.Content div:nth-child(4) {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ListPictureMyGames img {
+  width: 10rem;
+  height: 7rem;
+}
+
+.ListPictureMyGames p {
+  font-size: 1rem;
+  background-color: blue;
+  color: aliceblue;
+}
+
+.ListPictureMyGames div:nth-child(1) {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.ListPictureMyGames div:nth-child(1) div {
+  display: flex;
+  flex-direction: column;
+}
+
+.ListPictureMyGames div:nth-child(1) div:nth-child(1) {
+  margin-top: 0;
+  margin-right: 0.5rem;
+  gap: 0rem;
+}
+
+.ListPictureMyGames div:nth-child(1) div:nth-child(1) p {
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background-color: blue;
+  color: aliceblue;
+}
+
+.ListPictureMyGames div:nth-child(1) div:nth-child(2) {
+  margin-top: 0;
+}
+
+.ListPictureMyGames div:nth-child(1) div:nth-child(2) p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background-color: blue;
+  color: aliceblue;
+}
+
+.SearchBarMyGames {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SearchBarMyGames div:nth-child(2) {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchBarMyGames div:nth-child(2) div:nth-child(1) p {
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.dropdown {
+  margin-right: 0;
+}
+
+.SearchBarMyGames button {
+  max-height: 1.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchBarMyGames p:only-child {
+  font-size: 1.5rem;
+  background-color: blue;
+  color: aliceblue;
+}
+
+.searchBar {
+  display: flex;
+  align-items: flex-start;
+}

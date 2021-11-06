@@ -47,5 +47,4 @@ class DescriptionGameModel extends AbstractManager
             }
         }
     }
-    
 }
