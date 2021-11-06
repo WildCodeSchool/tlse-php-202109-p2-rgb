@@ -97,6 +97,10 @@ ul {
   justify-content: center;
 }
 
+.search-input {
+  width: 12rem;
+}
+
 .buttonGameCategory {
   color: rgb(254, 254, 255);
   background-color: blue;
