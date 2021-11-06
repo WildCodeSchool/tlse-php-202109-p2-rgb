@@ -12,11 +12,11 @@
 	<ul>
 		<div class="titleCategory">
 			<p>
-				{{ genre.name }}
+				{{ category.name }}
 			</p>
 		</div>
 
-		{% include 'category/_search_bar.html.twig' %}
+		{% include 'Category/_search_bar.html.twig' %}
 
 		{% for gameInfo in gameInfos %}
 			<li class="gameCategory">
@@ -25,22 +25,23 @@
 						{{ gameInfo.name }}
 					</p>
 				</div>
-				</a>
-
+				</a>	
+			
 				<div class="categories">
-					<p>
-						Puzzle
-					</p>
 					<p>
 						Action
 					</p>
 					<p>
-						3D Plateformer
+						Plateformer
 					</p>
+					<p>
+						RPG
+					</p>
+		
 				</div>
-
+				
 				<div class="imgGameCategory">
-					<img src="https://th.bing.com/th/id/OIP.3UOhXt1r_k49dS8xn_NPuwHaEK?pid=ImgDet&rs=1" alt="">
+					<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
 				</div>
 
 				<div class="Mylist_opinion">
