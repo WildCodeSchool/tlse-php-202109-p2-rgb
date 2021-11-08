@@ -1,11 +1,9 @@
 {% extends 'layout.html.twig' %}
 
-
 {% block stylesheet  %}
 	{{ parent() }}
 	<link rel="stylesheet" href="/assets/css/category.css">
 {% endblock %}
-
 
 {% block content %}
 
@@ -16,27 +14,21 @@
 			</p>
 		</div>
 
-		{% include 'category/_search_bar.html.twig' %}
+		{% include 'Category/_search_bar.html.twig' %}
 
 		{% for gameInfo in gameInfos %}
 			<li class="gameCategory">
-				<a href='descriptionGame?id={{gameInfo.game_id}}'<div class="titleGame">
+				<a href='descriptionGame?id={{ gameInfo.game_id }}'<div class="titleGame">
 					<p>
 						{{ gameInfo.name }}
 					</p>
 				</div>
-				</a>	
-			
+				</a>
+
 				<div class="categories">
-					<p>
-						Action
-					</p>
-					<p>
-						Plateformer
-					</p>
-					<p>
-						RPG
-					</p>
+					<p>Action</p>
+					<p>Plateformer</p>
+					<p>RPG</p>
 		
 				</div>
 				
