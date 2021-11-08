@@ -7,35 +7,37 @@ ul {
   margin: 0;
 }
 
-.gameCategory {
-  margin-bottom: 2rem;
-  display: grid;
-  grid-template-areas:
-    "D D D D B B B B"
-    "D D D D . C C C"
-    "E E E E E . . .";
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 4rem 6rem 2rem;
+.leftContent {
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.imgGameCategory {
-  grid-area: D;
-  width: 13rem;
+.rightContent {
+  gap: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Content{
+  display: flex;
+  flex-direction: row;
 }
 
 .imgGameCategory img {
+  margin: 0.5rem;
   height: 8.5rem;
-  width: 13rem;
+  width: 12rem;
   border-radius: 10%;
   box-shadow: 1px 1px 1px black;
 }
 
 .categories {
-  grid-area: E;
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 0.5rem;
+  margin-left: 0.7rem;
 }
 
 .categories p {
@@ -51,11 +53,26 @@ ul {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  width: 10rem;
 }
 
-.Mylist_opinion p {
+.Mylist_opinion, p {
   margin: 0;
   margin-bottom: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.Mylist_opinion p:nth-child(1) {
+  background-color: green;
+  color: aliceblue;
+}
+
+.Mylist_opinion p:nth-child(2) {
+  background-color: red;
+  color: aliceblue;
 }
 
 .titleGame {
@@ -63,10 +80,10 @@ ul {
   margin-left: 0.5rem;
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
   background-color: rgb(5, 18, 199);
   border: 1px solid rgb(7, 7, 7);
   border-radius: 5%;
+  width: 9rem;
 }
 
 .titleGame p {
@@ -105,6 +122,8 @@ ul {
   color: rgb(254, 254, 255);
   background-color: blue;
   border-radius: 5%;
+  width: 7rem;
+  font-size: 0.8rem;
 }
 
 .SearchInput {

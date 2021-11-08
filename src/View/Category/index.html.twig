@@ -7,7 +7,8 @@
 
 {% block content %}
 
-	<ul>
+<ul>
+	
 		<div class="titleCategory">
 			<p>
 				{{ category.name }}
@@ -16,34 +17,48 @@
 
 		{% include 'Category/_search_bar.html.twig' %}
 
-		{% for gameInfo in gameInfos %}
-			<li class="gameCategory">
+	
+
+	{% for gameInfo in gameInfos %}
+	<section class="Content">
+		<section class="leftContent">
+			<li>
+						
+				<div class="imgGameCategory">
+					<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
+				</div>
+
+				<div class="categories">
+					<p>Action</p>
+					<p>Adventure</p>
+					<p>FPS</p>
+				</div>
+		</section>
+				{# {% for nameGameById in namesGameById %}
+					<p> {{ nameGameById[0]['name'] }} <p>
+				{% endfor %} #}
+
+				
+		<section class="rightContent">
 				<a href='descriptionGame?id={{ gameInfo.game_id }}'<div class="titleGame">
 					<p>
 						{{ gameInfo.name }}
 					</p>
 				</div>
 				</a>
-
-				<div class="categories">
-					<p>Action</p>
-					<p>Plateformer</p>
-					<p>RPG</p>
-		
+				<div class="Mylist_opinion">
+					
+						<p>% positive</p>
+						<p>% negative</p>
 				</div>
 				
-				<div class="imgGameCategory">
-					<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
-				</div>
-
-				<div class="Mylist_opinion">
-					<p>
-						recommandations (positive/negative)
-					</p>
 					<button class="buttonGameCategory" type="submit">Ajouter à ma liste</button>
-				</div>
+					
 			</li>
-		{% endfor %}
-	</ul>
+		</section>
+	</section>
+	{% endfor %}
+		
+</ul>
 
 {% endblock %}

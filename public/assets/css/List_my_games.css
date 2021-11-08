@@ -39,6 +39,9 @@ p {
 }
 
 .Content div:nth-child(1) div:nth-child(2) p {
+  width: 10rem;
+  justify-content: center;
+  display: flex;
   background-color: blue;
   color: aliceblue;
   font-size: 1.2rem;
