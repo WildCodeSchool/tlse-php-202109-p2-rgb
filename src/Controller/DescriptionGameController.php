@@ -27,7 +27,8 @@ class DescriptionGameController extends AbstractController
         $gameModel = new DescriptionGameModel();
         $gameCategory = new CategoryManager();
         $tagsIds = $gameCategory->selectAllCategoryFromGameId($id);
-        foreach ($tagsIds as $key => $value) {
+        $nameTags = [];
+        foreach ($tagsIds as $value) {
             $nameTags[] = $gameCategory->selectNameByTagId($value['genre_id']);
         }
         return $this->twig->render(

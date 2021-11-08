@@ -27,7 +27,7 @@ class CategoryManager extends AbstractManager
             FROM game
             RIGHT JOIN game_genre
             ON id=game_id
-            WHERE :id=genre_id"
+            WHERE :id=genre_id;"
         );
         $statement->bindValue(":id", $id, PDO::PARAM_INT);
         $statement->execute();
