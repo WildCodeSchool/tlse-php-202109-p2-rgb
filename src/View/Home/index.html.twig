@@ -18,7 +18,7 @@
             <div class="col-auto">
                 <h2>{{ card['name'] }}</h2>
                 <div class="imagehomepage">
-                    <a href="/gameCategory"><img src={{ card['picture'] }} alt={{ card['title'] }}></a>
+                    <a href="/category?id={{ card['id']}}"><img src={{ card['picture'] }} alt={{ card['title'] }}></a>
                 </div>
             </div>
         {% endfor %}
