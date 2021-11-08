@@ -9,10 +9,10 @@ class CategoryManager extends AbstractManager
     public function selectByGenre(int $id)
     {
         $statement = $this->pdo->prepare(
-            "SELECT * 
-            FROM genre 
-            JOIN game_genre 
-            ON id=genre_id 
+            "SELECT *
+            FROM genre
+            JOIN game_genre
+            ON id=genre_id
             WHERE id=:id"
         );
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -49,7 +49,7 @@ class CategoryManager extends AbstractManager
     public function selectNameByTagId($id)
     {
         $statement = $this->pdo->prepare(
-            "SELECT `name`
+            "SELECT `name
             FROM genre
             WHERE :id=id"
         );
