@@ -24,9 +24,11 @@ class HomeController extends AbstractController
     public function index()
     {
         $categoryModel = new HomeModel();
+        session_start();
+        $this->twig->getGlobals();
         return $this->twig->render(
             'Home/index.html.twig',
-            ['cards' => $categoryModel->selectAll('id')]
+            ['cards' => $categoryModel->selectAll('id'), "link" => $_SESSION]
         );
     }
 }

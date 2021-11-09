@@ -45,7 +45,12 @@ class DescriptionGameController extends AbstractController
         }
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
-            ['game' => $gameModel->selectOneById($id), 'like' => $gameModel->selectLikeById($id), 'tags' => $nameTags]
+            [
+                'game' => $gameModel->selectOneById($id),
+                'like' => $gameModel->selectLikeById($id),
+                'tags' => $nameTags,
+                "link" => $_SESSION,
+            ]
         );
     }
 }
