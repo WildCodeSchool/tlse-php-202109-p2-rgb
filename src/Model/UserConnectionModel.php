@@ -54,6 +54,11 @@ class UserConnectionModel
         return $errors;
     }
 
+    public function isConnected(): bool
+    {
+        return isset($_SESSION['username']);
+    }
+
     /**
      * isRegistered
      *

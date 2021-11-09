@@ -8,6 +8,22 @@ class DescriptionGameModel extends AbstractManager
 {
     public const TABLE = 'game';
 
+    public function addToMyList($idGame)
+    {
+        $userId = $this->pdo->prepare("SELECT * from user where nickname = :username");
+        $userId->bindValue(":username", $_SESSION['username'], PDO::PARAM_STR);
+        $userId->execute();
+        $statement1 = $userId->fetch();
+        $userId = intval($statement1['id']);
+        var_dump($statement1);
+        $statement = $this->pdo->prepare(
+            "INSERT INTO list_user (game_id, `user_id`)
+            VALUES (:idGame, " . $userId . ")"
+        );
+        $statement->bindValue(":idGame", $idGame, PDO::FETCH_ASSOC);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
     public function selectLikeById(int $id)
     {
         // prepared request
