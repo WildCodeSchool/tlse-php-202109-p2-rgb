@@ -8,7 +8,7 @@ class DescriptionGameModel extends AbstractManager
 {
     public const TABLE = 'game';
 
-    public function GameIsAlreadyInUserList($idGame, $idUser)
+    public function gameIsAlreadyInUserList($idGame, $idUser)
     {
         $statement = $this->pdo->prepare(
             "SELECT *
@@ -16,8 +16,8 @@ class DescriptionGameModel extends AbstractManager
             where :idGame = game_id
             AND :idUser = `user_id`"
         );
-        $statement->bindValue(":idGame",$idGame,PDO::PARAM_INT);
-        $statement->bindValue(":idUser",$idUser,PDO::PARAM_INT);
+        $statement->bindValue(":idGame", $idGame, PDO::PARAM_INT);
+        $statement->bindValue(":idUser", $idUser, PDO::PARAM_INT);
         $statement->execute();
         $bool = $statement->fetch();
         return $bool === false ? false : true;
