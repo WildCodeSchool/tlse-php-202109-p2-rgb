@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <h1>Nouvelle candidature :</h1>
+
+    <form action="" method="POST" class="form-control row">
+        <input type="text" name="Entreprise" id="Entreprise" placeholder="Nom de l'entreprise" class="form-control"><br>
+        <input type="text" name="nom_du_contact" id="nom_du_contact" placeholder="Nom du contact" class="form-control"><br>
+        <select name="type" id="type" class="form-control"><br>
+            <option value="ESN">ESN</option>
+            <option value="Start-up">Start_up</option>
+            <option value="Web-agency">Web agency</option>
+            <option value="Editeur_logiciel">Editeur de logiciel</option>
+            <option value="freelance">freelance</option>
+        </select><br>
+        <textarea name="projet_valeurs" id="projet_valeurs" cols="30" rows="5" placeholder="Les projets et valeurs de l'entreprise" class="form-control"></textarea><br>
+        <input type="radio" name="reponse" id="oui" value="oui">
+        <label for="oui">Oui</label>
+        <input type="radio" name="reponse" id="non" value="non" checked>
+        <label for="non">Non</label>
+        <input type="text" name="lien_employes" id="lien_employes" placeholder="Liste des gens qu'on connais dans l'entreprise" class="form-control"><br>
+        <input type="text" name="ville" id="ville" placeholder="Ville" class="form-control"><br>
+        <input type="text" name="adresse" id="adresse" placeholder="adresse" class="form-control"><br>
+        <button class="btn btn-primary">Envoyer</button>
+    </form>
+    <button class="btn btn-primary addData"><a href="/" class="text-light">Retour Dashboard</a></button>
+
+{% endblock %}
