@@ -77,7 +77,6 @@ class UserConnectionModel
 
     public function saveUser(array $data)
     {
-        var_dump($_POST);
         $connectionDB = new Connection();
         $pdo = $connectionDB->getPdoConnection();
         $passwordUser = $this->cleanData($data['passwordUser']);
@@ -90,8 +89,5 @@ class UserConnectionModel
         $statement->bindValue(':passwordUser', $passwordUser, \PDO::PARAM_STR);
         $statement->bindValue(':mail', $data['userMail'], \PDO::PARAM_STR);
         $statement->execute();
-        // if (!$isValidStatement) {
-        //     return "Une erreur est survenu lors de la création du compte";
-        // }
     }
 }
