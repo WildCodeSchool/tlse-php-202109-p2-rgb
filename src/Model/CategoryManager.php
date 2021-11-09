@@ -49,7 +49,7 @@ class CategoryManager extends AbstractManager
     public function selectNameByTagId($id)
     {
         $statement = $this->pdo->prepare(
-            "SELECT `name
+            "SELECT `name`
             FROM genre
             WHERE :id=id"
         );
