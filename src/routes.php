@@ -10,7 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'category' => ['CategoryController', 'index', ['id']],
     'descriptionGame' => ['DescriptionGameController', 'index', ['id']],
-    'ListMyGames' => ['ListMyGamesController', 'index', ['id']],
+    'ListMyGames' => ['ListMyGamesController', 'index', ['nickname']],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],

@@ -6,24 +6,16 @@ use PDO;
 
 class ListMyGamesManager extends AbstractManager
 {
-    public function selectByUserId(int $id)
-    {
-        $statement = $this->pdo->query(
-            "SELECT user_id 
-            FROM list_user 
-            WHERE user_id=$id"
-        );
-        return  $statement->fetch(PDO::FETCH_ASSOC);
-    }
 
-    public function selectAllFromGameOnListUser(int $id)
+    public function selectByUserNickname(string $nickname)
     {
-        $statement = $this->pdo->query(
-            "SELECT * 
-            FROM game 
-            JOIN list_user 
-            ON id=$id"
+        $statement = $this->pdo->prepare(
+            "SELECT nickname
+            FROM `user
+            WHERE nickname=:nickname"
         );
+        $statement->bindValue(':nickname', $nickname, PDO::PARAM_STR);
+        $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

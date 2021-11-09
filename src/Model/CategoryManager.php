@@ -57,34 +57,4 @@ class CategoryManager extends AbstractManager
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
-
-//     public function selectgameByID($id)
-//     {
-//         $statement = $this->pdo->prepare(
-//             "SELECT game_id
-//             FROM game_genre
-//             WHERE genre_id=:id"
-//         );
-//         $statement->bindValue(":id", $id, PDO::PARAM_INT);
-//         $statement->execute();
-//         return $statement->fetchAll(PDO::FETCH_ASSOC);
-//     }
-
-//     public function selectCategoriesByNameIdTag($genreId)
-//     {
-//         $statement = $this->pdo->prepare(
-//             "SELECT g.name, gr.name, game_id, genre_id
-//             FROM game_genre
-//             JOIN genre
-//             AS gr
-//             ON gr.id=genre_id
-//             JOIN game
-//             AS g
-//             ON g.id=game_id
-//             WHERE game_id=:genre_id"
-//         );
-//         $statement->bindValue(":genre_id", $genreId, PDO::PARAM_INT);
-//         $statement->execute();
-//         return $statement->fetchAll(PDO::FETCH_ASSOC);
-//     }
 }

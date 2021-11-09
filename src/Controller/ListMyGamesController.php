@@ -3,17 +3,17 @@
 namespace App\Controller;
 
 use App\Model\ListMyGamesManager;
+use App\Model\UserConnectionModel;
 
 class ListMyGamesController extends AbstractController
 {
-    public function index(int $id)
+    public function index(string $nickname)
     {
-        $gameManager = new ListMyGamesManager();
-        $userId = $gameManager->selectByUserId($id);
-        $allFromGamesByUserId = $gameManager->selectAllFromGameOnListUser($id);
+        $listMyGamesManager = new ListMyGamesManager();
+        $selectUserByNickname = $listMyGamesManager->selectByUserNickname($nickname);
         return $this->twig->render(
             'ListMyGames/index.html.twig',
-            ['userId' => $userId, 'allFromGamesByUserId' => $allFromGamesByUserId]
+            ['selectUserByNickname' => $selectUserByNickname]
         );
     }
 }

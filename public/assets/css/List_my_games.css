@@ -8,12 +8,14 @@ p {
 }
 
 .homeGame {
-  background: #2c3133;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
   overflow: hidden;
-  border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
   border: 3px solid rgb(10, 10, 10);
   margin: 0.5rem;
+  border-radius: 5px;
 }
 
 .Content img {
@@ -53,7 +55,6 @@ p {
   width: 10rem;
   justify-content: center;
   display: flex;
-  background-color: blue;
   color: aliceblue;
   font-size: 1.2rem;
   border-radius: 5px;
@@ -122,9 +123,10 @@ p {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  background-color: blue;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
   color: aliceblue;
-  border-radius: 5px;
 }
 
 .ListPictureMyGames div:nth-child(1) div:nth-child(2) {
@@ -136,9 +138,10 @@ p {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  background-color: blue;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
   color: aliceblue;
-  border-radius: 5px;
 }
 
 .SearchBarMyGames {
@@ -175,7 +178,9 @@ p {
 
 .SearchBarMyGames p:only-child {
   font-size: 1.5rem;
-  background-color: blue;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
   color: aliceblue;
   border-radius: 5px;
 }

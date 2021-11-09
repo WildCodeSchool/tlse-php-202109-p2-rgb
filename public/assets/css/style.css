@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+@import url("https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Droid Serif', serif;
+    font-family: "Raleway", sans-serif;
+}
+
+a {
+ text-decoration: none;
 }
 
 .navbar {
