@@ -29,9 +29,14 @@ class DescriptionGameController extends AbstractController
         $gameModel = new DescriptionGameModel();
         $gameCategory = new CategoryManager();
         $userModel = new UserConnectionModel();
+        $gameStatusList = "";
+        $gameModel->GameIsAlreadyInUserList($gameId, $gameModel->getUserId($_SESSION['username']));
         if ($gameId !== null) {
-            if ($userModel->isConnected()) {
+            if ($userModel->isConnected() && !$gameModel->GameIsAlreadyInUserList($gameId, $gameModel->getUserId($_SESSION['username']))) {
                 $gameModel->addToMyList($gameId);
+                echo "Votre jeu a été ajouter a votre liste";
+            }elseif ($userModel->isConnected() && $gameModel->GameIsAlreadyInUserList($gameId, $gameModel->getUserId($_SESSION['username']))) {
+                echo "Le jeu est déjà dans votre liste";
             } else {
                 header('Location: /login');
                 // to do
@@ -45,7 +50,7 @@ class DescriptionGameController extends AbstractController
         }
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
-            ['game' => $gameModel->selectOneById($id), 'like' => $gameModel->selectLikeById($id), 'tags' => $nameTags]
+            ['game' => $gameModel->selectOneById($id), 'like' => $gameModel->selectLikeById($id), 'tags' => $nameTags, 'gameStatusList' => $gameStatusList]
         );
     }
 }
