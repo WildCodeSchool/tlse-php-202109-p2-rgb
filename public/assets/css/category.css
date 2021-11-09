@@ -1,43 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+}
+
 body {
   margin: 0;
+  
 }
 
 ul {
   padding: 0;
   margin: 0;
+  justify-content: center;
+
+}
+
+a {
+  text-decoration: none;
+
 }
 
 .leftContent {
+  margin-right: 0.4rem;
+  margin-left: 0.4rem;
+  margin: 0.8rem;
   width: 13rem;
   display: flex;
   flex-direction: column;
+  background: #ecf0f1;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  border: 3px solid rgb(10, 10, 10);
+
 }
 
 .rightContent {
-  gap: 0.7rem;
+  margin: 0.2rem;
+  gap: 0.3rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: 10px;
+
 }
 
 .Content{
+  height: 12rem;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  border: 3px solid rgb(10, 10, 10);
+  margin-top: 0.2rem;
+  margin-bottom: 0.8rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
 }
 
 .imgGameCategory img {
-  margin: 0.5rem;
-  height: 8.5rem;
-  width: 12rem;
-  border-radius: 10%;
+  margin: 0.2rem;
+  height: 7rem;
+  width: 95%;
   box-shadow: 1px 1px 1px black;
+  box-sizing: border-box;
+  
 }
 
 .categories {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 0.5rem;
-  margin-left: 0.7rem;
 }
 
 .categories p {
@@ -45,6 +86,8 @@ ul {
   background-color: rgb(177, 167, 167);
   padding: 0.07rem;
   border-radius: 5%;
+  font-size: 0.8rem;
+
 }
 
 .Mylist_opinion {
@@ -54,6 +97,7 @@ ul {
   align-items: flex-start;
   flex-direction: column;
   width: 10rem;
+
 }
 
 .Mylist_opinion, p {
@@ -63,59 +107,74 @@ ul {
   flex-direction: row;
   justify-content: center;
   gap: 0.2rem;
+  font-size: 0.8rem;
+
 }
 
 .Mylist_opinion p:nth-child(1) {
   background-color: green;
   color: aliceblue;
+
 }
 
 .Mylist_opinion p:nth-child(2) {
   background-color: red;
   color: aliceblue;
+
 }
 
 .titleGame {
-  grid-area: B;
-  margin-left: 0.5rem;
+  margin-top: 0.3rem;
+  display: flex;
+  border-radius: 5px;
+  width: 8rem;
   display: flex;
   align-items: center;
-  background-color: rgb(5, 18, 199);
-  border: 1px solid rgb(7, 7, 7);
-  border-radius: 5%;
-  width: 9rem;
+  justify-content: center;
 }
 
 .titleGame p {
-  color: white;
+  color: rgb(252, 247, 247);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  margin-left: 0.2rem;
 }
 
 .titleCategory {
+  margin-top: 0.3rem;
+  width: 15rem;
   height: 4rem;
-  margin: 0.8rem;
+  margin-left: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  background-color: darkgreen;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
   border: 1px solid rgb(7, 7, 7);
-  border-radius: 5%;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
 }
 
 .titleCategory p {
-  color: white;
+  color: rgb(240, 235, 235);
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
 }
 
 .searchBar {
-  grid-area: F;
-  height: 3rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
 .search-input {
-  width: 12rem;
+  width: 14rem;
+  height: 1.4rem;
+  margin-left: 0.4rem;
+  margin-top: 2rem;
 }
 
 .buttonGameCategory {

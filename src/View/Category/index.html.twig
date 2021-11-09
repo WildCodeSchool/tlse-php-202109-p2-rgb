@@ -7,8 +7,9 @@
 
 {% block content %}
 
+
+
 <ul>
-	
 		<div class="titleCategory">
 			<p>
 				{{ category.name }}
@@ -21,22 +22,15 @@
 
 	{% for gameInfo in gameInfos %}
 	<section class="Content">
+	<div>
+	<img src="" alt="">
 		<section class="leftContent">
 			<li>
 						
 				<div class="imgGameCategory">
 					<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
 				</div>
-
-				<div class="categories">
-					<p>Action</p>
-					<p>Adventure</p>
-					<p>FPS</p>
-				</div>
 		</section>
-				{# {% for nameGameById in namesGameById %}
-					<p> {{ nameGameById[0]['name'] }} <p>
-				{% endfor %} #}
 
 				
 		<section class="rightContent">
@@ -51,14 +45,12 @@
 						<p>% positive</p>
 						<p>% negative</p>
 				</div>
-				
-					<button class="buttonGameCategory" type="submit">Ajouter à ma liste</button>
+				<button class="buttonGameCategory" type="submit">Ajouter à ma liste</button>
 					
 			</li>
 		</section>
 	</section>
-	{% endfor %}
-		
+	{% endfor %}		
 </ul>
 
 {% endblock %}
