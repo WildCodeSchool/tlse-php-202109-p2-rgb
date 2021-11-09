@@ -8,7 +8,7 @@
     <div class='d-flex flex-column align-items-center gap-4'>
         <h2 style='text-align:center; margin:20px auto 20px'>{{game['name']}}</h2>
         <img src="/assets/images/pictures_game/covers/{{game['picture']}}" style="max-width: 25rem; max-height: 12rem;"alt={{game['name']}}>
-        <div class="d-flex flex-row justify-content-space-between">
+        <div class="d-flex flex-row gap-1">
             {% for tag in tags %}
                 <span class="badge bg-primary">{{ tag['name'] }}</span> 
             {% endfor %}
@@ -22,7 +22,7 @@
                 Date de Sortie: <strong>{{game['date_release']}}</strong>
             </p>
         </div>
-        <a href="/addme">
+        <a href="/descriptionGame?id={{ game['id'] }}&gameId={{ game['id'] }}">
             <button type="button" class="btn-lg btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style='max-width:10rem;'>
                 ajouter
             </button>
