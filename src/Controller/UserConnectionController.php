@@ -104,4 +104,16 @@ class UserConnectionController extends AbstractController
 
         return $this->twig->render('Home/signin.html.twig');
     }
+
+    public function logOut()
+    {
+        session_start();
+        if (session_status() == PHP_SESSION_ACTIVE) {
+            session_destroy();
+            $_SESSION = [];
+            header('Location:/login');
+            return $this->twig->render('Home/login.html.twig');
+        }
+        return $this->twig->render('Home/index.html.twig');
+    }
 }

@@ -13,6 +13,13 @@ class CategoryController extends AbstractController
         $gameManager = new CategoryManager();
         $category = $gameManager->selectByGenre($id);
         $gameInfos = $gameManager->selectAllGamesFromCategoryId($id);
-        return $this->twig->render('Category/index.html.twig', ['category' => $category, 'gameInfos' => $gameInfos]);
+        return $this->twig->render(
+            'Category/index.html.twig',
+            [
+                'category' => $category,
+                'gameInfos' => $gameInfos,
+                "link" => $_SESSION,
+            ]
+        );
     }
 }

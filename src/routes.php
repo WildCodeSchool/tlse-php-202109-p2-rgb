@@ -18,5 +18,5 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'login' => ['UserConnectionController', 'login',],
     'signin' => ['UserConnectionController', 'signin',],
-    'logout' => ['UserConnectionController', 'logout',],
+    'logOut' => ['UserConnectionController', 'logOut',],
 ];
