@@ -50,7 +50,7 @@ a {
 }
 
 .Content{
-  height: 12rem;
+  height: 10rem;
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -173,7 +173,7 @@ a {
 .search-input {
   width: 14rem;
   height: 1.4rem;
-  margin-left: 0.4rem;
+  margin-left: 1rem;
   margin-top: 2rem;
 }
 
