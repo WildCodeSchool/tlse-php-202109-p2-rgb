@@ -15,7 +15,6 @@ class DescriptionGameModel extends AbstractManager
         $userId->execute();
         $statement1 = $userId->fetch();
         $userId = intval($statement1['id']);
-        var_dump($statement1);
         $statement = $this->pdo->prepare(
             "INSERT INTO list_user (game_id, `user_id`)
             VALUES (:idGame, " . $userId . ")"

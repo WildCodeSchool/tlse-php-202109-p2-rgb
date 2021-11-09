@@ -32,7 +32,6 @@ class DescriptionGameController extends AbstractController
         if ($gameId !== null) {
             if ($userModel->isConnected()) {
                 $gameModel->addToMyList($gameId);
-                echo 'Le jeu a été ajouté à votre liste';
             } else {
                 header('Location: /login');
                 // to do
