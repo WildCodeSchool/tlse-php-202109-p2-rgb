@@ -10,6 +10,6 @@ class ListMyGamesController extends AbstractController
     {
         $gameManager = new ListMyGamesManager();
         $userId = $gameManager->selectByUserId($id);
-        return $this->twig->render('ListMyGames/index.html.twig', ['userId' => $userId]);
+        return $this->twig->render('ListMyGames/index.html.twig', ['userId' => $userId,]);
     }
 }
