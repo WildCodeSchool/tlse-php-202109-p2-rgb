@@ -28,9 +28,23 @@ class DescriptionGameController extends AbstractController
         $gameModel = new DescriptionGameModel();
         $gameCategory = new CategoryManager();
         $userModel = new UserConnectionModel();
+        $gameStatusList = "";
         if ($gameId !== null) {
-            if ($userModel->isConnected()) {
+            if (
+                $userModel->isConnected() && !$gameModel->gameIsAlreadyInUserList(
+                    $gameId,
+                    $gameModel->getUserId()
+                )
+            ) {
                 $gameModel->addToMyList($gameId);
+                $gameStatusList = "Ce jeu a bien été ajouté à votre liste";
+            } elseif (
+                $userModel->isConnected() && $gameModel->gameIsAlreadyInUserList(
+                    $gameId,
+                    $gameModel->getUserId()
+                )
+            ) {
+                $gameStatusList = "Ce jeu est déjà dans votre liste";
             } else {
                 header('Location: /login');
                 // to do
@@ -48,6 +62,7 @@ class DescriptionGameController extends AbstractController
                 'game' => $gameModel->selectOneById($id),
                 'like' => $gameModel->selectLikeById($id),
                 'tags' => $nameTags,
+                'gameStatusList' => $gameStatusList
             ]
         );
     }
