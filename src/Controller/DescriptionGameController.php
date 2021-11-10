@@ -25,7 +25,6 @@ class DescriptionGameController extends AbstractController
      */
     public function index(int $id, int $gameId = null)
     {
-        session_start();
         $gameModel = new DescriptionGameModel();
         $gameCategory = new CategoryManager();
         $userModel = new UserConnectionModel();

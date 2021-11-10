@@ -56,7 +56,6 @@ class UserConnectionController extends AbstractController
                         ]
                     );
             }
-            session_start();
             $_SESSION['username'] = $_POST['nickname'];
             header('Location:/');
             return $this->twig->render('Home/index.html.twig');
@@ -107,7 +106,6 @@ class UserConnectionController extends AbstractController
 
     public function logOut()
     {
-        session_start();
         if (session_status() == PHP_SESSION_ACTIVE) {
             session_destroy();
             $_SESSION = [];
