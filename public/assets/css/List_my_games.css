@@ -7,6 +7,17 @@ p {
   margin: 0;
 }
 
+.homeGame {
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
+  overflow: hidden;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  border: 3px solid rgb(10, 10, 10);
+  margin: 0.5rem;
+  border-radius: 5px;
+}
+
 .Content img {
   width: 20rem;
   height: 12rem;
@@ -30,18 +41,23 @@ p {
   background-color: green;
   color: aliceblue;
   font-size: 0.8rem;
+  border-radius: 5px;
 }
 
 .Content div:nth-child(1) div:nth-child(1) p:nth-child(2) {
   background-color: red;
   color: aliceblue;
   font-size: 0.8rem;
+  border-radius: 5px;
 }
 
 .Content div:nth-child(1) div:nth-child(2) p {
-  background-color: blue;
+  width: 10rem;
+  justify-content: center;
+  display: flex;
   color: aliceblue;
   font-size: 1.2rem;
+  border-radius: 5px;
 }
 
 .Content div:nth-child(2) {
@@ -62,6 +78,7 @@ p {
   margin: 0.4rem;
   border: 1px solid black;
   background-color: rgb(177, 167, 167);
+  border-radius: 5px;
 }
 
 .Content div:nth-child(4) {
@@ -80,6 +97,7 @@ p {
   font-size: 1rem;
   background-color: blue;
   color: aliceblue;
+  border-radius: 5px;
 }
 
 .ListPictureMyGames div:nth-child(1) {
@@ -105,7 +123,9 @@ p {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  background-color: blue;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
   color: aliceblue;
 }
 
@@ -118,7 +138,9 @@ p {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  background-color: blue;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
   color: aliceblue;
 }
 
@@ -156,8 +178,11 @@ p {
 
 .SearchBarMyGames p:only-child {
   font-size: 1.5rem;
-  background-color: blue;
+  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  background-size:cover;
+  background-position:center;
   color: aliceblue;
+  border-radius: 5px;
 }
 
 .searchBar {

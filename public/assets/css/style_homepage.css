@@ -1,42 +1,166 @@
-body {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+
+.trending {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  margin-top: 0.8rem;
+  width: 180px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzrARh3_RoCR_9hSM7_rBPYDUVV207DulJ0A&usqp=CAU);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.skewed {
+  width: 90%;
+  height: 55%;
+  transform: skewY(4deg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+}
+
+.skewed img {
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 90%;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode;
+  animation-name: rotateIMG;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-duration: 3s;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: ease-in-out;
+  box-shadow: 1px 1px 1px 3px wheat;
+}
+
+.content {
+  width: 100%;
+  height: 50%;
+  padding: 10px 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content h2 {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content button {
+  color: #fffafa;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: 3px solid #fffdfd;
+  transition: all 0.3s ease;
+}
+
+.title {
+  width: 100%;
+  height: 40px;
+  left: calc(50% - 284px / 2);
+  top: calc(50% - 96px);
+  display: flex;
+  justify-content: center;
+  letter-spacing: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: -moz-linear-gradient(
+    127deg,
+    rgb(46, 47, 48) 0%,
+    rgb(65, 66, 68) 100%
+  );
+  background: -webkit-linear-gradient(
+    127deg,
+    rgb(53, 55, 56) 0%,
+    rgb(66, 66, 68) 100%
+  );
+  background: linear-gradient(127deg, rgb(51, 52, 53) 0%, rgb(60, 61, 61) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#48c6ef",endColorstr="#6f86d6",GradientType=1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: 1s ease-out 0s 1 slide;
+}
+
+.title h1 {
+  margin-top: 0.5rem;
+  font-size: 25px;
+  font-style: normal;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid black;
 }
 
 .trending {
-    display : flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    box-shadow: -10px 15px 15px 5px rgba(67, 67, 107, 0.25);  
+  width: 100%;
 }
 
-h1 {
-    text-align: center;
-    color: darkslategray;
+.trending h1 {
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
 }
 
 .trending img {
-    margin-top: 20px;
-    max-width: 100%;
-    height: auto;
-    border-radius: 10%;
-    box-shadow: 0px 0px 20px 12px rgba(50, 50, 93, 0.25);
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.cards {
-    color: lime ;
-    text-align: center;
-    text-shadow: 0px 0px 5px white;
-    margin-bottom: 60px;
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
-.cards img {
-    border-radius: 20%;
-    height: 100px;
-    width: 150px;
-    box-shadow: black 0px 1px 4px, rgb(12, 12, 12) 0px 0px 0px 3px;
-    background-color: black;
+@keyframes slide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes rotateIMG {
+  0% {
+    transform: skewY(-2deg);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: skewY( 0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: skewY(2deg);
+    opacity: 0.7;
+  }
 }

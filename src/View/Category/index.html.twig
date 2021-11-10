@@ -7,43 +7,36 @@
 
 {% block content %}
 
-	<ul>
-		<div class="titleCategory">
-			<p>
-				{{ category.name }}
-			</p>
-		</div>
-
-		{% include 'Category/_search_bar.html.twig' %}
-
-		{% for gameInfo in gameInfos %}
-			<li class="gameCategory">
-				<a href='descriptionGame?id={{ gameInfo.game_id }}'<div class="titleGame">
-					<p>
-						{{ gameInfo.name }}
-					</p>
+	{% for gameInfo in gameInfos %}
+		<div class="wrapper">
+			<div class="product-text">
+				<h2>{{ gameInfo.name }}</h2>
+			</div>
+			<section class="body">
+				<div class="leftContent">
+					<div class="product-img">
+						<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
+					</div>
 				</div>
-				</a>
-
-				<div class="categories">
-					<p>Action</p>
-					<p>Plateformer</p>
-					<p>RPG</p>
-		
+				<div class="rightContent">
+					<div class="product-price-btn">
+						<div class="buttonlike">
+							<p>avis negatif</p>
+							<button class="dislike">
+								<i class="fa fa-thumbs-o-down" aria-hidden="true">%</i>
+							</button>
+							<p>avis positif</p>
+							<button class="like">
+								<i class="fa fa-thumbs-o-up" aria-hidden="true">%</i>
+							</button>
+						</div>
+						<a href='descriptionGame?id={{ gameInfo.game_id }}'>
+							<button type="button">Plus d'infos</button>
+						</a>
+					</div>
 				</div>
-				
-				<div class="imgGameCategory">
-					<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
-				</div>
-
-				<div class="Mylist_opinion">
-					<p>
-						recommandations (positive/negative)
-					</p>
-					<button class="buttonGameCategory" type="submit">Ajouter à ma liste</button>
-				</div>
-			</li>
+			</section>
+			<div class="separation"></div>
 		{% endfor %}
-	</ul>
-
+	</div>
 {% endblock %}
