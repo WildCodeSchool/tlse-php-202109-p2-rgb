@@ -1,26 +1,33 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheet %}
-    {{ parent() }}
-    <link rel="stylesheet" href="/assets/css/style_homepage.css">
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/style_homepage.css">
 {% endblock %}
 
 {% block content %}
-    <div class="trending">
-        <h1>Tendance du Moment</h1>
-        <img src={{ picture }} alt="Trending">
+	<div class="trending">
+		<h1>Tendance du Moment</h1>
+		<img src={{ card['picture'] }} alt="Trending">
+	
+	<div class="title"><h1>Toutes les catégories:</h1></div>
     </div>
-    <h1>Les Genres</h1>
-    <div class="cards">
-        <div class="row gap-3 justify-content-center">
-        {% for card in cards %}
-            <div class="col-auto">
-                <div class="text-truncate" style="max-width:140px;"><h2>{{ card['name'] }}</h2></div>
-                <div class="imagehomepage">
-                    <a href="/category?id={{ card['id'] }}"><img src={{ card['picture'] }} alt={{ card['title'] }}></a>
-                </div>
-            </div>
-        {% endfor %}
+	<div class="cards">
+		<div class="row gap-3 justify-content-center">
+			{% for card in cards %}
+                <div class="card">
+        <div class="skewed">
+            <img src={{ card['picture'] }} alt={{ card['title'] }}>
         </div>
-    </div>     
+
+        <div class="content">
+            <h2>{{ card['name'] }}</h2>
+            <a href="/category?id={{ card['id'] }}"><button>Read more</button></a>
+        </div>
+    </div>
+			{% endfor %}
+		</div>
+	</div>
+
 {% endblock %}
+

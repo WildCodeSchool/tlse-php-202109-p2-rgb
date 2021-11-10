@@ -4,6 +4,10 @@ p {
   font-family: "Raleway", sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
 .wrapper {
   margin: 0;
   border-radius: 7px 7px 7px 7px;
@@ -49,7 +53,7 @@ p {
 .rightContent {
   margin-top: 1.5rem;
   margin-left: 0.5rem;
-  width: 13rem;
+  width: 15rem;
   height: 13rem;
   flex-direction: column;
   background-size: cover;
@@ -143,12 +147,14 @@ button.like{
 	border-color: rgb(18, 212, 11);
 	border-width: 1px;
 	font-size: 15px;
+  margin-bottom: 0.6rem;
 }
 
 button.dislike{
 	width: 30px;
 	height: 30px;
 	margin: 0 auto;
+  margin-bottom: 0.6rem;
 	border-radius: 50%;
 	color: rgb(233, 6, 6);
 	background-color: rgba(245, 24, 3, 0.3);
@@ -160,6 +166,9 @@ button.dislike{
 .buttonlike {
   display: flex;
   flex-direction: row;
+  gap: 0.1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonlike button {
@@ -173,6 +182,10 @@ button.dislike{
   font-size: 0.8rem;
   font-family: "Raleway", sans-serif;
   font-weight: bold;
+  margin-left: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .separation {
