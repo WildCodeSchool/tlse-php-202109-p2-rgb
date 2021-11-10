@@ -82,12 +82,6 @@
   transition: all 0.3s ease;
 }
 
-.content button:hover {
-  color: #5a5656;
-  border: 3px solid #686565;
-  cursor: pointer;
-}
-
 .title {
   width: 100%;
   height: 40px;
