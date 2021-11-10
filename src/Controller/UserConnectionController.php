@@ -109,7 +109,7 @@ class UserConnectionController extends AbstractController
         if (session_status() == PHP_SESSION_ACTIVE) {
             session_destroy();
             $_SESSION = [];
-            header('Location:/login');
+            header('Location:/');
             return;
         }
         return $this->twig->render('Home/index.html.twig');
