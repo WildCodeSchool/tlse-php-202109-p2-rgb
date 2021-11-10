@@ -38,14 +38,14 @@ class DescriptionGameController extends AbstractController
                 )
             ) {
                 $gameModel->addToMyList($gameId);
-                $gameStatusList = "Votre jeu a été ajouter a votre liste";
+                $gameStatusList = "Ce jeu a bien été ajouté à votre liste";
             } elseif (
                 $userModel->isConnected() && $gameModel->gameIsAlreadyInUserList(
                     $gameId,
                     $gameModel->getUserId()
                 )
             ) {
-                $gameStatusList = "Le jeu est déjà dans votre liste";
+                $gameStatusList = "Ce jeu est déjà dans votre liste";
             } else {
                 header('Location: /login');
                 // to do
