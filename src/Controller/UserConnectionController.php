@@ -110,7 +110,7 @@ class UserConnectionController extends AbstractController
             session_destroy();
             $_SESSION = [];
             header('Location:/login');
-            return $this->twig->render('Home/login.html.twig');
+            return;
         }
         return $this->twig->render('Home/index.html.twig');
     }

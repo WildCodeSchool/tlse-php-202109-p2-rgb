@@ -48,7 +48,6 @@ class DescriptionGameController extends AbstractController
                 'game' => $gameModel->selectOneById($id),
                 'like' => $gameModel->selectLikeById($id),
                 'tags' => $nameTags,
-                "link" => $_SESSION,
             ]
         );
     }

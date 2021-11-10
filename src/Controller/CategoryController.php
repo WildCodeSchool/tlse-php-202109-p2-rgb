@@ -17,7 +17,6 @@ class CategoryController extends AbstractController
             [
                 'category' => $category,
                 'gameInfos' => $gameInfos,
-                "link" => $_SESSION,
             ]
         );
     }

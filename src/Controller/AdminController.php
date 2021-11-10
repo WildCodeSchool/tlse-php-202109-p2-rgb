@@ -8,7 +8,6 @@ class AdminController extends AbstractController
     {
         return $this->twig->render(
             'Home/admin.html.twig',
-            ['link' => $_SESSION,]
         );
     }
 }
