@@ -13,10 +13,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzrARh3_RoCR_9hSM7_rBPYDUVV207DulJ0A&usqp=CAU);
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFo8gcxoIl_d8mG_LlOMJM1uEoZa5-wBCyBA&usqp=CAU);
   overflow: hidden;
   background-size: cover;
   background-position: center;
+  box-shadow: 1px 1px 5px 1px black;
 }
 
 .skewed {
@@ -66,17 +67,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
 }
 
 .content button {
-  color: #fffafa;
+  color: #000000;
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 400;
   width: 100%;
   padding: 10px;
   background: none;
-  border: 3px solid #fffdfd;
+  border: 3px solid #000000;
   transition: all 0.3s ease;
 }
 
@@ -117,7 +119,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid black;
 }
 
 .trending {
@@ -151,7 +152,7 @@
 @keyframes rotateIMG {
   0% {
     transform: skewY(-2deg);
-    opacity: 0.7;
+    opacity: 0.9;
   }
 
   50% {
@@ -161,6 +162,6 @@
 
   100% {
     transform: skewY(2deg);
-    opacity: 0.7;
+    opacity: 0.9;
   }
 }
