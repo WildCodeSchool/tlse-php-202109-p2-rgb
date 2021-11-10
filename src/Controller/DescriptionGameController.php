@@ -25,7 +25,6 @@ class DescriptionGameController extends AbstractController
      */
     public function index(int $id, int $gameId = null)
     {
-        session_start();
         $gameModel = new DescriptionGameModel();
         $gameCategory = new CategoryManager();
         $userModel = new UserConnectionModel();
@@ -45,7 +44,11 @@ class DescriptionGameController extends AbstractController
         }
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
-            ['game' => $gameModel->selectOneById($id), 'like' => $gameModel->selectLikeById($id), 'tags' => $nameTags]
+            [
+                'game' => $gameModel->selectOneById($id),
+                'like' => $gameModel->selectLikeById($id),
+                'tags' => $nameTags,
+            ]
         );
     }
 }
