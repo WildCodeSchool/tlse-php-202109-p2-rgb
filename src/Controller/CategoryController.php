@@ -9,6 +9,7 @@ class CategoryController extends AbstractController
 {
     public function index(int $id)
     {
+        session_start();
         $gameManager = new CategoryManager();
         $category = $gameManager->selectByGenre($id);
         $gameInfos = $gameManager->selectAllGamesFromCategoryId($id);
@@ -17,6 +18,7 @@ class CategoryController extends AbstractController
             [
                 'category' => $category,
                 'gameInfos' => $gameInfos,
+                "link" => $_SESSION,
             ]
         );
     }
