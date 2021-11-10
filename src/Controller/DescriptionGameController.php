@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Model\CategoryManager;
 use App\Model\DescriptionGameModel;
+use App\Model\UserConnectionModel;
 
 class DescriptionGameController extends AbstractController
 {
@@ -22,10 +23,21 @@ class DescriptionGameController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index(int $id)
+    public function index(int $id, int $gameId = null)
     {
+        session_start();
         $gameModel = new DescriptionGameModel();
         $gameCategory = new CategoryManager();
+        $userModel = new UserConnectionModel();
+        if ($gameId !== null) {
+            if ($userModel->isConnected()) {
+                $gameModel->addToMyList($gameId);
+            } else {
+                header('Location: /login');
+                // to do
+                // metre dans les cookie id jeu
+            }
+        }
         $tagsIds = $gameCategory->selectAllCategoryFromGameId($id);
         $nameTags = [];
         foreach ($tagsIds as $value) {
