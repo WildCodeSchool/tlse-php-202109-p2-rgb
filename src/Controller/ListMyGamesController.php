@@ -7,10 +7,10 @@ use App\Model\UserConnectionModel;
 
 class ListMyGamesController extends AbstractController
 {
-    public function index(string $nickname)
+    public function index()
     {
         $listMyGamesManager = new ListMyGamesManager();
-        $selectUserByNickname = $listMyGamesManager->selectByUserNickname($nickname);
+        $selectUserByNickname = $listMyGamesManager->selectByUserNickname();
         return $this->twig->render(
             'ListMyGames/index.html.twig',
             ['selectUserByNickname' => $selectUserByNickname]

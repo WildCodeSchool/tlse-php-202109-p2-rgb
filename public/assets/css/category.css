@@ -1,8 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700");
-
-p {
-  font-family: "Raleway", sans-serif;
-}
 
 body {
   margin: 0;
@@ -24,7 +19,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-left: 0.5rem;
+  margin-left: 0.6rem;
 }
 
 .product-img img {
@@ -34,7 +29,8 @@ body {
 }
 
 .product-img img {
-  animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode;
   animation-name: boxShadow;
   animation-duration: 2.5s;
   animation-direction: alternate;
@@ -66,47 +62,34 @@ body {
 .body {
   display: flex;
   flex-direction: row;
+  height: 9.5rem;
 }
 
 .product-text {
-  margin-right: 0.6rem;
-  height: 5rem;
-  width: 8rem;
+  height: 2rem;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-text h1,
-.product-price-btn p {
-  font-family: "Bentham", serif;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
 .product-text h2 {
-  margin-right: 1rem;
-  font-size: 0.9rem;
-  font-family: "Raleway", sans-serif;
+  margin-top: 0.4rem;
+  margin-left: 2rem;
+  font-size: 0.8rem;
   font-weight: 400;
   text-transform: uppercase;
   color: #242323;
   letter-spacing: 0.2em;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.2rem;
-  box-shadow: inset 0px 0px 0px 1px black;
+  align-items: flex-end;
+  justify-content: flex-end;
   font-weight: bold;
-}
-
-span {
-  display: flex;
-  height: 50px;
-  font-family: "Suranna", serif;
-  font-size: 34px;
 }
 
 .product-price-btn {
   height: 7rem;
+  width: 9rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,11 +99,10 @@ span {
 .product-price-btn button {
   display: flex;
   height: 1.8rem;
-  width: 7rem;
+  width: 9rem;
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
-  font-family: "Raleway", sans-serif;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
@@ -137,50 +119,47 @@ span {
   background-color: #79b0a1;
 }
 
-button.like{
-	width: 30px;
-	height: 30px;
-	margin: 0 auto;
-	border-radius: 50%;
-	color: rgb(11, 216, 4);
-	background-color:rgba(12, 233, 42, 0.685);
-	border-color: rgb(18, 212, 11);
-	border-width: 1px;
-	font-size: 15px;
+button.like {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+  color: rgb(11, 216, 4);
+  background-color: rgba(12, 233, 42, 0.685);
+  border-color: rgb(18, 212, 11);
+  border-width: 1px;
+  font-size: 15px;
   margin-bottom: 0.6rem;
 }
 
-button.dislike{
-	width: 30px;
-	height: 30px;
-	margin: 0 auto;
+button.dislike {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
   margin-bottom: 0.6rem;
-	border-radius: 50%;
-	color: rgb(233, 6, 6);
-	background-color: rgba(245, 24, 3, 0.3);
-	border-color: rgb(245, 10, 10);
-	border-width: 1px;
-	font-size: 15px;
+  border-radius: 50%;
+  color: rgb(233, 6, 6);
+  background-color: rgba(245, 24, 3, 0.3);
+  border-color: rgb(245, 10, 10);
+  border-width: 1px;
+  font-size: 15px;
 }
 
 .buttonlike {
   display: flex;
   flex-direction: row;
-  gap: 0.1rem;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .buttonlike button {
   display: flex;
   justify-content: center;
-  margin-top: 0.4rem;
-  margin-right: 0.4rem;
 }
 
 .buttonlike p {
-  font-size: 0.8rem;
-  font-family: "Raleway", sans-serif;
+  font-size: 0.7rem;
   font-weight: bold;
   margin-left: 0.9rem;
   display: flex;
@@ -192,6 +171,8 @@ button.dislike{
   background-color: black;
   height: 0.1rem;
   width: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 @keyframes boxShadow {
@@ -202,5 +183,4 @@ button.dislike{
   100% {
     box-shadow: 1px 3px 3px 2px black;
   }
-  
 }

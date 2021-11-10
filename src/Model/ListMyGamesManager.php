@@ -7,14 +7,13 @@ use PDO;
 class ListMyGamesManager extends AbstractManager
 {
 
-    public function selectByUserNickname(string $nickname)
+    public function selectByUserNickname()
     {
         $statement = $this->pdo->prepare(
             "SELECT nickname
             FROM `user
-            WHERE nickname=:nickname"
+            WHERE nickname=nickname"
         );
-        $statement->bindValue(':nickname', $nickname, PDO::PARAM_STR);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }

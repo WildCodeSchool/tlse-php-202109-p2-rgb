@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700");
 
 .trending {
   display: flex;
@@ -8,8 +7,6 @@
 }
 
 .card {
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
   margin-top: 0.8rem;
   width: 180px;
   height: 250px;
@@ -23,9 +20,9 @@
 }
 
 .skewed {
-  width: 100%;
-  height: 60%;
-  transform: skewY(8deg);
+  width: 90%;
+  height: 55%;
+  transform: skewY(4deg);
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -52,7 +49,7 @@
 }
 
 .content {
-  width: 90%;
+  width: 100%;
   height: 50%;
   padding: 10px 20px;
   color: white;
@@ -63,12 +60,12 @@
 
 .content h2 {
   margin-top: 1rem;
-  font-size: 1.1rem;
+  margin-right: 1rem;
+  font-size: 1.2rem;
   font-weight: 200;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .content button {
@@ -76,7 +73,6 @@
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 400;
-  font-family: "Montserrat", sans-serif;
   width: 100%;
   padding: 10px;
   background: none;
@@ -91,15 +87,16 @@
 }
 
 .title {
-  width: 250px;
+  width: 100%;
   height: 40px;
   left: calc(50% - 284px / 2);
   top: calc(50% - 96px);
   display: flex;
   justify-content: center;
   letter-spacing: -2px;
-  border: 1px solid black;
-  box-shadow: inset 0px 0px 2px 2px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background: -moz-linear-gradient(
     127deg,
@@ -120,14 +117,27 @@
 
 .title h1 {
   margin-top: 0.5rem;
-  font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
   font-style: normal;
   line-height: normal;
-  font-family: "Montserrat", sans-serif;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  border-bottom: 2px solid black;
+}
+
+.trending {
+  width: 100%;
+}
+
+.trending h1 {
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.trending img {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 ::selection {
@@ -146,17 +156,17 @@
 
 @keyframes rotateIMG {
   0% {
-    transform: skewY(-5deg);
-    opacity: 0.6;
+    transform: skewY(-2deg);
+    opacity: 0.7;
   }
 
   50% {
-    transform: skewY(-0deg);
-    opacity: 0.8;
+    transform: skewY( 0deg);
+    opacity: 1;
   }
 
   100% {
-    transform: skewY(5deg);
-    opacity: 0.6;
+    transform: skewY(2deg);
+    opacity: 0.7;
   }
 }

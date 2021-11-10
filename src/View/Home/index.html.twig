@@ -8,26 +8,30 @@
 {% block content %}
 	<div class="trending">
 		<h1>Tendance du Moment</h1>
-		<img src={{ card['picture'] }} alt="Trending">
-	
-	<div class="title"><h1>Toutes les catégories:</h1></div>
-    </div>
+		<img src="/assets/images/pictures_game/covers/hades.jpg" alt="Trending">
+	</div>
+	<div class="title">
+		<h1>Toutes les catégories</h1>
+	</div>
+
 	<div class="cards">
 		<div class="row gap-3 justify-content-center">
 			{% for card in cards %}
-                <div class="card">
-        <div class="skewed">
-            <img src={{ card['picture'] }} alt={{ card['title'] }}>
-        </div>
+				<div class="card">
+					<div class="skewed">
+						<img src={{ card['picture'] }} alt={{ card['title'] }}>
+					</div>
 
-        <div class="content">
-            <h2>{{ card['name'] }}</h2>
-            <a href="/category?id={{ card['id'] }}"><button>Read more</button></a>
-        </div>
-    </div>
+					<div class="content">
+						<h2>{{ card['name'] }}</h2>
+
+						<a href="/category?id={{ card['id'] }}">
+							<button>Plus d'infos</button>
+						</a>
+					</div>
+				</div>
 			{% endfor %}
 		</div>
 	</div>
 
 {% endblock %}
-

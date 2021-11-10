@@ -3,14 +3,16 @@
 {% block stylesheet  %}
 	{{ parent() }}
 	<link rel="stylesheet" href="/assets/css/category.css">
-	<link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
 
 	{% for gameInfo in gameInfos %}
 		<div class="wrapper">
+			<div class="product-text">
 
+				<h2>{{ gameInfo.name }}</h2>
+			</div>
 			<section class="body">
 				<div class="leftContent">
 					<div class="product-img">
@@ -18,10 +20,6 @@
 					</div>
 				</div>
 				<div class="rightContent">
-					<div class="product-text">
-
-						<h2>{{ gameInfo.name }}</h2>
-					</div>
 
 					<div class="product-price-btn">
 						<div class="buttonlike">
@@ -35,9 +33,11 @@
 							</button>
 
 						</div>
-						<a href='descriptionGame?id={{ gameInfo.game_id }}'><button type="button">Plus d'infos</button></a>
+						<a href='descriptionGame?id={{ gameInfo.game_id }}'>
+							<button type="button">Plus d'infos</button>
+						</a>
 					</div>
-				</div>		
+				</div>
 			</section>
 			<div class="separation"></div>
 		{% endfor %}
