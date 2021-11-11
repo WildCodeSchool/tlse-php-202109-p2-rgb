@@ -40,8 +40,8 @@
 
 	</section>
 
-	<ul>
-		<section class="Content">
+{% for gameByUser in gamesByUser %}
+	<section class="Content">		
 			<section class="homeGame">
 				<div>
 					<div>
@@ -50,27 +50,19 @@
 					</div>
 
 					<div>
-						<p>Titre du jeu</p>
+						<p>{{gameByUser['name']}}</p>
 					</div>
 				</div>
 				<div>
-					<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
+					<img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}>
 				</div>
 			</section>
-			<div class="ListPictureMyGames">
-				<div>
-					<div>
-						<p>Titre du jeu</p>
-						<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
-					</div>
-					<div>
-						<p>Titre du jeu</p>
-						<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
-					</div>
-				</div>
-			</div>
-
 		</section>
-	</ul>
+	{% endfor %}
+
+
+	<pre>
+		{{ dump(gamesByUser) }}
+	</pre>
 
 {% endblock %}
