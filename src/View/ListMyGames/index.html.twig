@@ -10,8 +10,11 @@
 {% block content %}
 
 	<section class="SearchBarMyGames">
+
 		<div>
-			<p>Mes Jeux</p>
+			<p>Voici ta liste de jeu
+				{{link.username}}
+				!</p>
 		</div>
 
 		<div>
@@ -40,23 +43,51 @@
 
 	</section>
 
-{% for gameByUser in gamesByUser %}
-	<section class="Content">		
-			<section class="homeGame">
-				<div>
-					<div>
-						<p>% positive</p>
-						<p>% negative</p>
-					</div>
-
-					<div>
-						<p>{{gameByUser['name']}}</p>
+	{% for gameByUser in gamesByUser %}
+		<div class="a-box">
+			<div class="img-container">
+				<div class="img-inner">
+					<div class="inner-skew">
+						<img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}>
 					</div>
 				</div>
+			</div>
+			<div class="text-container">
+				<h3>{{gameByUser['name']}}</h3>
 				<div>
-					<img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}>
+					<p>% positive</p>
+					<p>% negative</p>
 				</div>
-			</section>
-		</section>
+			</div>
+		</div>
+<div class="page__section page__custom-settings">
+    <div class="page__toggle">
+      <label class="toggle">
+        <input class="toggle__input" type="checkbox" checked>
+        <span class="toggle__label">
+          <span class="toggle__text">A faire</span>
+        </span>
+      </label>
+    </div>
+    <div class="page__toggle">
+      <label class="toggle">
+        <input class="toggle__input" type="checkbox">
+        <span class="toggle__label">
+          <span class="toggle__text">En progression</span>
+        </span>
+      </label>
+    </div>
+    <div class="page__toggle">
+      <label class="toggle">
+        <input class="toggle__input" type="checkbox">
+        <span class="toggle__label">
+          <span class="toggle__text">Terminé</span>
+        </span>
+      </label>
+    </div>  
+  </div>
+</div>
 	{% endfor %}
+
 {% endblock %}
+

@@ -15,11 +15,9 @@ class ListMyGamesManager extends AbstractManager
             JOIN list_user 
             ON user_id=:id 
             WHERE game.id=game_id"
-            );
+        );
         $statement->bindValue(":id", $userId, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
-        
     }
-
 }
