@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
+
 ol,
 ul {
   padding-left: 0;
@@ -5,143 +7,6 @@ ul {
 
 p {
   margin: 0;
-}
-
-.homeGame {
-  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
-  background-size:cover;
-  background-position:center;
-  overflow: hidden;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
-  border: 3px solid rgb(10, 10, 10);
-  margin: 0.5rem;
-  border-radius: 5px;
-}
-
-.Content img {
-  width: 20rem;
-  height: 12rem;
-  border: 3px solid black;
-  border-radius: 5%;
-}
-
-.Content div:nth-child(1) {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-}
-
-.Content div:nth-child(1) div:nth-child(1) {
-  gap: 0.5rem;
-  margin-right: 2rem;
-}
-
-.Content div:nth-child(1) div:nth-child(1) > p {
-  background-color: green;
-  color: aliceblue;
-  font-size: 0.8rem;
-  border-radius: 5px;
-}
-
-.Content div:nth-child(1) div:nth-child(1) p:nth-child(2) {
-  background-color: red;
-  color: aliceblue;
-  font-size: 0.8rem;
-  border-radius: 5px;
-}
-
-.Content div:nth-child(1) div:nth-child(2) p {
-  width: 10rem;
-  justify-content: center;
-  display: flex;
-  color: aliceblue;
-  font-size: 1.2rem;
-  border-radius: 5px;
-}
-
-.Content div:nth-child(2) {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.Content div:nth-child(3) {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.Content div:nth-child(3) div {
-  margin: 0.4rem;
-  border: 1px solid black;
-  background-color: rgb(177, 167, 167);
-  border-radius: 5px;
-}
-
-.Content div:nth-child(4) {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.ListPictureMyGames img {
-  width: 10rem;
-  height: 7rem;
-}
-
-.ListPictureMyGames p {
-  font-size: 1rem;
-  background-color: blue;
-  color: aliceblue;
-  border-radius: 5px;
-}
-
-.ListPictureMyGames div:nth-child(1) {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-}
-
-.ListPictureMyGames div:nth-child(1) div {
-  display: flex;
-  flex-direction: column;
-}
-
-.ListPictureMyGames div:nth-child(1) div:nth-child(1) {
-  margin-top: 0;
-  margin-right: 0.5rem;
-  gap: 0rem;
-}
-
-.ListPictureMyGames div:nth-child(1) div:nth-child(1) p {
-  width: 10rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
-  background-size:cover;
-  background-position:center;
-  color: aliceblue;
-}
-
-.ListPictureMyGames div:nth-child(1) div:nth-child(2) {
-  margin-top: 0;
-}
-
-.ListPictureMyGames div:nth-child(1) div:nth-child(2) p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
-  background-size:cover;
-  background-position:center;
-  color: aliceblue;
 }
 
 .SearchBarMyGames {
@@ -178,14 +43,274 @@ p {
 
 .SearchBarMyGames p:only-child {
   font-size: 1.5rem;
-  background: url(https://th.bing.com/th/id/OIP.rNl8ZTS6dRs5EhGoNoCHqAHaEK?w=315&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7);
-  background-size:cover;
-  background-position:center;
-  color: aliceblue;
+  color: rgb(3, 3, 3);
   border-radius: 5px;
 }
 
 .searchBar {
   display: flex;
   align-items: flex-start;
+}
+
+.a-box {
+  display: inline-block;
+  width: 90%;
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+}
+
+.img-container {
+    height: 230px;
+    width: 330px;
+    overflow: hidden;
+    border-radius: 0px 0px 20px 20px;
+    display: inline-block;
+    animation-name: rotateIMG;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: ease-in-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-container img {
+    height: 250px;
+    width: 100%;
+    margin: -35px 0px 0px 0px;
+}
+
+.inner-skew {
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0px;
+    font-size: 0px;
+    margin: 30px 0px 0px 0px;
+    background: #c8c2c2;
+    height: 250px;
+    width: 100%;
+    box-shadow: 1px 1px 5px 2px black;
+}
+
+.text-container {
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2);
+  padding: 120px 20px 20px 20px;
+  border-radius: 20px;
+  background:url(https://cdn.pixabay.com/photo/2017/07/31/21/42/wallpaper-2561368_960_720.jpg);
+  margin: -120px 0px 0px 0px;
+  line-height: 19px;
+  font-size: 14px;
+}
+
+
+.text-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 0.5rem;
+  gap: 0.4rem;
+}
+
+.text-container div p:nth-child(1) {
+  background-color: green;
+  color: aliceblue;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+.text-container div p:nth-child(2) {
+  background-color: red;
+  color: aliceblue;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+.text-container h3 {
+  margin: 5px 0px 10px 0px;
+  color: #111111;
+  font-size: 18px;
+}
+
+.toggle{
+  --uiToggleSize: var(--toggleSize, 1.25rem);
+  --uiToggleBorderWidth: var(--toggleBorderWidth, 2px);
+  --uiToggleColor: var(--toggleColor, #222);
+
+  display: var(--toggleDisplay, inline-flex);
+  position: relative;
+}
+
+.toggle__input{
+  width: var(--uiToggleSize);
+  height: var(--uiToggleSize);
+  opacity: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+.toggle__label{
+  display: inline-flex;
+  min-height: var(--uiToggleSize);
+  padding-left: calc(var(--uiToggleSize) + var(--toggleIndent, .3em));
+}
+
+.toggle__input:not(:disabled) ~ .toggle__label{
+  cursor: pointer;
+}
+
+.toggle__label::after{
+  content: "";
+  box-sizing: border-box;  
+  width: 1em;
+  height: 1em;
+  font-size: var(--uiToggleSize); /* 1 */
+
+  background-color: transparent;
+  border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.toggle__input:checked ~ .toggle__label::after{
+  background-color: var(--uiToggleColor);
+}
+
+.toggle__text{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.toggle__label::before{
+  content: "";
+  width: 0;
+  height: 0;
+  font-size: var(--uiToggleSize); 
+
+  border-left-width: 0;
+  border-bottom-width: 0;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-color: var(--toggleArrowColor, #fff);
+
+  position: absolute;
+  top: .5428em;
+  left: .25em;
+  z-index: 3;
+
+  transform-origin: left top;
+  transform: rotate(-40deg) skew(10deg);
+}
+
+.toggle__input:checked ~ .toggle__label::before{
+  --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
+
+  width: .4em;
+  height: .2em;
+  border-left-width: var(--uiToggleArrowWidth);
+  border-bottom-width: var(--uiToggleArrowWidth);
+}
+
+.toggle:focus-within{
+  outline: var(--toggleOutlineWidthFocus, 3px) solid var(--toggleOutlineColorFocus, currentColor);
+  outline-offset: var(--toggleOutlineOffsetFocus, 5px);
+}
+
+.toggle__input:disabled ~ .toggle__label{
+  opacity: var(--toggleOpacityDisabled, .24);
+  cursor: var(--toggleCursorDisabled, not-allowed);
+  user-select: none;
+}
+
+.toggle__input:not(:disabled) ~ .toggle__label::before{
+  will-change: width, height;
+  opacity: 0;
+}
+
+.toggle__input:not(:disabled):checked ~ .toggle__label::before{
+  opacity: 1;
+  transition: opacity .1s ease-out .25s, width .1s ease-out .5s, height .2s ease-out .3s;
+}
+
+.toggle__input:not(:disabled) ~ .toggle__label::after{
+  will-change: background-color;
+  transition: background-color .2s ease-out;
+}
+
+.page__custom-settings{
+  --toggleColor: #0c0c0c;
+  --toggleOutlineColorFocus: #0d0d0e;
+  --toggleSize: 1.2rem;
+  margin-left: 0.4rem;
+  border-bottom: 2px solid black;
+}
+
+body{
+  min-height: 100vh;
+  margin: 0;    
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif; 
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.page{
+  box-sizing: border-box;
+  max-width: 45rem;
+  padding: 2.75rem 2rem 2.5rem;
+  margin: auto;
+  
+  background-color: #fff;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
+  border-radius: 2px;
+}
+
+.page__section{
+  display: flex;
+  font-weight: 700;
+}
+
+.page__name{
+  width: 100%;
+}
+
+.page__name::first-letter{
+  text-transform: uppercase;
+}
+
+.page__toggle{
+  margin-left: 0.5rem;
+  margin-top: 1.8rem;
+  margin-right: 1rem;
+  font-size: var(--pageToggleTextFontSize);
+}
+
+@keyframes rotateIMG {
+  0% {
+    transform: skew(0deg, -3deg);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: skewY( 0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: skew(0deg, 3deg);
+    opacity: 0.9;
+  }
 }
