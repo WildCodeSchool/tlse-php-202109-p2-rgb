@@ -57,6 +57,7 @@ class UserConnectionController extends AbstractController
                     );
             }
             $_SESSION['username'] = $_POST['nickname'];
+            $_SESSION['userId'] = $userConnection->getUserId();
             header('Location:/');
             return $this->twig->render('Home/index.html.twig');
         }
@@ -113,5 +114,10 @@ class UserConnectionController extends AbstractController
             return;
         }
         return $this->twig->render('Home/index.html.twig');
+    }
+
+    public function myProfil()
+    {
+        return $this->twig->render('Home/profil.html.twig');
     }
 }

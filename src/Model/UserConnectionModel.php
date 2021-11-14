@@ -2,7 +2,9 @@
 
 namespace App\Model;
 
-class UserConnectionModel
+use PDO;
+
+class UserConnectionModel extends AbstractManager
 {
 
     /**
@@ -94,5 +96,14 @@ class UserConnectionModel
         $statement->bindValue(':passwordUser', $passwordUser, \PDO::PARAM_STR);
         $statement->bindValue(':mail', $data['userMail'], \PDO::PARAM_STR);
         $statement->execute();
+    }
+
+    public function getUserId()
+    {
+        $statement = $this->pdo->prepare("SELECT * from user where nickname = :username");
+        $statement->bindValue(":username", $_SESSION['username'], PDO::PARAM_STR);
+        $statement->execute();
+        $statement = $statement->fetch();
+        return intval($statement['id']);
     }
 }
