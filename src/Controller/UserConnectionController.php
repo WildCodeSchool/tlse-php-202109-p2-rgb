@@ -58,11 +58,9 @@ class UserConnectionController extends AbstractController
                     );
             }
             $_SESSION['username'] = $_POST['nickname'];
-            if (isset($_SESSION['previousUrl'])) {
-                header("Location: " . $_SESSION['previousUrl']);
-            } else {
-                header("Location:/");
-            }
+            $_SESSION['userId'] = $userConnection->getUserId();
+            header('Location:/');
+            return $this->twig->render('Home/index.html.twig');
         }
 
         return $this->twig->render('Home/login.html.twig');
@@ -121,5 +119,22 @@ class UserConnectionController extends AbstractController
             return;
         }
         return $this->twig->render('Home/index.html.twig');
+    }
+
+    public function myProfil()
+    {
+        $userConnection = new UserConnectionModel();
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $userConnection->updateUserProfil();
+        }
+        if ($userConnection->isConnected()) {
+            $avatar = $userConnection->getUserAvatar();
+            if ($avatar !== false) {
+                $_SESSION["avatar"] = $avatar['avatar'];
+                return $this->twig->render('Home/profil.html.twig');
+            }
+        }
+        return $this->twig->render('Home/login.html.twig');
     }
 }
