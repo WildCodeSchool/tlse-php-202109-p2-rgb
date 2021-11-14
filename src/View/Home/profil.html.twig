@@ -4,32 +4,25 @@
     {{ parent() }} - Mon profil
 {% endblock %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/assets/css/profil.css">
+{% endblock %}
+
 {% block content %}
 
-    <div class="profil">
-        <div class="profil_avatar"><img src="" alt="ma photo de profil"></div>
-        <div class="profil_identity">
-            <p class="profil_identity_name"></p>
-            <p class="profil_identity_email"></p>
-            <pre>
-                {{ dump(link) }}
-            </pre>
-        </div>
-    </div>
-
-    <form action="" method="POST" enctype="multipart/form-data" class="form-control row">
-        <label for="name">Titre du jeu :
-            <input type="text" name="name" id="name" placeholder="Forza horizon 5" class="form-control">
-        </label><br>
-        <label for="release_date">Date de sortie :
-            <input type="date" name="release_date" id="release_date" placeholder="09/11/2021" class="form-control">
-        </label><br>
-        <label for="description">
-            <textarea name="description" id="description" cols="30" rows="5" placeholder="Les projets et valeurs de l'entreprise" class="form-control"></textarea><br>
-        </label>
-        <label for="picture">Image :
-            <input type="file" name="picture" id="picture" >
-        </label><br /><br /><br /><br />
-        <button class="btn btn-primary">Envoyer</button>
+    <form action="" method="POST" enctype="multipart/form-data" class="form-control row form-profil">
+            
+            <div class="avatar">
+                <img src="{{ link.avatar }}" alt="Ma photo de profil" class="avatar">
+                <label for="picture" class="link-primary">Modifier votre avatar
+                    <input type="file" name="avatar" id="picture" class="d-none" >
+                </label>
+            </div>
+            <div class="profil">
+                <input type="text" name="name" id="name" value="{{link.username }}" class="form-control"><br>
+                <input type="submit" value="Envoyer" class="btn btn-primary validateProfil">
+            </div>
     </form>
+
 {% endblock %}
