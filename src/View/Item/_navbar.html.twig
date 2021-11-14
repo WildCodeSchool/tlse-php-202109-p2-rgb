@@ -8,8 +8,8 @@
       <div class="navbar-nav">
         <ul class="nav__menu__ul">
           <li class="nav__menu__ul__li"><a class="nav-link active nav__menu__ul__li__a" aria-current="page" href="/">Accueil</a></li>
-          <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="myList">Ma liste</a></li>
-            {% if link %}
+          {% if link.username %}
+          <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/ListMyGames?={{ link.username }}">Ma liste</a></li>
               <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/logOut">Se déconnecter</a></li>
               {% if link.username == 'admin' %}
                 <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/add">Administration</a></li>
