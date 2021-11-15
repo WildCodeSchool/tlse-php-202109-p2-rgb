@@ -9,6 +9,7 @@ use Twig\Loader\FilesystemLoader;
 abstract class AbstractController
 {
     protected Environment $twig;
+    protected $previousUrl;
 
     /**
      *  Initializes this class.
@@ -26,5 +27,14 @@ abstract class AbstractController
         session_start();
         $this->twig->addExtension(new DebugExtension());
         $this->twig->addGlobal('link', $_SESSION);
+
+        if (
+            $_SERVER['REQUEST_METHOD'] === 'GET'
+            && ($_SERVER['REQUEST_URI'] != "/signin")
+            && isset($_SERVER['HTTP_REFERER'])
+        ) {
+            $this->previousUrl = $_SERVER['HTTP_REFERER'];
+            $_SESSION['previousUrl'] = $_SERVER['HTTP_REFERER'];
+        }
     }
 }

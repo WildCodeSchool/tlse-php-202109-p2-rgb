@@ -14,6 +14,7 @@ class UserConnectionController extends AbstractController
     public function login()
     {
         $userConnection = new UserConnectionModel();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = $userConnection->errorsInForm($_POST);
 
@@ -58,9 +59,13 @@ class UserConnectionController extends AbstractController
             }
             $_SESSION['username'] = $_POST['nickname'];
             $_SESSION['userId'] = $userConnection->getUserId();
-            header('Location:/');
-            return $this->twig->render('Home/index.html.twig');
+            if (isset($_SESSION['previousUrl'])) {
+                header("Location: " . $_SESSION['previousUrl']);
+            } else {
+                header("Location:/");
+            }
         }
+
         return $this->twig->render('Home/login.html.twig');
     }
 
@@ -100,6 +105,9 @@ class UserConnectionController extends AbstractController
             }
 
             $userConnection->saveUser($_POST);
+            $_SESSION['username'] = $_POST['nickname'];
+            $_SESSION['mail'] = $_POST['userMail'];
+            header("Location: " . $_SESSION['previousUrl']);
         }
 
         return $this->twig->render('Home/signin.html.twig');
@@ -110,7 +118,7 @@ class UserConnectionController extends AbstractController
         if (session_status() == PHP_SESSION_ACTIVE) {
             session_destroy();
             $_SESSION = [];
-            header('Location:/login');
+            header('Location:/');
             return;
         }
         return $this->twig->render('Home/index.html.twig');
