@@ -56,6 +56,18 @@ class DescriptionGameController extends AbstractController
         foreach ($tagsIds as $value) {
             $nameTags[] = $gameCategory->selectNameByTagId($value['genre_id']);
         }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['submit_commentaire'])) {
+                if (isset($_POST['commentaire']) and !empty($_POST['commentaire'])) {
+                    $commentaire = $_POST['commentaire'];
+                    if (strlen($commentaire) < 5) {
+                        $error = "Erreur: Le commentaire doit faire plus de 5 caractères";
+                    }
+                    $gameModel->insertIntoComment($commentaire);
+                }
+            }
+        }
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
