@@ -1,5 +1,8 @@
 {% extends "layout.html.twig" %}
-
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/assets/css/admin.css">
+{% endblock %}
 {% block content %}
     <h1>Ajouter un jeu :</h1>
 
@@ -15,7 +18,36 @@
         </label>
         <label for="picture">Image :
             <input type="file" name="picture" id="picture" >
-        </label><br /><br /><br /><br />
+        </label><br />
+        <fieldset class="category">
+            <legend>Veuillez choisir les catégories correspondantes au jeu :</legend>
+            <div class="checkboxes">
+                <label class="checkbox" for="category">action<input type="checkbox" name="category" id="category" value="action"></label>
+                <label class="checkbox" for="category">aventure<input type="checkbox" name="category" id="category" value="aventure"></label>
+                <label class="checkbox" for="category">simulation<input type="checkbox" name="category" id="category" value="simulation"></label>
+                <label class="checkbox" for="category">strategie<input type="checkbox" name="category" id="category" value="strategie"></label>
+                <label class="checkbox" for="category">RPG<input type="checkbox" name="category" id="category" value="RPG"></label>
+                <label class="checkbox" for="category">sport/course<input type="checkbox" name="category" id="category" value="sport_course"></label>
+                <label class="checkbox" for="category">FPS<input type="checkbox" name="category" id="category" value="FPS"></label>
+                <label class="checkbox" for="category">shooter<input type="checkbox" name="category" id="category" value="shooter"></label>
+                <label class="checkbox" for="category">multiplayer<input type="checkbox" name="category" id="category" value="multiplayer"></label>
+                <label class="checkbox" for="category">competitive<input type="checkbox" name="category" id="category" value="competitive"></label>
+                <label class="checkbox" for="category">open world<input type="checkbox" name="category" id="category" value="open world"></label>
+                <label class="checkbox" for="category">sandbox<input type="checkbox" name="category" id="category" value="sandbox"></label>
+                <label class="checkbox" for="category">2D<input type="checkbox" name="category" id="category" value="2D"></label>
+                <label class="checkbox" for="category">superhero<input type="checkbox" name="category" id="category" value="superhero"></label>
+                <label class="checkbox" for="category">dark<input type="checkbox" name="category" id="category" value="dark"></label>
+                <label class="checkbox" for="category">third person<input type="checkbox" name="category" id="category" value="third person"></label>
+                <label class="checkbox" for="category">military<input type="checkbox" name="category" id="category" value="military"></label>
+                <label class="checkbox" for="category">racing<input type="checkbox" name="category" id="category" value="racing"></label>
+                <label class="checkbox" for="category">medieval<input type="checkbox" name="category" id="category" value="medieval"></label>
+                <label class="checkbox" for="category">classic<input type="checkbox" name="category" id="category" value="classic"></label>
+                <label class="checkbox" for="category">MMORPG<input type="checkbox" name="category" id="category" value="MMORPG"></label>
+                <label class="checkbox" for="category">fantasy<input type="checkbox" name="category" id="category" value="fantasy"></label>
+                <label class="checkbox" for="category">plateformer puzzle<input type="checkbox" name="category" id="category" value="plateformer puzzle"></label>
+                <label class="checkbox" for="category">tactical<input type="checkbox" name="category" id="category" value="tactical"></label>
+            </div>
+        </fieldset>
         <button class="btn btn-primary">Envoyer</button>
     </form>
 {% endblock %}
