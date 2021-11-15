@@ -1,7 +1,6 @@
-.form-profil {
+.form-profile {
     margin: auto;
 }
-
 
 @media screen and (min-width: 992px) {
     
@@ -9,21 +8,21 @@
         width: 30rem;
     }
     
-    .form-profil {
+    .form-profile {
         width: 70rem;
         margin: auto;
         display: flex;
         justify-content: space-around;
     }
 
-    .profil {
+    .profile {
         width: 30rem;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
     }
 
-    .validateProfil {
+    .validateProfile{
         align-self: flex-end;
     }
 }

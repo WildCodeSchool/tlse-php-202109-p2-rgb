@@ -116,18 +116,18 @@ class UserConnectionController extends AbstractController
         return $this->twig->render('Home/index.html.twig');
     }
 
-    public function myProfil()
+    public function myProfile()
     {
         $userConnection = new UserConnectionModel();
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $userConnection->updateUserProfil();
+            $userConnection->updateUserProfile();
         }
         if ($userConnection->isConnected()) {
             $avatar = $userConnection->getUserAvatar();
             if ($avatar !== false) {
                 $_SESSION["avatar"] = $avatar['avatar'];
-                return $this->twig->render('Home/profil.html.twig');
+                return $this->twig->render('Home/profile.html.twig');
             }
         }
         return $this->twig->render('Home/login.html.twig');
