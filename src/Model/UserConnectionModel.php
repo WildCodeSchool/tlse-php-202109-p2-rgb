@@ -145,8 +145,7 @@ class UserConnectionModel extends AbstractManager
      */
     public function updateUserProfil()
     {
-        $desktopPath = '/home/ibanez2/Desktop/WILD/wild_project_2/tlse-php-202109-p2-rgb/';
-        $uploadDirectory = $desktopPath . 'public/assets/images/pictures_game/avatar/uploads/';
+        $uploadDirectory = dirname(__DIR__, 2) . "/public/assets/images/pictures_game/avatar/uploads/";
         $uploadFile = $uploadDirectory . basename($_FILES['avatar']['name']);
         $sourceDirectory = '/assets/images/pictures_game/avatar/uploads/';
         $sourceFile = $sourceDirectory . basename($_FILES['avatar']['name']);
