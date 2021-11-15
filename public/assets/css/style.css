@@ -48,6 +48,13 @@ a {
     display:none;
 }
 
+.userPseudo{
+    display: flex;
+}
+
+.userPseudo img {
+    width: 4rem;
+}
 @media screen and (min-width: 992px) {
 
     .nav__logo__a__img {

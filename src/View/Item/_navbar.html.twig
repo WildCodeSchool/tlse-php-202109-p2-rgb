@@ -14,9 +14,12 @@
               {% if link.username == 'admin' %}
                 <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/add">Administration</a></li>
                 {% else %}
+                <div class="userPseudo">
                   <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/myProfil">
                   {{ link.username }}
                   </a></li>
+                  <img src="{{ link.avatar }}" alt="mon avatar">
+                </div>
               {% endif %}
             {% else %}
               <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/login">

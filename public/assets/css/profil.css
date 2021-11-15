@@ -1,4 +1,4 @@
-.form-profil{
+.form-profil {
     margin: auto;
 }
 
@@ -9,21 +9,21 @@
         width: 30rem;
     }
     
-    .form-profil{
+    .form-profil {
         width: 70rem;
         margin: auto;
         display: flex;
         justify-content: space-around;
     }
 
-    .profil{
+    .profil {
         width: 30rem;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
     }
 
-    .validateProfil{
+    .validateProfil {
         align-self: flex-end;
     }
 }
