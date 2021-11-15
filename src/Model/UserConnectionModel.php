@@ -139,14 +139,13 @@ class UserConnectionModel extends AbstractManager
     }
 
     /**
-     * updateUserProfil
+     * updateUserProfile
      *
      * @return void
      */
-    public function updateUserProfil()
+    public function updateUserProfile()
     {
-        $desktopPath = '/home/ibanez2/Desktop/WILD/wild_project_2/tlse-php-202109-p2-rgb/';
-        $uploadDirectory = $desktopPath . 'public/assets/images/pictures_game/avatar/uploads/';
+        $uploadDirectory = dirname(__DIR__, 2) . "/public/assets/images/pictures_game/avatar/uploads/";
         $uploadFile = $uploadDirectory . basename($_FILES['avatar']['name']);
         $sourceDirectory = '/assets/images/pictures_game/avatar/uploads/';
         $sourceFile = $sourceDirectory . basename($_FILES['avatar']['name']);
@@ -182,7 +181,7 @@ class UserConnectionModel extends AbstractManager
         $statement->bindValue(":avatar", $_SESSION['avatar'], PDO::PARAM_STR);
         $statement->bindValue(":userId", $_SESSION['userId'], PDO::PARAM_INT);
         $statement->execute();
-        header("Location:myProfil");
+        header("Location:myProfile");
     }
 
     /**

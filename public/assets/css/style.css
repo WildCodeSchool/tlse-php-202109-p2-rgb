@@ -50,11 +50,14 @@ a {
 
 .userPseudo{
     display: flex;
+    justify-content: center;
 }
 
-.userPseudo img {
+.userPseudo__avatar {
     width: 4rem;
+    margin-left: 1em;
 }
+
 @media screen and (min-width: 992px) {
 
     .nav__logo__a__img {
