@@ -33,8 +33,8 @@ class DescriptionGameModel extends AbstractManager
     public function getGameId()
     {
         $statement = $this->pdo->prepare(
-            "SELECT id 
-            FROM game 
+            "SELECT id
+            FROM game
             WHERE id=:id"
         );
         $statement->bindValue(":id", $_GET['id'], PDO::PARAM_INT);
@@ -45,7 +45,7 @@ class DescriptionGameModel extends AbstractManager
     public function insertIntoComment($commentaire, $getGameId, $getUserId)
     {
         $statement = $this->pdo->prepare(
-            "INSERT INTO `comment` (content, date_submitted, game_id, user_id) 
+            "INSERT INTO `comment` (content, date_submitted, game_id, user_id)
         VALUES (:commentaire, :date, :gameId, :userId)"
         );
         $statement->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
