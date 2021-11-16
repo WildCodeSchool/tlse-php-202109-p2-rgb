@@ -62,6 +62,7 @@ class DescriptionGameController extends AbstractController
                 }
             }
         }
+        $error = $this->addComment();
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
@@ -70,6 +71,7 @@ class DescriptionGameController extends AbstractController
                 'tags' => $nameTags,
                 'inList' => $inList,
                 'reviewStatus' => $reviewButtonStatus,
+                'error' => $error,
                 'gameStatusList' => $gameStatusList
             ]
         );
@@ -96,5 +98,22 @@ class DescriptionGameController extends AbstractController
             $nameTags[] = $this->gameCategory->selectNameByTagId($value['genre_id']);
         }
         return $nameTags;
+    }
+
+    public function addComment()
+    {
+        global $error;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['submit_commentaire'])) {
+                if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
+                    $commentaire = $_POST['commentaire'];
+                    $getGameId = $this->gameModel->getGameId();
+                    $getUserId = $this->gameModel->getUserId();
+                    $this->gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
+                } elseif (empty($_POST['commentaire'])) {
+                    return $error = "Votre commentaire ne doit pas être vide";
+                }
+            }
+        }
     }
 }

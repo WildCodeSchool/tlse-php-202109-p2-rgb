@@ -18,6 +18,6 @@ class ListMyGamesManager extends AbstractManager
         );
         $statement->bindValue(":id", $userId, PDO::PARAM_INT);
         $statement->execute();
-        return $statement->fetchAll();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
