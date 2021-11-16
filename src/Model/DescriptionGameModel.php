@@ -83,6 +83,7 @@ class DescriptionGameModel extends AbstractManager
         $statement = $statement->fetch();
         return intval($statement['id']);
     }
+
     public function insertIntoComment($commentaire, $getGameId, $getUserId)
     {
         $statement = $this->pdo->prepare(
@@ -152,7 +153,6 @@ class DescriptionGameModel extends AbstractManager
         );
         $statement->bindValue('id', $id, PDO::PARAM_INT);
         $statement->execute();
-
         return $this->getLikeScore($statement->fetchAll(PDO::FETCH_ASSOC));
     }
 }
