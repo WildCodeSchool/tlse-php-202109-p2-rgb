@@ -42,16 +42,16 @@ class DescriptionGameModel extends AbstractManager
         $statement = $statement->fetch();
         return intval($statement['id']);
     }
-    public function insertIntoComment($commentaire)
+    public function insertIntoComment($commentaire, $getGameId, $getUserId)
     {
-        $getGameId = $this->getGameId();
-        $getUserId = $this->getUserId();
         $statement = $this->pdo->prepare(
             "INSERT INTO `comment` (content, date_submitted, game_id, user_id) 
-        VALUES (:commentaire, :date, " . $getGameId . ", " . $getUserId . ")"
+        VALUES (:commentaire, :date, :gameId, :userId)"
         );
         $statement->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
         $statement->bindValue(":date", date('Y-m-d'), PDO::PARAM_STR);
+        $statement->bindValue(":gameId", $getGameId, PDO::PARAM_INT);
+        $statement->bindValue(":userId", $getUserId, PDO::PARAM_INT);
         $statement->execute();
     }
     public function addToMyList($idGame)
