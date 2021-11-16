@@ -20,4 +20,5 @@ return [
     'signin' => ['UserConnectionController', 'signin',],
     'add' => ['AdminController', 'index',],
     'logOut' => ['UserConnectionController', 'logOut',],
+    'myProfile' => ['UserConnectionController', 'myProfile'],
 ];

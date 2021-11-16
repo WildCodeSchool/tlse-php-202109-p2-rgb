@@ -65,4 +65,13 @@ abstract class AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectByTag(string $search): ?array
+    {
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE genre LIKE :search");
+        $statement->bindValue('search', "%$search%", \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
 }
