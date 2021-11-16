@@ -22,7 +22,6 @@ class DescriptionGameModel extends AbstractManager
         $bool = $statement->fetch();
         return $bool === false ? false : true;
     }
-
     public function getUserId()
     {
         $statement = $this->pdo->prepare("SELECT * from user where nickname = :username");
@@ -31,7 +30,6 @@ class DescriptionGameModel extends AbstractManager
         $statement = $statement->fetch();
         return intval($statement['id']);
     }
-
     public function getGameId()
     {
         $statement = $this->pdo->prepare(
@@ -44,7 +42,6 @@ class DescriptionGameModel extends AbstractManager
         $statement = $statement->fetch();
         return intval($statement['id']);
     }
-
     public function insertIntoComment($commentaire)
     {
         $getGameId = $this->getGameId();
@@ -57,8 +54,6 @@ class DescriptionGameModel extends AbstractManager
         $statement->bindValue(":date", date('Y-m-d'), PDO::PARAM_STR);
         $statement->execute();
     }
-
-
     public function addToMyList($idGame)
     {
         $userId = $this->getUserId();
