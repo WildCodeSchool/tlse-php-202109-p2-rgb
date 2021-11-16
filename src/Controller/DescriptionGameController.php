@@ -69,12 +69,14 @@ class DescriptionGameController extends AbstractController
                 }
             }
         }
+        $getAllCommentsByGame = $gameModel->selectAllCommentByGame();
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
                 'game' => $gameModel->selectOneById($id),
                 'like' => $gameModel->selectLikeById($id),
                 'tags' => $nameTags,
+                'getAllCommentsByGame' => $getAllCommentsByGame,
                 'error' => $error,
                 'gameStatusList' => $gameStatusList
             ]

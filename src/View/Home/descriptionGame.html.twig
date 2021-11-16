@@ -59,6 +59,22 @@
 				ajouter
 			</button>
 		</a>
+		{% for getCommentsByGame in getAllCommentsByGame %}
+			<section class="comment">
+				<figure>
+					<img src="{{getCommentsByGame['avatar']}}">
+					<figcaption>
+						{{getCommentsByGame['nickname']}}</figcaption>
+				</figure>
+				<div class="commentText">
+					<p>Posté le:
+						{{getCommentsByGame['date_submitted']}}</p>
+					<div class="commentContent">
+						<p>{{getCommentsByGame['content']}}</p>
+					</div>
+				</div>
+			</section>
+		{% endfor %}
 		{% if link.username %}
 			<div class="commentaire">
 				<form method="POST">

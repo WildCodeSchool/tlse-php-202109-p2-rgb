@@ -54,6 +54,20 @@ class DescriptionGameModel extends AbstractManager
         $statement->bindValue(":userId", $getUserId, PDO::PARAM_INT);
         $statement->execute();
     }
+    public function selectAllCommentByGame()
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT nickname, avatar, content, date_submitted, game_id, user_id 
+            FROM `user` 
+            JOIN `comment` 
+            ON `user`.id=user_id 
+            WHERE game_id=:gameId 
+            ORDER BY date_submitted ASC"
+        );
+        $statement->bindValue(":gameId", $_GET['id'], PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function addToMyList($idGame)
     {
         $userId = $this->getUserId();
@@ -66,7 +80,6 @@ class DescriptionGameModel extends AbstractManager
     }
     public function selectLikeById(int $id)
     {
-        // prepared request
         $statement = $this->pdo->prepare(
             "SELECT count(`like`) as 'count', `like` FROM `like`  WHERE :id = game_id GROUP BY `like`"
         );
