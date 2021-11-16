@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Mon profil
+{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/assets/css/profile.css">
+{% endblock %}
+
+{% block content %}
+
+    <form action="" method="POST" enctype="multipart/form-data" class="form-control row form-profile">
+            
+            <div class="avatar">
+                <img src="{{ link.avatar }}" alt="Ma photo de profil" class="avatar">
+                <label for="picture" class="link-primary">Modifier votre avatar
+                    <input type="file" name="avatar" id="picture" class="d-none" >
+                </label>
+            </div>
+            <div class="profile">
+                <input type="text" name="name" id="name" value="{{link.username }}" class="form-control"><br>
+                <input type="submit" value="Envoyer" class="btn btn-primary validateProfile">
+            </div>
+    </form>
+
+{% endblock %}
