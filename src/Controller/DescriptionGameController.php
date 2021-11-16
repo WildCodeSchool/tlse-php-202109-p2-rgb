@@ -28,9 +28,23 @@ class DescriptionGameController extends AbstractController
         $gameModel = new DescriptionGameModel();
         $gameCategory = new CategoryManager();
         $userModel = new UserConnectionModel();
+        $gameStatusList = "";
         if ($gameId !== null) {
-            if ($userModel->isConnected()) {
+            if (
+                $userModel->isConnected() && !$gameModel->gameIsAlreadyInUserList(
+                    $gameId,
+                    $gameModel->getUserId()
+                )
+            ) {
                 $gameModel->addToMyList($gameId);
+                $gameStatusList = "Ce jeu a bien été ajouté à votre liste";
+            } elseif (
+                $userModel->isConnected() && $gameModel->gameIsAlreadyInUserList(
+                    $gameId,
+                    $gameModel->getUserId()
+                )
+            ) {
+                $gameStatusList = "Ce jeu est déjà dans votre liste";
             } else {
                 header('Location: /login');
                 // to do
@@ -42,12 +56,27 @@ class DescriptionGameController extends AbstractController
         foreach ($tagsIds as $value) {
             $nameTags[] = $gameCategory->selectNameByTagId($value['genre_id']);
         }
+        global $error;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['submit_commentaire'])) {
+                if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
+                    $commentaire = $_POST['commentaire'];
+                    $getGameId = $gameModel->getGameId();
+                    $getUserId = $gameModel->getUserId();
+                    $gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
+                } elseif (empty($_POST['commentaire'])) {
+                    $error = "Votre commentaire ne doit pas être vide";
+                }
+            }
+        }
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
                 'game' => $gameModel->selectOneById($id),
                 'like' => $gameModel->selectLikeById($id),
                 'tags' => $nameTags,
+                'error' => $error,
+                'gameStatusList' => $gameStatusList
             ]
         );
     }

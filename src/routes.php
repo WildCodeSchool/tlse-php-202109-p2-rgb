@@ -10,7 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'category' => ['CategoryController', 'index', ['id']],
     'descriptionGame' => ['DescriptionGameController', 'index', ['id','gameId'], ],
-    'ListMyGames' => ['ListMyGamesController', 'index', ['id']],
+    'ListMyGames' => ['ListMyGamesController', 'index',],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
@@ -20,4 +20,5 @@ return [
     'signin' => ['UserConnectionController', 'signin',],
     'add' => ['AdminController', 'index',],
     'logOut' => ['UserConnectionController', 'logOut',],
+    'myProfile' => ['UserConnectionController', 'myProfile'],
 ];

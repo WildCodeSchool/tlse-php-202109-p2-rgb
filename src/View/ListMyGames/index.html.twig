@@ -10,12 +10,15 @@
 {% block content %}
 
 	<section class="SearchBarMyGames">
+
 		<div>
-			<p>Mes Jeux</p>
+			<p>Voici ta liste de jeu
+				{{link.username}}
+				!</p>
 		</div>
 
 		<div>
-			<div>
+			<div class="searchBar">
 				{% include 'ListMyGames/_Search_Bar_List_My_Games.html.twig' %}
 			</div>
 
@@ -36,51 +39,61 @@
 				</ul>
 			</div>
 		</div>
-
+		<div class="tags">
+			<a href="{{ path }}&tags=action" class="tags__label" >Action</a>
+			<a href="{{ path }}&tags=aventure" class="tags__label" for="aventure">Aventure</a>
+			<a href="{{ path }}&tags=RPG" class="tags__label" for="RPG">RPG</a>
+			<a href="{{ path }}&tags=simulation" class="tags__label" for="simulation">Simulation</a>
+			<a href="{{ path }}&tags=strategie" class="tags__label" for="strategie">Strategie</a>
+			<a href="{{ path }}&tags=sport_course" class="tags__label" for="sport_course">Sport & Course</a>
+		</div>
 	</section>
 
-	<ul>
-		<section class="Content">
-			<div>
+	{% for gameByUser in gamesByUser %}
+		<div class="a-box">
+			<div class="img-container">
+				<div class="img-inner">
+					<div class="inner-skew">
+						<img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}>
+					</div>
+				</div>
+			</div>
+			<div class="text-container">
+				<h3>{{gameByUser['name']}}</h3>
 				<div>
 					<p>% positive</p>
 					<p>% negative</p>
 				</div>
-
-				<div>
-					<p>Titre du jeu</p>
-				</div>
 			</div>
-			<div>
-				<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
-			</div>
-
-			<div>
-				<div>
-					<p>Action</p>
-				</div>
-				<div>
-					<p>RPG</p>
-				</div>
-				<div>
-					<p>Adventure</p>
-				</div>
-			</div>
-
-			<div class="ListPictureMyGames">
-				<div>
-					<div>
-						<p>Titre du jeu</p>
-						<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
-					</div>
-					<div>
-						<p>Titre du jeu</p>
-						<img src="https://th.bing.com/th/id/R.630e271f9a80a8d85c2f81c23a223fdf?rik=Hz625OkZBmsZ2w&pid=ImgRaw&r=0" alt="">
-					</div>
-				</div>
-			</div>
-
-		</section>
-	</ul>
+		</div>
+<div class="page__section page__custom-settings">
+    <div class="page__toggle">
+      <label class="toggle">
+        <input class="toggle__input" type="checkbox" value="wished" checked>
+        <span class="toggle__label">
+          <span class="toggle__text">A faire</span>
+        </span>
+      </label>
+    </div>
+    <div class="page__toggle">
+      <label class="toggle">
+        <input class="toggle__input" type="checkbox" value="in progress" checked>
+        <span class="toggle__label">
+          <span class="toggle__text">En progression</span>
+        </span>
+      </label>
+    </div>
+    <div class="page__toggle">
+      <label class="toggle">
+        <input class="toggle__input" type="checkbox" value="finished">
+        <span class="toggle__label">
+          <span class="toggle__text">Terminé</span>
+        </span>
+      </label>
+    </div>  
+  </div>
+</div>
+	{% endfor %}
 
 {% endblock %}
+

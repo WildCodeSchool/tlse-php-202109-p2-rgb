@@ -14,6 +14,7 @@ class UserConnectionController extends AbstractController
     public function login()
     {
         $userConnection = new UserConnectionModel();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = $userConnection->errorsInForm($_POST);
 
@@ -57,9 +58,14 @@ class UserConnectionController extends AbstractController
                     );
             }
             $_SESSION['username'] = $_POST['nickname'];
-            header('Location:/');
-            return $this->twig->render('Home/index.html.twig');
+            $_SESSION['userId'] = $userConnection->getUserId();
+            if (isset($_SESSION['previousUrl'])) {
+                header("Location: " . $_SESSION['previousUrl']);
+            } else {
+                header("Location:/");
+            }
         }
+
         return $this->twig->render('Home/login.html.twig');
     }
 
@@ -99,6 +105,9 @@ class UserConnectionController extends AbstractController
             }
 
             $userConnection->saveUser($_POST);
+            $_SESSION['username'] = $_POST['nickname'];
+            $_SESSION['mail'] = $_POST['userMail'];
+            header("Location: " . $_SESSION['previousUrl']);
         }
 
         return $this->twig->render('Home/signin.html.twig');
@@ -113,5 +122,22 @@ class UserConnectionController extends AbstractController
             return;
         }
         return $this->twig->render('Home/index.html.twig');
+    }
+
+    public function myProfile()
+    {
+        $userConnection = new UserConnectionModel();
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $userConnection->updateUserProfile();
+        }
+        if ($userConnection->isConnected()) {
+            $avatar = $userConnection->getUserAvatar();
+            if ($avatar !== false) {
+                $_SESSION["avatar"] = $avatar['avatar'];
+                return $this->twig->render('Home/profile.html.twig');
+            }
+        }
+        return $this->twig->render('Home/login.html.twig');
     }
 }
