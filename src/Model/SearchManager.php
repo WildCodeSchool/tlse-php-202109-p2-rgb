@@ -17,7 +17,6 @@ class SearchManager extends AbstractManager
         $statement->bindValue(':search', "%$id%", \PDO::PARAM_STR);
         $statement->bindValue(':userId', $_SESSION['userId'], \PDO::PARAM_STR);
         $statement->execute();
-
         return $statement->fetchAll();
     }
 
