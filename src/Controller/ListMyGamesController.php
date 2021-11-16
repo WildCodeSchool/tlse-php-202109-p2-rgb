@@ -13,22 +13,33 @@ class ListMyGamesController extends AbstractController
     {
         $listGameManager = new ListMyGamesManager();
         $descriptionGame = new DescriptionGameModel();
-
+        $search = new SearchManager();
+        $path = $_SERVER['PATH_INFO'] . "?=" . $_SESSION['username'];
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $userId = $descriptionGame->getUserId();
-            $gameByUserId = $listGameManager->getAllFromListUser($userId);
-            return $this->twig->render(
-                'ListMyGames/index.html.twig',
-                ['gamesByUser' => $gameByUserId]
-            );
+            if (isset($_GET['tags'])) {
+                $gameByTags = $search->searchByTag($_GET['tags']);
+                return $this->twig->render(
+                    'ListMyGames/index.html.twig',
+                    ['gamesByUser' => $gameByTags,
+                    "path" => $path,]
+                );
+            } else {
+                $userId = $descriptionGame->getUserId();
+                $gameByUserId = $listGameManager->getAllFromListUser($userId);
+                return $this->twig->render(
+                    'ListMyGames/index.html.twig',
+                    ['gamesByUser' => $gameByUserId,
+                    "path" => $path,]
+                );
+            }
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $search = new SearchManager();
-            $result = $search->selectByTag($_POST['search']);
+            $result = $search->selectByTitleGame($_POST['search']);
             return $this->twig->render(
                 'ListMyGames/index.html.twig',
-                ['gamesByUser' => $result]
+                ['gamesByUser' => $result,
+                "path" => $path,]
             );
         }
     }
