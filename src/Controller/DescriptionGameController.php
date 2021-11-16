@@ -52,6 +52,7 @@ class DescriptionGameController extends AbstractController
                         $this->gameModel->updateReviewGame($id, $this->gameModel->getUserId(), $review[0]);
                     }
                 }
+                $userReview = $this->gameModel->selectGameReviewFromUserId($id, $this->gameModel->getUserId());
                 if (!$userReview) {
                     $reviewButtonStatus = ['outline-', 'outline-'];
                 } elseif ($userReview['like'] === 'like') {
