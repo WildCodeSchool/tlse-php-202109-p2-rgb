@@ -7,45 +7,45 @@
 {% block title %}Jeu
 {% endblock %}
 {% block content %}
-    <div class='d-flex flex-column align-items-center gap-4'>
-        <h2 style='text-align:center; margin:20px auto 20px'>{{ game['name'] }}</h2>
-        {% if inList %}
-          <div>
-            <form action="/descriptionGame?id={{ game['id'] }}" method="POST">
-            <input class="btn btn-{{ reviewStatus[0] }}primary" type="submit" value="👍" name="like" style="border-radius:50%;">
-            <input class="btn btn-{{ reviewStatus[1] }}primary" type="submit" value="👎" name="dislike" style="border-radius:50%;">
-            </form>
-          </div>
-        {% endif %}
-        <img src="/assets/images/pictures_game/covers/{{ game['picture'] }}" style="max-width: 25rem; max-height: 12rem;"alt={{ game['name'] }}>
-        <div class="d-flex flex-row gap-1">
-            {% for tag in tags %}
-                <span class="badge bg-primary">{{ tag['name'] }}</span> 
-            {% endfor %}
-        </div>    
-        <p style="max-width: 23rem; text-align: justify;">{{ game['description'] }}</p>
-        <div class="d-flex flex-row gap-5 align-items-center">
-            <p style="margin: 0; text-align:center; font-size: 1rem;">
-                Reviews: <q style="color: {{ like[1] }};">{{ like[0] }}</q>
-            </p>
-            <p style="margin: 0; max-width: 10rem;">
-                Date de Sortie: <strong>{{ game['date_release'] }}</strong>
-            </p>
-        </div>    
-        {% if not inList %}
-          <a href="/descriptionGame?id={{ game['id'] }}&gameId={{ game['id'] }}">
-            <button type="button" class="btn-lg btn-primary" id="liveAlertBtn"data-toggle="button" aria-pressed="false" autocomplete="off" style='max-width:10rem;'>
-                ajouter
-            </button>
-          </a>
-        {% endif %}
-    </div>
-    {% if link.username %}
-			<div class="commentaire">
-				<form method="POST">
-					<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
-					<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
-				</form>
-      </div>  
-		{% endif %}
+  <div class='d-flex flex-column align-items-center gap-4'>
+    <h2 style='text-align:center; margin:20px auto 20px'>{{ game['name'] }}</h2>
+    {% if inList %}
+      <div>
+        <form action="/descriptionGame?id={{ game['id'] }}" method="POST">
+        <input class="btn btn-{{ reviewStatus[0] }}primary" type="submit" value="👍" name="like" style="border-radius:50%;">
+        <input class="btn btn-{{ reviewStatus[1] }}primary" type="submit" value="👎" name="dislike" style="border-radius:50%;">
+        </form>
+      </div>
+    {% endif %}
+    <img src="/assets/images/pictures_game/covers/{{ game['picture'] }}" style="max-width: 25rem; max-height: 12rem;"alt={{ game['name'] }}>
+    <div class="d-flex flex-row gap-1">
+      {% for tag in tags %}
+          <span class="badge bg-primary">{{ tag['name'] }}</span> 
+      {% endfor %}
+    </div>    
+    <p style="max-width: 23rem; text-align: justify;">{{ game['description'] }}</p>
+    <div class="d-flex flex-row gap-5 align-items-center">
+      <p style="margin: 0; text-align:center; font-size: 1rem;">
+        Reviews: <q style="color: {{ like[1] }};">{{ like[0] }}</q>
+      </p>
+      <p style="margin: 0; max-width: 10rem;">
+        Date de Sortie: <strong>{{ game['date_release'] }}</strong>
+      </p>
+    </div>    
+    {% if not inList %}
+      <a href="/descriptionGame?id={{ game['id'] }}&gameId={{ game['id'] }}">
+        <button type="button" class="btn-lg btn-primary" id="liveAlertBtn"data-toggle="button" aria-pressed="false" autocomplete="off" style='max-width:10rem;'>
+          ajouter
+        </button>
+      </a>
+    {% endif %}
+  </div>
+  {% if link.username %}
+		<div class="commentaire">
+			<form method="POST">
+				<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
+				<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
+			</form>
+    </div>  
+	{% endif %}
 {% endblock %}

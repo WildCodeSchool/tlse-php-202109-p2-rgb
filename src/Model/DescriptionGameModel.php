@@ -147,7 +147,6 @@ class DescriptionGameModel extends AbstractManager
 
     public function selectLikeById(int $id)
     {
-        // prepared request
         $statement = $this->pdo->prepare(
             "SELECT count(`like`) as 'count', `like` FROM `like`  WHERE :id = game_id GROUP BY `like`"
         );

@@ -43,15 +43,7 @@ class DescriptionGameController extends AbstractController
         if ($this->userModel->isConnected()) {
             $inList = $this->gameModel->gameIsAlreadyInUserList($id, $this->gameModel->getUserId());
             if ($this->userModel->isConnected() && $inList) {
-                $userReview = $this->gameModel->selectGameReviewFromUserId($id, $this->gameModel->getUserId());
-                if ($_SERVER['REQUEST_METHOD'] === "POST") {
-                    $review = array_keys($_POST);
-                    if (!$userReview) {
-                        $this->gameModel->reviewGame($id, $this->gameModel->getUserId(), $review[0]);
-                    } else {
-                        $this->gameModel->updateReviewGame($id, $this->gameModel->getUserId(), $review[0]);
-                    }
-                }
+                $this->reviewManager($id);
                 $userReview = $this->gameModel->selectGameReviewFromUserId($id, $this->gameModel->getUserId());
                 if (!$userReview) {
                     $reviewButtonStatus = ['outline-', 'outline-'];
@@ -99,10 +91,23 @@ class DescriptionGameController extends AbstractController
         }
         return $nameTags;
     }
+    public function reviewManager(int $id)
+    {
+        $userReview = $this->gameModel->selectGameReviewFromUserId($id, $this->gameModel->getUserId());
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            if (isset($_POST['like']) || isset($_POST['dislike'])) {
+                $review = array_keys($_POST);
+                if (!$userReview) {
+                    $this->gameModel->reviewGame($id, $this->gameModel->getUserId(), $review[0]);
+                } else {
+                    $this->gameModel->updateReviewGame($id, $this->gameModel->getUserId(), $review[0]);
+                }
+            }
+        }
+    }
 
     public function addComment()
     {
-        global $error;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['submit_commentaire'])) {
                 if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
@@ -111,7 +116,7 @@ class DescriptionGameController extends AbstractController
                     $getUserId = $this->gameModel->getUserId();
                     $this->gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
                 } elseif (empty($_POST['commentaire'])) {
-                    return $error = "Votre commentaire ne doit pas être vide";
+                    return "Votre commentaire ne doit pas être vide";
                 }
             }
         }
