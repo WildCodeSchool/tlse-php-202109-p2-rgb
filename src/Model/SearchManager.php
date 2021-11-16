@@ -17,7 +17,6 @@ class SearchManager extends AbstractManager
         $statement->bindValue(':search', "%$id%", PDO::PARAM_STR);
         $statement->bindValue(':userId', $_SESSION['userId'], \PDO::PARAM_STR);
         $statement->execute();
-
         return $statement->fetchAll();
     }
 
@@ -42,7 +41,6 @@ class SearchManager extends AbstractManager
         JOIN game_genre
         ON game_genre.genre_id = :idTag
         AND game_genre.game_id = list_user.game_id;";
-
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(":userId", intval($_SESSION['userId'], 10), PDO::PARAM_INT);
         $statement->bindValue(":idTag", intVal($idTag), PDO::PARAM_INT);

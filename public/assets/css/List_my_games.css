@@ -319,7 +319,6 @@ body{
 .tags {
   display: flex;
   margin: auto;
-  /* justify-content: space-between; */
 }
 
 .tags__label {
@@ -328,7 +327,6 @@ body{
   margin-left: 0.5em;
   border-radius: 5px;
   background-color: rgb(228, 228, 228);
-
 }
 
 .tags__label input {
