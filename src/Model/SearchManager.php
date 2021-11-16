@@ -32,7 +32,6 @@ class SearchManager extends AbstractManager
     public function searchByTag(string $tag)
     {
         $idTag = intval($this->getTagId($tag)['id'], 10);
-
         $query = "SELECT * 
         FROM game
         JOIN list_user
@@ -41,7 +40,6 @@ class SearchManager extends AbstractManager
         JOIN game_genre
         ON game_genre.genre_id = :idTag
         AND game_genre.game_id = list_user.game_id;";
-
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(":userId", intval($_SESSION['userId'], 10), PDO::PARAM_INT);
         $statement->bindValue(":idTag", intVal($idTag), PDO::PARAM_INT);
