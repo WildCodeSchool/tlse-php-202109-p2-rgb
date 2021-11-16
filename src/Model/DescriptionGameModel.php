@@ -22,7 +22,6 @@ class DescriptionGameModel extends AbstractManager
         $bool = $statement->fetch();
         return $bool === false ? false : true;
     }
-
     public function getUserId()
     {
         $statement = $this->pdo->prepare("SELECT * from user where nickname = :username");
@@ -30,6 +29,30 @@ class DescriptionGameModel extends AbstractManager
         $statement->execute();
         $statement = $statement->fetch();
         return intval($statement['id']);
+    }
+    public function getGameId()
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT id
+            FROM game
+            WHERE id=:id"
+        );
+        $statement->bindValue(":id", $_GET['id'], PDO::PARAM_INT);
+        $statement->execute();
+        $statement = $statement->fetch();
+        return intval($statement['id']);
+    }
+    public function insertIntoComment($commentaire, $getGameId, $getUserId)
+    {
+        $statement = $this->pdo->prepare(
+            "INSERT INTO `comment` (content, date_submitted, game_id, user_id)
+        VALUES (:commentaire, :date, :gameId, :userId)"
+        );
+        $statement->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
+        $statement->bindValue(":date", date('Y-m-d'), PDO::PARAM_STR);
+        $statement->bindValue(":gameId", $getGameId, PDO::PARAM_INT);
+        $statement->bindValue(":userId", $getUserId, PDO::PARAM_INT);
+        $statement->execute();
     }
     public function addToMyList($idGame)
     {
@@ -54,7 +77,8 @@ class DescriptionGameModel extends AbstractManager
         if (empty($likes)) {
             return $likes;
         } else {
-            $reviews = [ 80 => 'Tacos',
+            $reviews = [
+                80 => 'Tacos',
                 50 => 'Très Positif',
                 30 => 'Positif',
                 10 => 'Assez Positif',
@@ -62,9 +86,7 @@ class DescriptionGameModel extends AbstractManager
                 -30 => 'Négatif',
                 -50 => 'Très négatif'
             ];
-            $like = (
-                round(($likes[1]['count'] - $likes[0]['count']) / ($likes[0]['count'] + $likes[1]['count']) * 100)
-            );
+            $like = (round(($likes[1]['count'] - $likes[0]['count']) / ($likes[0]['count'] + $likes[1]['count']) * 100));
             foreach ($reviews as $key => $value) {
                 if ($like >= $key) {
                     if ($like >= 10) {
