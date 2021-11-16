@@ -56,12 +56,26 @@ class DescriptionGameController extends AbstractController
         foreach ($tagsIds as $value) {
             $nameTags[] = $gameCategory->selectNameByTagId($value['genre_id']);
         }
+        global $error;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['submit_commentaire'])) {
+                if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
+                    $commentaire = $_POST['commentaire'];
+                    $getGameId = $gameModel->getGameId();
+                    $getUserId = $gameModel->getUserId();
+                    $gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
+                } elseif (empty($_POST['commentaire'])) {
+                    $error = "Votre commentaire ne doit pas être vide";
+                }
+            }
+        }
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
                 'game' => $gameModel->selectOneById($id),
                 'like' => $gameModel->selectLikeById($id),
                 'tags' => $nameTags,
+                'error' => $error,
                 'gameStatusList' => $gameStatusList
             ]
         );
