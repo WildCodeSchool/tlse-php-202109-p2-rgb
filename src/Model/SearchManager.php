@@ -14,7 +14,7 @@ class SearchManager extends AbstractManager
         ON user_id = :userId
         WHERE game.id=game_id
         AND game.name LIKE :search ");
-        $statement->bindValue(':search', "%$id%", \PDO::PARAM_STR);
+        $statement->bindValue(':search', "%$id%", PDO::PARAM_STR);
         $statement->bindValue(':userId', $_SESSION['userId'], \PDO::PARAM_STR);
         $statement->execute();
 
@@ -27,13 +27,13 @@ class SearchManager extends AbstractManager
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(":tag", $tag, PDO::PARAM_STR);
         $statement->execute();
+
         return $statement->fetch();
     }
 
     public function searchByTag(string $tag)
     {
         $idTag = intval($this->getTagId($tag)['id'], 10);
-
         $query = "SELECT * 
         FROM game
         JOIN list_user
@@ -47,6 +47,25 @@ class SearchManager extends AbstractManager
         $statement->bindValue(":userId", intval($_SESSION['userId'], 10), PDO::PARAM_INT);
         $statement->bindValue(":idTag", intVal($idTag), PDO::PARAM_INT);
         $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public function searchByKeyWordOnOneCategory(int $id, string $keyWord)
+    {
+        $keyWord = htmlentities(trim($keyWord));
+        $query =
+        "SELECT *
+        FROM game
+        JOIN game_genre
+        ON game.id=game_id
+        AND game.name LIKE :keyWord
+        AND game_genre.genre_id = :genreId;";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(":keyWord", "%$keyWord%", PDO::PARAM_STR);
+        $statement->bindValue(":genreId", $id, PDO::PARAM_INT);
+        $statement->execute();
+
         return $statement->fetchAll();
     }
 }
