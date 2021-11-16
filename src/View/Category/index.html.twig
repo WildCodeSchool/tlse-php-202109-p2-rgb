@@ -6,37 +6,32 @@
 {% endblock %}
 
 {% block content %}
-
 	{% for gameInfo in gameInfos %}
+		{% set i = ( i | default(0) ) + 1 %}
 		<div class="wrapper">
 			<div class="product-text">
 				<h2>{{ gameInfo.name }}</h2>
 			</div>
-			<section class="body">
-				<div class="leftContent">
-					<div class="product-img">
-						<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
-					</div>
+		<section class="body">
+			<div class="leftContent">
+				<div class="product-img">
+					<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
 				</div>
-				<div class="rightContent">
-					<div class="product-price-btn">
-						<div class="buttonlike">
-							<p>avis negatif</p>
-							<button class="dislike">
-								<i class="fa fa-thumbs-o-down" aria-hidden="true">%</i>
-							</button>
-							<p>avis positif</p>
-							<button class="like">
-								<i class="fa fa-thumbs-o-up" aria-hidden="true">%</i>
-							</button>
-						</div>
-						<a href='descriptionGame?id={{ gameInfo.game_id }}'>
-							<button type="button">Plus d'infos</button>
-						</a>
-					</div>
+			</div>
+			<div class="rightContent">
+				<div class="product-price-btn">
+					<div>
+						<p>
+							Reviews : <q  style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+						</p>
+					</div>	
+					<a href='descriptionGame?id={{ gameInfo.game_id }}'>
+						<button type="button">Plus d'infos</button>
+					</a>
 				</div>
-			</section>
-			<div class="separation"></div>
-		{% endfor %}
-	</div>
+			</div>
+		</section>
+		<div class="separation"></div>
+		</div>
+	{% endfor %}	
 {% endblock %}
