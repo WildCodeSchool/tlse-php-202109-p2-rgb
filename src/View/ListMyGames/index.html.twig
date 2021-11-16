@@ -36,11 +36,17 @@
 					<li>
 						<a class="dropdown-item" href="#">Jeu terminé</a>
 					</li>
-
 				</ul>
 			</div>
 		</div>
-
+		<div class="tags">
+			<a href="{{ path }}&tags=action" class="tags__label" >Action</a>
+			<a href="{{ path }}&tags=aventure" class="tags__label" for="aventure">Aventure</a>
+			<a href="{{ path }}&tags=RPG" class="tags__label" for="RPG">RPG</a>
+			<a href="{{ path }}&tags=simulation" class="tags__label" for="simulation">Simulation</a>
+			<a href="{{ path }}&tags=strategie" class="tags__label" for="strategie">Strategie</a>
+			<a href="{{ path }}&tags=sport_course" class="tags__label" for="sport_course">Sport & Course</a>
+		</div>
 	</section>
 
 	{% for gameByUser in gamesByUser %}

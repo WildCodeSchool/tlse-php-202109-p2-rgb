@@ -66,7 +66,7 @@ abstract class AbstractManager
         $statement->execute();
     }
 
-    public function selectByTag(string $search): ?array
+    public function selectByTitleGame(string $search): ?array
     {
         $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE genre LIKE :search");
         $statement->bindValue('search', "%$search%", \PDO::PARAM_STR);
