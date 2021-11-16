@@ -14,5 +14,24 @@ p {
 }
 
 .commentaire button {
-    width: 5rem;
+  width: 5rem;
+}
+
+.temporary {
+  font-size: 1rem;
+  color: rgb(8, 8, 8);
+  text-align: center;
+  line-height: 40px;
+  animation-name: example;
+  animation-duration: 5s;
+  visibility: hidden;
+}
+
+@keyframes example {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
 }

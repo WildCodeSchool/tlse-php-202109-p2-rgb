@@ -56,15 +56,16 @@ class DescriptionGameController extends AbstractController
         foreach ($tagsIds as $value) {
             $nameTags[] = $gameCategory->selectNameByTagId($value['genre_id']);
         }
-
+        global $error;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['submit_commentaire'])) {
-                if (isset($_POST['commentaire']) and !empty($_POST['commentaire'])) {
+                if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
                     $commentaire = $_POST['commentaire'];
-                    if (strlen($commentaire) < 5) {
-                        $error = "Erreur: Le commentaire doit faire plus de 5 caractères";
-                    }
-                    $gameModel->insertIntoComment($commentaire);
+                    $getGameId = $gameModel->getGameId();
+                    $getUserId = $gameModel->getUserId();
+                    $gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
+                } elseif (empty($_POST['commentaire'])) {
+                    $error = "Votre commentaire ne doit pas être vide";
                 }
             }
         }
@@ -74,6 +75,7 @@ class DescriptionGameController extends AbstractController
                 'game' => $gameModel->selectOneById($id),
                 'like' => $gameModel->selectLikeById($id),
                 'tags' => $nameTags,
+                'error' => $error,
                 'gameStatusList' => $gameStatusList
             ]
         );
