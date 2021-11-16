@@ -314,3 +314,21 @@ body{
     opacity: 0.9;
   }
 }
+
+/* Section tags : */
+.tags {
+  display: flex;
+  margin: auto;
+}
+
+.tags__label {
+  border: 1px solid black;
+  padding: 0.5em;
+  margin-left: 0.5em;
+  border-radius: 5px;
+  background-color: rgb(228, 228, 228);
+}
+
+.tags__label input {
+  display: none;
+}

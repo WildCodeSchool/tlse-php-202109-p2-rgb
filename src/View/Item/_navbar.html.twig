@@ -9,16 +9,17 @@
         <ul class="nav__menu__ul">
           <li class="nav__menu__ul__li"><a class="nav-link active nav__menu__ul__li__a" aria-current="page" href="/">Accueil</a></li>
           {% if link.username %}
-          <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/ListMyGames?={{ link.username }}">Ma liste</a></li>
+            <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/ListMyGames?={{ link.username }}">Ma liste</a></li>
               <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/logOut">Se déconnecter</a></li>
-              {% if link.username == 'admin' %}
-                <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/add">Administration</a></li>
+                {% if link.username == 'admin' %}
+                  <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/add">Administration</a></li>
                 {% else %}
-                  <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/myProfile">
-                  {{ link.username }}
-                  </a></li>
-              {% endif %}
-            {% else %}
+                  <li class="nav__menu__ul__li userPseudo">
+                    <a class="nav-link nav__menu__ul__li__a" href="/myProfile">{{ link.username }}</a>
+                    <img src="{{ link.avatar }}" alt="mon avatar" class="userPseudo__avatar">
+                  </li>
+                {% endif %}
+          {% else %}
               <li class="nav__menu__ul__li"><a class="nav-link nav__menu__ul__li__a" href="/login">
               Se connecter
           {% endif %}
