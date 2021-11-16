@@ -319,7 +319,6 @@ body{
 .tags {
   display: flex;
   margin: auto;
-  /* justify-content: space-between; */
 }
 
 .tags__label {
