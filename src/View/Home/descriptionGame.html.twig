@@ -42,12 +42,12 @@
       </a>
     {% endif %}
   </div>
-  {% if link.username %}
+  	{% if link.username %}
 		<div class="commentaire">
 			<form method="POST">
 				<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
 				<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
 			</form>
-    </div>  
+		</div>  
 	{% endif %}
 {% endblock %}
