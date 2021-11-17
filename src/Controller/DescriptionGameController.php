@@ -54,7 +54,7 @@ class DescriptionGameController extends AbstractController
                 }
             }
         }
-        $statusGame=$this->changeStatusGame($id);
+        $statusGame = $this->changeStatusGame($id);
         $error = $this->addComment();
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
