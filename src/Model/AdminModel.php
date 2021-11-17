@@ -6,10 +6,8 @@ use PDO;
 
 class AdminModel extends AbstractManager
 {
-
     public function addGameOnDatabase(array $informations)
     {
-
         $releaseDate = date("now");
         $query =
         "INSERT INTO `game` (`name`, `date_release`, `description`, `picture`)
