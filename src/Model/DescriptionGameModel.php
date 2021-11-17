@@ -122,7 +122,7 @@ class DescriptionGameModel extends AbstractManager
             return $likes;
         }
         $reviews = [
-            80 => 'Tacos',
+            80 => 'Fantastique',
             50 => 'Très Positif',
             30 => 'Positif',
             10 => 'Assez Positif',
