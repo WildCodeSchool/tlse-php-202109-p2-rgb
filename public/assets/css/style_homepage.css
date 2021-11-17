@@ -1,8 +1,12 @@
 .trending {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
+  height: 22rem;
+  width: 100%;
+  background-color: #212529;
+  border-top: 1px solid white;
 }
 
 .card {
@@ -22,7 +26,6 @@
 .skewed {
   width: 90%;
   height: 55%;
-  transform: skewY(4deg);
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -30,9 +33,10 @@
 }
 
 .skewed img {
-  margin-top: 1.5rem;
+  margin-top: 0.6rem;
   width: 100%;
   height: 90%;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
   align-items: center;
@@ -45,7 +49,7 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   transition: ease-in-out;
-  box-shadow: 1px 1px 1px 3px wheat;
+  box-shadow: 1px 1px 5px 1px rgb(8, 8, 8);
 }
 
 .content {
@@ -61,7 +65,7 @@
 .content h2 {
   margin-top: 1rem;
   margin-right: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 200;
   display: flex;
   align-items: center;
@@ -70,15 +74,16 @@
 }
 
 .content button {
-  color: #000000;
+  color: #f2f0f5;
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 400;
   width: 100%;
   padding: 10px;
   background: none;
-  border: 3px solid #000000;
+  border: 3px solid #2e068b;
   transition: all 0.3s ease;
+  background-color: #493fdb;
 }
 
 .title {
@@ -120,18 +125,94 @@
   justify-content: center;
 }
 
-.trending {
-  width: 100%;
+.h1Tendance {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .trending h1 {
-  margin-top: 0.5rem;
-  font-size: 1.6rem;
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  color: #f2f0f5;
+  display: flex;
+  align-items: flex-start;
 }
 
 .trending img {
   width: 100%;
-  margin-bottom: 1rem;
+}
+
+.carrousel {
+  perspective: 250px;
+  width: 300px;
+  height: 150px;
+  top: 50px;
+  margin: 0 auto;
+}
+
+@keyframes carrousel {
+  from {
+    transform: rotateY(300deg) translateZ(100px) rotateY(-300deg);
+    z-index: -10;
+    opacity: 0.7;
+  }
+  48% {
+    z-index: -10;
+    opacity: 0.9;
+  }
+  to {
+    transform: rotateY(-60deg) translateZ(100px) rotateY(60deg);
+    z-index: 10;
+    opacity: 1;
+  }
+}
+
+.carrouselCard {
+  width: 16rem;
+  height: 8rem;
+  background-color: #442222;
+  font-size: 40px;
+  opacity: 0;
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  border: solid rgb(255, 252, 252) 2px;
+  border-radius: 8px;
+  text-align: center;
+  animation-name: carrousel;
+
+  animation-duration: 12s;
+
+  animation-iteration-count: infinite;
+
+  animation-timing-function: linear;
+}
+
+.carrouselCard img {
+  width: 100%;
+}
+
+.carrouselCard:hover {
+  border: solid #4466cc 3px;
+  box-shadow: 0px 0px 10px #4466cc;
+}
+
+#c5 {
+  animation-delay: -12s;
+}
+
+#c4 {
+  animation-delay: -9s;
+}
+#c3 {
+  animation-delay: -6s;
+}
+#c2 {
+  animation-delay: -3s;
+}
+#c1 {
+  animation-delay: 0s;
 }
 
 ::selection {
@@ -150,7 +231,7 @@
 
 @keyframes rotateIMG {
   0% {
-    transform: skewY(-2deg);
+    transform: skewY(-3deg);
     opacity: 0.9;
   }
 
@@ -160,7 +241,7 @@
   }
 
   100% {
-    transform: skewY(2deg);
+    transform: skewY(3deg);
     opacity: 0.9;
   }
 }
