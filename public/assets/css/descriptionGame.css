@@ -17,6 +17,104 @@ p {
   width: 5rem;
 }
 
+.temporary {
+  font-size: 1rem;
+  color: rgb(8, 8, 8);
+  text-align: center;
+  line-height: 40px;
+  animation-name: example;
+  animation-duration: 5s;
+  visibility: hidden;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.comment p {
+  margin: 0;
+}
+
+.commentText p {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+.comment img {
+  width: 100%;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  animation-name: boxShadow;
+  animation-duration: 2.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.comment figure {
+  width: 5rem;
+  height: 5rem;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.comment figcaption {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.4rem;
+}
+
+.commentText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  height: auto;
+}
+
+.commentContent {
+  display: flex;
+  width: 15rem;
+  height: auto;
+  border: 1px groove black;
+  box-shadow: 1px 1px 5px 1px black;
+  background: url(https://cdn.pixabay.com/photo/2017/07/31/21/42/wallpaper-2561368_960_720.jpg);
+}
+
+.commentContent p {
+  padding: 10px 50px 30px 5px;
+  display: flex;
+  justify-content: flex-start;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+@keyframes example {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes boxShadow {
+  0% {
+    box-shadow: 1px 4px 4px 2px black;
+  }
+
+  100% {
+    box-shadow: 1px 1px 1px 2px black;
+  }
+}
+
 h2 {
   text-align:center;
   margin:20px auto 20px;
