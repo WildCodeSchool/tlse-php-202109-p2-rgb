@@ -54,6 +54,7 @@ class DescriptionGameController extends AbstractController
                 }
             }
         }
+        $statusGame=$this->changeStatusGame($id);
         $error = $this->addComment();
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
@@ -63,6 +64,7 @@ class DescriptionGameController extends AbstractController
                 'tags' => $nameTags,
                 'inList' => $inList,
                 'reviewStatus' => $reviewButtonStatus,
+                'gameStatus' => $statusGame,
                 'error' => $error,
                 'gameStatusList' => $gameStatusList
             ]
@@ -117,6 +119,21 @@ class DescriptionGameController extends AbstractController
                     $this->gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
                 } elseif (empty($_POST['commentaire'])) {
                     return "Votre commentaire ne doit pas être vide";
+                }
+            }
+        }
+    }
+
+    public function changeStatusGame($gameId)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $userReview = $this->gameModel->selectGameReviewFromUserId($gameId, $this->gameModel->getUserId());
+            if (isset($_POST['statusChoice'])) {
+                $status = $_POST['statusChoice'];
+                if (!$userReview) {
+                    $this->gameModel->addStatusGameByUserId($status, $gameId, $this->gameModel->getUserId());
+                } else {
+                    $this->gameModel->updateStatusGameByUserId($status, $gameId, $this->gameModel->getUserId());
                 }
             }
         }
