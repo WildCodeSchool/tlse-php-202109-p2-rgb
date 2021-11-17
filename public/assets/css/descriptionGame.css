@@ -18,7 +18,9 @@ p {
 .progress {
   width : 25rem;
 }
-
+body h3 {
+  margin-bottom: 20px;
+}
 .commentaire {
   width: 100%;
   margin-bottom: 5rem;
