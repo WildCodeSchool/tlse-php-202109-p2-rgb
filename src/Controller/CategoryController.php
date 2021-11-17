@@ -27,6 +27,7 @@ class CategoryController extends AbstractController
                 'Category/index.html.twig',
                 [
                     'category' => $category,
+                    'gameReviews' => $gameReview,
                     'gameInfos' => $gameInfos,
                     "link" => $_SESSION,
                     "path" => $path,

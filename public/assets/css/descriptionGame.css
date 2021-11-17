@@ -14,5 +14,29 @@ p {
 }
 
 .commentaire button {
-    width: 5rem;
+  width: 5rem;
+}
+
+h2 {
+  text-align:center;
+  margin:20px auto 20px;
+}
+
+body div a button {
+  max-width:10rem;
+}
+
+img {
+  max-width: 25rem;
+  max-height: 12rem;
+}
+
+body div p {
+  max-width: 23rem;
+  text-align: justify;
+}
+
+body div div p {
+  text-align:center;
+  font-size: 1rem;
 }
