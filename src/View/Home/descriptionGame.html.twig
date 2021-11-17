@@ -9,7 +9,7 @@
 {% block content %}
 	<div class='d-flex flex-column align-items-center gap-4'>
 		<h2 style='text-align:center; margin:20px auto 20px'>{{game['name']}}</h2>
-		<img src="/assets/images/pictures_game/covers/{{game['picture']}}" style="max-width: 25rem; max-height: 12rem;" alt={{ game['name']  }}>
+		<img src="/assets/images/pictures_game/covers/{{game['picture']}}" style="max-width: 25rem; max-height: 12rem;" alt={{ game['name'] }}>
 		<div class="d-flex flex-row gap-1">
 			{% for tag in tags %}
 				<span class="badge bg-primary">{{ tag['name'] }}</span>
@@ -72,6 +72,13 @@
 					<div class="commentContent">
 						<p>{{getCommentsByGame['content']}}</p>
 					</div>
+					{% if link.username == getCommentsByGame['nickname'] %}
+						<form method="POST">
+							<input class="Comment" type="submit" value="Changer mon commentaire" name="change_commentaire"/>
+						</form>						
+							<textarea class="changeCommentById" name="changeComment" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Changer votre commentaire..."></textarea>
+							<p class="changeCommentById">{{error}}</p>
+					{% endif %}
 				</div>
 			</section>
 		{% endfor %}

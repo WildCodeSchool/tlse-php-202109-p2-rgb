@@ -27,6 +27,12 @@ p {
   visibility: hidden;
 }
 
+.changeCommentById {
+  animation-name: example;
+  animation-duration: 5s;
+  visibility: hidden;
+}
+
 .comment {
   display: flex;
   flex-direction: row;
@@ -97,6 +103,15 @@ p {
 }
 
 @keyframes example {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes exampleChange {
   from {
     visibility: visible;
   }
