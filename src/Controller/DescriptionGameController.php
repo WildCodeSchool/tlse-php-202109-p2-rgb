@@ -55,6 +55,7 @@ class DescriptionGameController extends AbstractController
             }
         }
         $error = $this->addComment();
+        $getAllCommentsByGame = $this->gameModel->selectAllCommentsByGame();
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
@@ -64,7 +65,8 @@ class DescriptionGameController extends AbstractController
                 'inList' => $inList,
                 'reviewStatus' => $reviewButtonStatus,
                 'error' => $error,
-                'gameStatusList' => $gameStatusList
+                'gameStatusList' => $gameStatusList,
+                'getAllCommentsByGame' => $getAllCommentsByGame,
             ]
         );
     }
@@ -120,17 +122,5 @@ class DescriptionGameController extends AbstractController
                 }
             }
         }
-        $getAllCommentsByGame = $gameModel->selectAllCommentsByGame();
-        return $this->twig->render(
-            'Home/descriptionGame.html.twig',
-            [
-                'game' => $gameModel->selectOneById($id),
-                'like' => $gameModel->selectLikeById($id),
-                'tags' => $nameTags,
-                'getAllCommentsByGame' => $getAllCommentsByGame,
-                'error' => $error,
-                'gameStatusList' => $gameStatusList
-            ]
-        );
     }
 }
