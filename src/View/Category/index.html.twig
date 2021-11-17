@@ -3,40 +3,80 @@
 {% block stylesheet  %}
 	{{ parent() }}
 	<link rel="stylesheet" href="/assets/css/category.css">
+	<link rel="stylesheet" href="/assets/css/List_my_games.css">
 {% endblock %}
 
 {% block content %}
-
-	{% for gameInfo in gameInfos %}
-		<div class="wrapper">
-			<div class="product-text">
-				<h2>{{ gameInfo.name }}</h2>
-			</div>
-			<section class="body">
-				<div class="leftContent">
-					<div class="product-img">
-						<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
-					</div>
+	<div class="search">
+		<div class="searchBar">
+			{% include '/ListMyGames/_Search_Bar_List_My_Games.html.twig' %}
+		</div>
+		<div class="tags">
+			<a href="{{ path }}id=1" class="tags__label" >Action</a>
+			<a href="{{ path }}id=2" class="tags__label" for="aventure">Aventure</a>
+			<a href="{{ path }}id=5" class="tags__label" for="RPG">RPG</a>
+			<a href="{{ path }}id=3" class="tags__label" for="simulation">Simulation</a>
+			<a href="{{ path }}id=4" class="tags__label" for="strategie">Strategie</a>
+			<a href="{{ path }}id=6" class="tags__label" for="sport_course">Sport & Course</a>
+		</div>
+	</div>
+	{% if result %}
+		{% for gameInfo in result %}
+			{% set i = ( i | default(0) ) + 1 %}
+			<div class="wrapper">
+				<div class="product-text">
+					<h2>{{ gameInfo.name }}</h2>
 				</div>
-				<div class="rightContent">
-					<div class="product-price-btn">
-						<div class="buttonlike">
-							<p>avis negatif</p>
-							<button class="dislike">
-								<i class="fa fa-thumbs-o-down" aria-hidden="true">%</i>
-							</button>
-							<p>avis positif</p>
-							<button class="like">
-								<i class="fa fa-thumbs-o-up" aria-hidden="true">%</i>
-							</button>
+				<section class="body">
+					<div class="leftContent">
+						<div class="product-img">
+							<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
 						</div>
-						<a href='descriptionGame?id={{ gameInfo.game_id }}'>
-							<button type="button">Plus d'infos</button>
-						</a>
 					</div>
-				</div>
-			</section>
+					<div class="rightContent">
+						<div class="product-price-btn">
+							<div>
+								<p>
+									Reviews : <q  style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+								</p>
+							</div>
+							<a href='descriptionGame?id={{ gameInfo.game_id }}'>
+								<button type="button">Plus d'infos</button>
+							</a>
+						</div>
+					</div>
+				</section>
+			</div>
 			<div class="separation"></div>
 		{% endfor %}
-	</div>
+	{% else %}
+		{% for gameInfo in gameInfos %}
+			{% set i = ( i | default(0) ) + 1 %}
+			<div class="wrapper">
+				<div class="product-text">
+					<h2>{{ gameInfo.name }}</h2>
+				</div>
+				<section class="body">
+					<div class="leftContent">
+						<div class="product-img">
+							<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
+						</div>
+					</div>
+					<div class="rightContent">
+						<div class="product-price-btn">
+							<div>
+								<p>
+									Reviews : <q  style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+								</p>
+							</div>
+							<a href='descriptionGame?id={{ gameInfo.game_id }}'>
+								<button type="button">Plus d'infos</button>
+							</a>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="separation"></div>
+		{% endfor %}
+	{% endif %}
 {% endblock %}

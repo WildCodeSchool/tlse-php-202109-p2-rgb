@@ -12,34 +12,40 @@
 		</div>
 		<div class="carrousel">
 			<div class="carrouselCard" id="c1">
-				<img src="/assets/images/pictures_game/covers/hades.jpg" alt=""></div>
+				<img src="/assets/images/pictures_game/covers/hades.jpg" alt="">
+			</div>
 			<div class="carrouselCard" id="c2">
-				<img src="/assets/images/pictures_game/covers/forza5.jpg" alt=""></div>
+				<img src="/assets/images/pictures_game/covers/forza5.jpg" alt="">
+			</div>
 			<div class="carrouselCard" id="c3">
-				<img src="/assets/images/pictures_game/covers/GTA_V.jpg" alt=""></div>
+				<img src="/assets/images/pictures_game/covers/GTA_V.jpg" alt="">
+			</div>
 			<div class="carrouselCard" id="c4">
-				<img src="/assets/images/pictures_game/covers/payday2.jpg" alt=""></div>
+				<img src="/assets/images/pictures_game/covers/payday2.jpg" alt="">
+			</div>
 			<div class="carrouselCard" id="c5">
-				<img src="/assets/images/pictures_game/covers/portal2.jpg" alt=""></div>
+				<img src="/assets/images/pictures_game/covers/portal2.jpg" alt="">
+			</div>
 		</div>
 	</div>
-<div class="title">
-	<h1>Toutes les catégories</h1>
-</div>
-<div class="cards">
-	<div class="row gap-3 justify-content-center">
-		{% for card in cards %}
-			<div class="card">
-				<div class="skewed">
-					<img src={{ card['picture'] }} alt={{ card['title'] }}>
-				</div>
-				<div class="content">
-					<h2>{{ card['name'] }}</h2>
-					<a href="/category?id={{ card['id'] }}">
-						<button>Plus d'infos</button>
-					</a>
-				</div>
-			</div>
-		{% endfor %}
+	<div class="title">
+		<h1>Toutes les catégories</h1>
 	</div>
-</div>{% endblock %}
+	<div class="cards">
+		<div class="row gap-3 justify-content-center">
+			{% for card in cards %}
+				<div class="card">
+					<div class="skewed">
+						<img src={{ card['picture'] }} alt={{ card['title'] }}>
+					</div>
+					<div class="content">
+						<h2>{{ card['name'] }}</h2>
+						<a href="/category?id={{ card['id'] }}">
+							<button>Plus d'infos</button>
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

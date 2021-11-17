@@ -1,37 +1,32 @@
 {% extends 'layout.html.twig' %}
 
-
 {% block stylesheet  %}
 	{{parent()}}
 	<link rel="stylesheet" href="/assets/css/List_my_games.css">
 {% endblock %}
-
-
 {% block content %}
-
 <section class="SearchBarMyGames">
-
-
 	<div>
 		<div class="searchBar">
 			{% include 'ListMyGames/_Search_Bar_List_My_Games.html.twig' %}
 		</div>
-
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-				Trier par:
-			</button>
-			<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-				<li>
-					<a class="dropdown-item active" href="#">Mes envies</a>
-				</li>
-				<li>
-					<a class="dropdown-item" href="#">En progression</a>
-				</li>
-				<li>
-					<a class="dropdown-item" href="#">Jeu terminé</a>
-				</li>
-			</ul>
+		<div>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+					Trier par:
+				</button>
+				<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+					<li>
+						<a class="dropdown-item active" href="#">Mes envies</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">En cours</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">Jeu terminé</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div class="tags">
@@ -45,16 +40,11 @@
 			<a href="{{ path }}&tags=strategie" class="tags__label" for="strategie">Strategie</a>
 			<a href="{{ path }}&tags=sport_course" class="tags__label" for="sport_course">Sport & Course</a>
 		</div>
-	</div>
-	
+	</div>	
 </section>
-
 <div class="yourList">
-		<p>Voici ta liste de jeu
-			{{link.username}}
-			!</p>
+		<p>Voici ta liste de jeu {{link.username}} !</p>
 	</div>
-
 {% for gameByUser in gamesByUser %}
 	<div class="a-box">
 		<div class="img-container">
@@ -85,7 +75,7 @@
 			<label class="toggle">
 				<input class="toggle__input" type="checkbox" value="in progress" checked>
 				<span class="toggle__label">
-					<span class="toggle__text">En progression</span>
+					<span class="toggle__text">En cours</span>
 				</span>
 			</label>
 		</div>
@@ -98,4 +88,6 @@
 			</label>
 		</div>
 	</div>
-</div>{% endfor %}{% endblock %}
+</div>
+{% endfor %}
+{% endblock %}
