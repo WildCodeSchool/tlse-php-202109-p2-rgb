@@ -38,14 +38,40 @@
           ajouter
         </button>
       </a>
+    {% elseif not inList is empty %}
+      <h3> Statut du Jeu </h3>
+      <div class="d-flex flex-row gap-5">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+          <label class="form-check-label" for="flexRadioDefault1">
+            A Faire
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            En Cours
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+          <label class="form-check-label" for="flexRadioDefault3">
+            Terminé 
+          </label>
+        </div>
+      </div>
+      <div class="progress" style="width : 25rem">
+        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
     {% endif %}
-  </div>
-  {% if link.username %}
-		<div class="commentaire">
-			<form method="POST">
-				<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
-				<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
-			</form>
-    </div>  
-	{% endif %}
+    {% if link.username %}
+      <h3>Section Commentaire</h3>
+	  	<div class="commentaire">
+	  		<form method="POST">
+	  			<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
+	  			<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
+	  		</form>
+      </div>  
+	  {% endif %}
+  </div>  
 {% endblock %}
