@@ -54,7 +54,7 @@ class DescriptionGameModel extends AbstractManager
         $statement->bindValue(":userId", $getUserId, PDO::PARAM_INT);
         $statement->execute();
     }
-    public function selectAllCommentByGame()
+    public function selectAllCommentsByGame()
     {
         $statement = $this->pdo->prepare(
             "SELECT nickname, avatar, content, date_submitted, game_id, user_id 

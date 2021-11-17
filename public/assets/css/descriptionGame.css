@@ -45,11 +45,11 @@ p {
 }
 
 .comment img {
-width: 100%;
-border-radius: 50%;
-width: 3.5rem;
-height: 3.5rem;
-animation-name: boxShadow;
+  width: 100%;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  animation-name: boxShadow;
   animation-duration: 2.5s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -103,8 +103,6 @@ animation-name: boxShadow;
   to {
     visibility: hidden;
   }
-
-  
 }
 
 @keyframes boxShadow {
