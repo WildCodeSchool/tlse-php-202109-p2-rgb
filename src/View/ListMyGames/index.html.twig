@@ -1,27 +1,16 @@
 {% extends 'layout.html.twig' %}
 
-
 {% block stylesheet  %}
 	{{parent()}}
 	<link rel="stylesheet" href="/assets/css/List_my_games.css">
 {% endblock %}
-
-
 {% block content %}
-
-	<section class="SearchBarMyGames">
-
-		<div>
-			<p>Voici ta liste de jeu
-				{{link.username}}
-				!</p>
+<section class="SearchBarMyGames">
+	<div>
+		<div class="searchBar">
+			{% include 'ListMyGames/_Search_Bar_List_My_Games.html.twig' %}
 		</div>
-
 		<div>
-			<div class="searchBar">
-				{% include '/ListMyGames/_Search_Bar_List_My_Games.html.twig' %}
-			</div>
-
 			<div class="dropdown">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
 					Trier par:
@@ -31,7 +20,7 @@
 						<a class="dropdown-item active" href="#">Mes envies</a>
 					</li>
 					<li>
-						<a class="dropdown-item" href="#">En progression</a>
+						<a class="dropdown-item" href="#">En cours</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="#">Jeu terminé</a>
@@ -39,61 +28,66 @@
 				</ul>
 			</div>
 		</div>
-		<div class="tags">
-			<a href="{{ path }}&tags=action" class="tags__label" >Action</a>
+	</div>
+	<div class="tags">
+		<div>
+			<a href="{{ path }}&tags=action" class="tags__label">Action</a>
 			<a href="{{ path }}&tags=aventure" class="tags__label" for="aventure">Aventure</a>
 			<a href="{{ path }}&tags=RPG" class="tags__label" for="RPG">RPG</a>
+		</div>
+		<div>
 			<a href="{{ path }}&tags=simulation" class="tags__label" for="simulation">Simulation</a>
 			<a href="{{ path }}&tags=strategie" class="tags__label" for="strategie">Strategie</a>
 			<a href="{{ path }}&tags=sport_course" class="tags__label" for="sport_course">Sport & Course</a>
 		</div>
-	</section>
-
-	{% for gameByUser in gamesByUser %}
-		<div class="a-box">
-			<div class="img-container">
-				<div class="img-inner">
-					<div class="inner-skew">
-						<img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}>
-					</div>
-				</div>
-			</div>
-			<div class="text-container">
-				<h3>{{gameByUser['name']}}</h3>
-				<div>
-					<p>% positive</p>
-					<p>% negative</p>
+	</div>	
+</section>
+<div class="yourList">
+		<p>Voici ta liste de jeu {{link.username}} !</p>
+	</div>
+{% for gameByUser in gamesByUser %}
+	<div class="a-box">
+		<div class="img-container">
+			<div class="img-inner">
+				<div class="inner-skew">
+					<img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}>
 				</div>
 			</div>
 		</div>
-<div class="page__section page__custom-settings">
-    <div class="page__toggle">
-      <label class="toggle">
-        <input class="toggle__input" type="checkbox" value="wished" checked>
-        <span class="toggle__label">
-          <span class="toggle__text">A faire</span>
-        </span>
-      </label>
-    </div>
-    <div class="page__toggle">
-      <label class="toggle">
-        <input class="toggle__input" type="checkbox" value="in progress" checked>
-        <span class="toggle__label">
-          <span class="toggle__text">En progression</span>
-        </span>
-      </label>
-    </div>
-    <div class="page__toggle">
-      <label class="toggle">
-        <input class="toggle__input" type="checkbox" value="finished">
-        <span class="toggle__label">
-          <span class="toggle__text">Terminé</span>
-        </span>
-      </label>
-    </div>  
-  </div>
+		<div class="text-container">
+			<h3>{{gameByUser['name']}}</h3>
+			<div>
+				<p>% positive</p>
+				<p>% negative</p>
+			</div>
+		</div>
+	</div>
+	<div class="page__section page__custom-settings">
+		<div class="page__toggle">
+			<label class="toggle">
+				<input class="toggle__input" type="checkbox" value="wished" checked>
+				<span class="toggle__label">
+					<span class="toggle__text">A faire</span>
+				</span>
+			</label>
+		</div>
+		<div class="page__toggle">
+			<label class="toggle">
+				<input class="toggle__input" type="checkbox" value="in progress" checked>
+				<span class="toggle__label">
+					<span class="toggle__text">En cours</span>
+				</span>
+			</label>
+		</div>
+		<div class="page__toggle">
+			<label class="toggle">
+				<input class="toggle__input" type="checkbox" value="finished">
+				<span class="toggle__label">
+					<span class="toggle__text">Terminé</span>
+				</span>
+			</label>
+		</div>
+	</div>
 </div>
-	{% endfor %}
-
+{% endfor %}
 {% endblock %}
-

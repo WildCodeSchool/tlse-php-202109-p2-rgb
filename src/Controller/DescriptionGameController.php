@@ -56,6 +56,7 @@ class DescriptionGameController extends AbstractController
         }
         $statusGame = $this->changeStatusGame($id);
         $error = $this->addComment();
+        $getAllCommentsByGame = $this->gameModel->selectAllCommentsByGame();
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
@@ -66,7 +67,8 @@ class DescriptionGameController extends AbstractController
                 'reviewStatus' => $reviewButtonStatus,
                 'gameStatus' => $statusGame,
                 'error' => $error,
-                'gameStatusList' => $gameStatusList
+                'gameStatusList' => $gameStatusList,
+                'getAllCommentsByGame' => $getAllCommentsByGame,
             ]
         );
     }
