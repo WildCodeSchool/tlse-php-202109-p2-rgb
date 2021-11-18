@@ -44,6 +44,12 @@ body h3 {
   visibility: hidden;
 }
 
+.changeCommentById {
+  animation-name: example;
+  animation-duration: 5s;
+  visibility: hidden;
+}
+
 .comment {
   display: flex;
   flex-direction: row;
@@ -121,7 +127,6 @@ body h3 {
     visibility: hidden;
   }
 }
-
 @keyframes boxShadow {
   0% {
     box-shadow: 1px 4px 4px 2px black;

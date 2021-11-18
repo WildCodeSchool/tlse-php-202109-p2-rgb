@@ -24,9 +24,12 @@ class HomeController extends AbstractController
     public function index()
     {
         $categoryModel = new HomeModel();
+        $bestGamesLimitBy3 = $categoryModel->getBestGamesByLikes();
         return $this->twig->render(
             'Home/index.html.twig',
-            ['cards' => $categoryModel->selectAll('id')]
+            ['cards' => $categoryModel->selectAll('id'),
+            'bestGamesLimitBy3' => $bestGamesLimitBy3,
+            ]
         );
     }
 }

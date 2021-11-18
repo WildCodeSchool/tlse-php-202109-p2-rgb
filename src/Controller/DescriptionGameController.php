@@ -56,8 +56,8 @@ class DescriptionGameController extends AbstractController
                 $reviewButtonStatus = $this->statusController->getStatusGameReview($id);
             }
         }
-        $error = $this->addComment();
         $getAllCommentsByGame = $this->gameModel->selectAllCommentsByGame();
+        $error = $this->addComment();
         $whoChecked = array_search('checked', $checked);
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
@@ -69,8 +69,8 @@ class DescriptionGameController extends AbstractController
                 'reviewStatus' => $reviewButtonStatus,
                 'gameStatus' => $statusGame,
                 'error' => $error,
-                'gameStatusList' => $gameStatusList,
                 'getAllCommentsByGame' => $getAllCommentsByGame,
+                'gameStatusList' => $gameStatusList
                 'isGet' => $isGet,
                 'checked' => $checked,
                 'progress' => [

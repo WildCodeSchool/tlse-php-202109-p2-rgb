@@ -105,12 +105,12 @@ class DescriptionGameModel extends AbstractManager
     public function selectAllCommentsByGame()
     {
         $statement = $this->pdo->prepare(
-            "SELECT nickname, avatar, content, date_submitted, game_id, user_id
+            "SELECT nickname, avatar, comment.id, content, date_submitted, game_id, user_id
             FROM `user`
             JOIN `comment`
             ON `user`.id=user_id
             WHERE game_id=:gameId
-            ORDER BY date_submitted ASC"
+            ORDER BY date_submitted DESC"
         );
         $statement->bindValue(":gameId", $_GET['id'], PDO::PARAM_INT);
         $statement->execute();

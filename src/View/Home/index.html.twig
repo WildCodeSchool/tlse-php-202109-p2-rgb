@@ -11,21 +11,11 @@
 			<h1>Tendance du Moment</h1>
 		</div>
 		<div class="carrousel">
-			<div class="carrouselCard" id="c1">
-				<img src="/assets/images/pictures_game/covers/hades.jpg" alt="">
-			</div>
-			<div class="carrouselCard" id="c2">
-				<img src="/assets/images/pictures_game/covers/forza5.jpg" alt="">
-			</div>
-			<div class="carrouselCard" id="c3">
-				<img src="/assets/images/pictures_game/covers/GTA_V.jpg" alt="">
-			</div>
-			<div class="carrouselCard" id="c4">
-				<img src="/assets/images/pictures_game/covers/payday2.jpg" alt="">
-			</div>
-			<div class="carrouselCard" id="c5">
-				<img src="/assets/images/pictures_game/covers/portal2.jpg" alt="">
-			</div>
+			{% for bestGame in bestGamesLimitBy3 %}
+				<div class="carrouselCard" class="carrousel">
+					<a href="/descriptionGame?id={{ bestGame['game_id'] }}"><img src="/assets/images/pictures_game/covers/{{bestGame['picture']}}"></a>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 	<div class="title">
