@@ -23,9 +23,13 @@
   box-shadow: 1px 1px 5px 1px black;
 }
 
+.gap-3 {
+  gap: 1.5rem !important;
+}
+
 .skewed {
   width: 90%;
-  height: 55%;
+  height: 100%;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -35,7 +39,7 @@
 .skewed img {
   margin-top: 0.6rem;
   width: 100%;
-  height: 90%;
+  height: 80%;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -63,8 +67,6 @@
 }
 
 .content h2 {
-  margin-top: 1rem;
-  margin-right: 1rem;
   font-size: 1.1rem;
   font-weight: 200;
   display: flex;
@@ -87,6 +89,7 @@
 }
 
 .title {
+  margin-bottom: 2rem;
   width: 100%;
   height: 40px;
   left: calc(50% - 284px / 2);
@@ -144,22 +147,24 @@
 }
 
 .carrousel {
-  perspective: 250px;
-  width: 500px;
+  perspective: 400px;
+  width: 150px;
   height: 150px;
   top: 50px;
+  left: 50px;
   margin: 0 auto;
 }
 
 .carrouselCard {
-  width: 20rem;
-  height: 12rem;
+  margin-right: 5rem;
+  width: 18rem;
+  height: 10rem;
   background-color: #442222;
   font-size: 40px;
   opacity: 0;
   position: absolute;
   top: 30px;
-  left: 100px;
+  left: -50px;
   border: solid rgb(255, 252, 252) 2px;
   border-radius: 8px;
   text-align: center;
@@ -174,7 +179,7 @@
 
 .carrouselCard img {
   width: 100%;
-  height: 11.8rem;
+  height: 10rem;
 }
 
 .carrouselCard:hover {
@@ -227,7 +232,7 @@
   from {
     transform: rotateY(300deg) translateZ(80px) rotateY(-300deg);
     z-index: -10;
-    opacity: 0.7;
+    opacity: 1;
     filter: blur(4px);
   }
   50% {
@@ -239,5 +244,73 @@
     transform: rotateY(-60deg) translateZ(80px) rotateY(60deg);
     z-index: 10;
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 976px) {
+  .carrouselCard {
+    margin-right: 5rem;
+    width: 22rem;
+    height: 12rem;
+  }
+
+  .carrouselCard img {
+    width: 100%;
+    height: 12rem;
+  }
+
+  .carrousel {
+    perspective: 250px;
+    width: 200px;
+    height: 150px;
+  }
+
+  .title h1 {
+    font-size: 2rem;
+  }
+
+  .trending h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    margin-top: 0.8rem;
+    width: 300px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFo8gcxoIl_d8mG_LlOMJM1uEoZa5-wBCyBA&usqp=CAU);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 5px 1px black;
+  }
+
+  .gap-3 {
+    gap: 3rem !important;
+  }
+  .skewed {
+    margin-top: 0.5rem;
+  }
+
+  .content h2 {
+    font-size: 1.4rem;
+  }
+
+  .content a {
+    display: flex;
+    justify-content: center;
+  }
+
+  .content button {
+    font-size: 0.8rem;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content button:hover {
+    box-shadow: inset 0px 0px 3px 4px white;
   }
 }
