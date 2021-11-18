@@ -65,6 +65,9 @@
           {% else %}
             {% for status in gameStatus %}
               {% set i = ( i | default(0) ) + 1 %}
+              {% if status[0] == "checked" %}
+                {% set whoChecked = i - 1 %}
+              {% endif %}
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="{{ status[2] }}" id="flexRadioDefault{{ i }}" onchange="submit(this.form)" {{ status[0] }}>
                 <label class="form-check-label" for="flexRadioDefault{{ i }}">
@@ -76,7 +79,7 @@
         </div>  
       </form>
       <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated {{ progress[whoChecked][0] }}" role="progressbar" style="width: {{ progress[whoChecked][1] }}%;" aria-valuenow="{{ progress[whoChecked][1] }}" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     {% endif %}
     <h3> Section Commentaire</h3>
