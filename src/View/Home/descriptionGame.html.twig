@@ -89,23 +89,22 @@
 				<figure>
 					<img src="{{getCommentsByGame['avatar']}}">
 					<figcaption>
-						<a href="/ListMyGames?user={{ getCommentsByGame['nickname'] }}">{{getCommentsByGame['nickname']}}</a></figcaption>
+						<a href="/ListMyGames?user={{ getCommentsByGame['nickname'] }}">{{getCommentsByGame['nickname']}}</a>
+          </figcaption>
 				</figure>
 				<div class="commentText">
 					<p>Posté le:
-						{{getCommentsByGame['date_submitted']}}</p>
+						{{getCommentsByGame['date_submitted']}}
+          </p>
 					<div class="commentContent">
 						<p>{{getCommentsByGame['content']}}</p>
 					</div>
-				</div>
-				{% endif %}
-				<p class="temporary">{{error}}</p>
-			</div>
-		</section>
+  			</div>
+		  </section>
 	{% endfor %}
 	{% if link.username %}
 		<div class="commentaire">
-			<form method="POST">
+			<form action="/descriptionGame?id={{ game["id"] }}" method="POST">
 				<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
 				<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
 			</form>

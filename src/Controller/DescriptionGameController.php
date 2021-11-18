@@ -70,7 +70,7 @@ class DescriptionGameController extends AbstractController
                 'gameStatus' => $statusGame,
                 'error' => $error,
                 'getAllCommentsByGame' => $getAllCommentsByGame,
-                'gameStatusList' => $gameStatusList
+                'gameStatusList' => $gameStatusList,
                 'isGet' => $isGet,
                 'checked' => $checked,
                 'progress' => [
