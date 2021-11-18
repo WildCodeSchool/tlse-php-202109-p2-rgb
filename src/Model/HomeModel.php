@@ -12,7 +12,7 @@ class HomeModel extends AbstractManager
     {
         $statement = $this->pdo->prepare(
             "SELECT game_id, `like`, `like`.id, game.picture, 
-            SUM(case when `like` = `like` then 1 end) as sumlike
+            SUM(case when `like` = 'like' then 1 end) as sumlike
             FROM game
             JOIN `like`
             ON game.id=game_id
