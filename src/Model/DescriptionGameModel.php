@@ -64,8 +64,8 @@ class DescriptionGameModel extends AbstractManager
     }
     public function getUserId()
     {
-        if (isset($_GET["user"])) {
-            $user = $_GET["user"];
+        if (isset($_GET['user'])) {
+            $user = $_GET['user'];
         } else {
             $user = $_SESSION['username'];
         }
