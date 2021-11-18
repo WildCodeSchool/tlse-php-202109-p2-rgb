@@ -16,14 +16,14 @@ p {
 }
 
 .progress {
-  width : 25rem;
+  width: 25rem;
 }
 body h3 {
   margin-bottom: 20px;
 }
 .commentaire {
+  margin-top: 1.5rem;
   width: 100%;
-  margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,9 +51,9 @@ body h3 {
 }
 
 .comment {
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: row;
-  width: 100%;
 }
 
 .comment p {
@@ -138,17 +138,12 @@ body h3 {
 }
 
 h2 {
-  text-align:center;
-  margin:20px auto 20px;
+  text-align: center;
+  margin: 20px auto 20px;
 }
 
 body div a button {
-  max-width:10rem;
-}
-
-img {
-  max-width: 25rem;
-  max-height: 12rem;
+  max-width: 10rem;
 }
 
 body div p {
@@ -157,6 +152,34 @@ body div p {
 }
 
 body div div p {
-  text-align:center;
+  text-align: center;
   font-size: 1rem;
+}
+
+@media screen and (min-width: 976px) {
+  .allContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .imgGame {
+    width: 28rem;
+    height: 15rem;
+  }
+
+  .spaceComment {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+  }
+
+  .comment:nth-of-type(even) {
+    justify-content: flex-end;
+  }
+
+  .postComment {
+    background-color: #493fdb;
+    color: aliceblue;
+  }
 }
