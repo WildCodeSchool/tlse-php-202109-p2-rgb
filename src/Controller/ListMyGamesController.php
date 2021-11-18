@@ -14,7 +14,11 @@ class ListMyGamesController extends AbstractController
         $listGameManager = new ListMyGamesManager();
         $descriptionGame = new DescriptionGameModel();
         $search = new SearchManager();
-        $path = $_SERVER['PATH_INFO'] . "?=" . $_SESSION['username'];
+        if (isset($_SESSION['username'])) {
+            $path = $_SERVER['PATH_INFO'] . "?user=" . $_SESSION['username'];
+        } else {
+            $path = $_SERVER['PATH_INFO'] . "?user=" . $_GET['user'];
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             if (isset($_GET['tags'])) {
                 $gameByTags = $search->searchByTag($_GET['tags']);
@@ -29,7 +33,8 @@ class ListMyGamesController extends AbstractController
                 return $this->twig->render(
                     'ListMyGames/index.html.twig',
                     ['gamesByUser' => $gameByUserId,
-                    "path" => $path,]
+                    "path" => $path,
+                    "userList" => $_GET['user'],]
                 );
             }
         }

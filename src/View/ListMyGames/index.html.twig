@@ -43,7 +43,12 @@
 	</div>	
 </section>
 <div class="yourList">
-		<p>Voici ta liste de jeu {{link.username}} !</p>
+	<div>
+		{% if userList %}
+			<p>Voici la liste de jeu de {{ userList }} !</p>
+		{% else %}	
+			<p>Voici ta liste de jeu {{link.username}} !</p>
+		{% endif %}
 	</div>
 {% for gameByUser in gamesByUser %}
 	<div class="a-box">

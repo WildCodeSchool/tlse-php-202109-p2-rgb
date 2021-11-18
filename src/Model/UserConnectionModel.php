@@ -179,7 +179,7 @@ class UserConnectionModel extends AbstractManager
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(":nickname", $_SESSION['username'], PDO::PARAM_STR);
         $statement->bindValue(":avatar", $_SESSION['avatar'], PDO::PARAM_STR);
-        $statement->bindValue(":userId", $_SESSION['userId'], PDO::PARAM_INT);
+        $statement->bindValue(":userId", $this->getUserId(), PDO::PARAM_INT);
         $statement->execute();
         header("Location:myProfile");
     }
