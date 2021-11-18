@@ -6,6 +6,8 @@ use PDO;
 
 class DescriptionGameModel extends AbstractManager
 {
+    public const TABLE = 'game';
+
     public function reviewGame(int $gameId, int $userId, string $review)
     {
         $statement = $this->pdo->prepare(
