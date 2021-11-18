@@ -118,14 +118,9 @@ class DescriptionGameController extends AbstractController
                     $getUserId = $this->gameModel->getUserId();
                     $this->gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
                 } elseif (empty($_POST['commentaire'])) {
-                    return "Votre commentaire ne doit pas être vide";
+                    return "Votre commentaire ne doit pas etre vide";
                 }
             }
         }
-
-        return $this->twig->render(
-            'Home/descriptionGame.html.twig',
-            []
-        );
     }
 }

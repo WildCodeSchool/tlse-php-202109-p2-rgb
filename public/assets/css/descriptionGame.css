@@ -110,16 +110,6 @@ p {
     visibility: hidden;
   }
 }
-
-@keyframes exampleChange {
-  from {
-    visibility: visible;
-  }
-  to {
-    visibility: hidden;
-  }
-}
-
 @keyframes boxShadow {
   0% {
     box-shadow: 1px 4px 4px 2px black;

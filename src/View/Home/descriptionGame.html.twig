@@ -7,70 +7,74 @@
 {% block title %}Jeu
 {% endblock %}
 {% block content %}
-  <div class='d-flex flex-column align-items-center gap-4'>
-    <h2>{{ game['name'] }}</h2>
-    {% if inList %}
-      <div>
-        <form action="/descriptionGame?id={{ game['id'] }}" method="POST">
-        <input class="btn btn-{{ reviewStatus[0] }}primary" type="submit" value="👍" name="like" style="border-radius:50%;">
-        <input class="btn btn-{{ reviewStatus[1] }}primary" type="submit" value="👎" name="dislike" style="border-radius:50%;">
-        </form>
-      </div>
-    {% endif %}
-    <img src="/assets/images/pictures_game/covers/{{ game['picture'] }}" alt={{ game['name'] }}>
-    <div class="d-flex flex-row gap-1">
-      {% for tag in tags %}
-          <span class="badge bg-primary">{{ tag['name'] }}</span> 
-      {% endfor %}
-    </div>    
-    <p>{{ game['description'] }}</p>
-    <div class="d-flex flex-row gap-1 align-items-center">
-      <p>
-        Reviews:<br>
-        <q style="color: {{ like[1] }};">{{ like[0] }}</q>
-      </p>
-      <p>
-        Date de Sortie:<br>
-        <strong>{{ game['date_release'] }}</strong>
-      </p>
-    </div>    
-    {% if not inList %}
-      <a href="/descriptionGame?id={{ game['id'] }}&gameId={{ game['id'] }}">
-        <button type="button" class="btn-lg btn-primary" id="liveAlertBtn"data-toggle="button" aria-pressed="false" autocomplete="off">
-          ajouter
-        </button>
-      </a>
-    {% endif %}
-  </div>
-  {% for getCommentsByGame in getAllCommentsByGame %}
-			<section class="comment">
-				<figure>
-					<img src="{{getCommentsByGame['avatar']}}">
-					<figcaption>
-						{{getCommentsByGame['nickname']}}</figcaption>
-				</figure>
-				<div class="commentText">
-					<p>Posté le:
-						{{getCommentsByGame['date_submitted']}}</p>
-					<div class="commentContent">
-						<p>{{getCommentsByGame['content']}}</p>
-					</div>
-					{% if link.username == getCommentsByGame['nickname'] %}
-						<form method="POST">
-							<input class="Comment" type="submit" value="Changer mon commentaire" name="change_commentaire"/>
-						</form>						
-							<textarea class="changeCommentById" name="changeComment" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Changer votre commentaire..."></textarea>
-							<p class="changeCommentById">{{error}}</p>
-					{% endif %}
+	<div class='d-flex flex-column align-items-center gap-4'>
+		<h2>{{ game['name'] }}</h2>
+		{% if inList %}
+			<div>
+				<form action="/descriptionGame?id={{ game['id'] }}" method="POST">
+					<input class="btn btn-{{ reviewStatus[0] }}primary" type="submit" value="👍" name="like" style="border-radius:50%;">
+					<input class="btn btn-{{ reviewStatus[1] }}primary" type="submit" value="👎" name="dislike" style="border-radius:50%;">
+				</form>
+			</div>
+		{% endif %}
+		<img src="/assets/images/pictures_game/covers/{{ game['picture'] }}" alt={{ game['name'] }}>
+		<div class="d-flex flex-row gap-1">
+			{% for tag in tags %}
+				<span class="badge bg-primary">{{ tag['name'] }}</span>
+			{% endfor %}
+		</div>
+		<p>{{ game['description'] }}</p>
+		<div class="d-flex flex-row gap-1 align-items-center">
+			<p>
+				Reviews:<br>
+				<q style="color: {{ like[1] }};">{{ like[0] }}</q>
+			</p>
+			<p>
+				Date de Sortie:<br>
+				<strong>{{ game['date_release'] }}</strong>
+			</p>
+		</div>
+		{% if not inList %}
+			<a href="/descriptionGame?id={{ game['id'] }}&gameId={{ game['id'] }}">
+				<button type="button" class="btn-lg btn-primary" id="liveAlertBtn" data-toggle="button" aria-pressed="false" autocomplete="off">
+					ajouter
+				</button>
+			</a>
+		{% endif %}
+	</div>
+	{% for getCommentsByGame in getAllCommentsByGame %}
+		<section class="comment">
+			<figure>
+				<img src="{{getCommentsByGame['avatar']}}">
+				<figcaption>
+					{{getCommentsByGame['nickname']}}</figcaption>
+			</figure>
+			<div class="commentText">
+				<p>Posté le:
+					{{getCommentsByGame['date_submitted']}}</p>
+				<div class="commentContent">
+					<p>{{getCommentsByGame['content']}}</p>
 				</div>
-			</section>
-		{% endfor %}
-  	{% if link.username %}
+				{% if link.username == getCommentsByGame['nickname'] %}
+					{% if getCommentsByGame['id'] == getCommentsByGame['id'] %}
+						<form method="POST">
+							<input class="Comment" type="submit" value="Changer mon commentaire" name="changeComment"/>
+						</form>
+					{% endif %}
+				{% endif %}
+				<p class="temporary">{{error}}</p>
+			</div>
+		</section>
+	{% endfor %}
+	{% if link.username %}
 		<div class="commentaire">
 			<form method="POST">
 				<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
 				<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
 			</form>
-		</div>  
+			<p class="temporary">
+				{{error}}
+			</p>
+		</div>
 	{% endif %}
 {% endblock %}
