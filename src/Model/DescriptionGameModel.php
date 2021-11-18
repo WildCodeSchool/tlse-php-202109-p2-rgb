@@ -110,7 +110,7 @@ class DescriptionGameModel extends AbstractManager
             JOIN `comment`
             ON `user`.id=`user_id`
             WHERE game_id=:gameId
-            ORDER BY date_submitted ASC"
+            ORDER BY date_submitted DESC"
         );
         $statement->bindValue(":gameId", $_GET['id'], PDO::PARAM_INT);
         $statement->execute();
