@@ -30,7 +30,7 @@
       </p>
       <p>
         Date de Sortie:<br>
-        <strong>{{ game['date_release'] }}</strong>
+        <strong>{{ game['date_release']|date('d-m-Y')  }}</strong>
       </p>
     </div>    
     {% if not inList %}
