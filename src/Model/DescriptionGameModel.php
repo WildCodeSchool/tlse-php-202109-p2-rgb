@@ -152,11 +152,11 @@ class DescriptionGameModel extends AbstractManager
                 } elseif ($like > -10) {
                     return [$value, 'neutral', $likes];
                 } else {
-                    return [$value, 'nagative', $likes];
+                    return [$value, 'negative', $likes];
                 }
             }
         }
-        return ['Conquistador', 'red', $likes];
+        return ['Conquistador', 'negative', $likes];
     }
 
     public function selectLikeById(int $id)
