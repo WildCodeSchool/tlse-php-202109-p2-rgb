@@ -56,7 +56,6 @@ class DescriptionGameController extends AbstractController
         }
         $getAllCommentsByGame = $this->gameModel->selectAllCommentsByGame();
         $error = $this->addComment();
-        $getAllCommentsByGame = $this->gameModel->selectAllCommentsByGame();
         return $this->twig->render(
             'Home/descriptionGame.html.twig',
             [
