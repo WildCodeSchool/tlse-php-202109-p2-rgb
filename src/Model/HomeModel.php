@@ -19,7 +19,7 @@ class HomeModel extends AbstractManager
             GROUP BY game_id, (`like`)
             ORDER BY SUM(`like`) desc
             LIMIT 3;"
-            );
+        );
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }

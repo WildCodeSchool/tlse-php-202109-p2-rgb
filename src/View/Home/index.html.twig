@@ -12,8 +12,8 @@
 		</div>
 		<div class="carrousel">
 			{% for bestGame in bestGamesLimitBy3 %}
-				<div class="carrouselCard" id="c{{bestGame['id']}}">
-					<img src="/assets/images/pictures_game/covers/{{bestGame['picture']}}">
+				<div class="carrouselCard" class="carrousel">
+					<a href="/descriptionGame?id={{ bestGame['game_id'] }}"><img src="/assets/images/pictures_game/covers/{{bestGame['picture']}}"></a>
 				</div>
 			{% endfor %}
 		</div>
