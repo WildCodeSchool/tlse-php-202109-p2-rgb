@@ -93,7 +93,7 @@ class DescriptionGameModel extends AbstractManager
     public function insertIntoComment($commentaire, $getGameId, $getUserId)
     {
         $statement = $this->pdo->prepare(
-            "INSERT INTO `comment` (content, date_submitted, game_id, user_id)
+            "INSERT INTO `comment` (content, date_submitted, game_id, `user_id`)
         VALUES (:commentaire, :date, :gameId, :userId)"
         );
         $statement->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
@@ -105,10 +105,10 @@ class DescriptionGameModel extends AbstractManager
     public function selectAllCommentsByGame()
     {
         $statement = $this->pdo->prepare(
-            "SELECT nickname, avatar, comment.id, content, date_submitted, game_id, user_id
+            "SELECT nickname, avatar, content, date_submitted, game_id, `user_id`
             FROM `user`
             JOIN `comment`
-            ON `user`.id=user_id
+            ON `user`.id=`user_id`
             WHERE game_id=:gameId
             ORDER BY date_submitted DESC"
         );
