@@ -4,8 +4,9 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="/assets/css/descriptionGame.css">
 {% endblock %}
-{% block title %}Jeu
-{% endblock %}
+
+{% block title %}Jeu{% endblock %}
+
 {% block content %}
 	<section class="allContent">
 		<div class='d-flex flex-column align-items-center gap-4'>
@@ -32,7 +33,7 @@
 				</p>
 				<p>
 					Date de Sortie:<br>
-					<strong>{{ game['date_release'] }}</strong>
+					<strong>{{ game['date_release']|date('d-m-Y') }}</strong>
 				</p>
 			</div>
 			{% if not inList %}
@@ -91,7 +92,7 @@
 			{% if link.username %}
 				<div class="commentaire">
 					<h3>Espace commentaire</h3>
-					<form method="POST">
+					<form action="/descriptionGame?id={{ game["id"] }}" method="POST">
 						<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
 						<input class="postComment" type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
 					</form>
@@ -119,6 +120,4 @@
 			{% endfor %}
 		</section>
 	</section>
-
-
 {% endblock %}
