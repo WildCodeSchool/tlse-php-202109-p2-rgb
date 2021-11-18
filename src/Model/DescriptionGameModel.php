@@ -6,33 +6,6 @@ use PDO;
 
 class DescriptionGameModel extends AbstractManager
 {
-    public const TABLE = 'game';
-
-    public function addStatusGameByUserId($status, $gameId, $userId)
-    {
-        $statement = $this->pdo->prepare(
-            "INSERT INTO `list_user` (game_id, `user_id`, `status`)
-            VALUES (:gameId, :userId, :`status`);"
-        );
-        $statement->bindValue(":gameId", $gameId, PDO::PARAM_INT);
-        $statement->bindValue(":userId", $userId, PDO::PARAM_INT);
-        $statement->bindValue(":status", $status, PDO::PARAM_STR);
-        $statement->execute();
-    }
-
-    public function updateStatusGameByUserId($status, $gameId, $userId)
-    {
-        $statement = $this->pdo->prepare(
-            "UPDATE `list_user`
-            SET `status` = :`status`
-            WHERE game_id = :gameId
-            AND `user_id` = :userId;"
-        );
-        $statement->bindValue(":gameId", $gameId, PDO::PARAM_INT);
-        $statement->bindValue(":userId", $userId, PDO::PARAM_INT);
-        $statement->bindValue(":status", $status, PDO::PARAM_STR);
-        $statement->execute();
-    }
     public function reviewGame(int $gameId, int $userId, string $review)
     {
         $statement = $this->pdo->prepare(
@@ -177,11 +150,11 @@ class DescriptionGameModel extends AbstractManager
                 } elseif ($like > -10) {
                     return [$value, 'neutral', $likes];
                 } else {
-                    return [$value, 'nagative', $likes];
+                    return [$value, 'negative', $likes];
                 }
             }
         }
-        return ['Conquistador', 'red', $likes];
+        return ['Conquistador', 'negative', $likes];
     }
 
     public function selectLikeById(int $id)

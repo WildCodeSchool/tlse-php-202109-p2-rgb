@@ -26,6 +26,7 @@ class DescriptionGameController extends AbstractController
     private DescriptionGameModel $gameModel;
     private CategoryManager $gameCategory;
     private UserConnectionModel $userModel;
+    private GameStatusController $statusController;
 
     public function __construct()
     {
@@ -33,6 +34,7 @@ class DescriptionGameController extends AbstractController
         $this->gameModel = new DescriptionGameModel();
         $this->gameCategory = new CategoryManager();
         $this->userModel = new UserConnectionModel();
+        $this->statusController = new GameStatusController();
     }
     public function index(int $id, int $gameId = null)
     {
@@ -40,21 +42,20 @@ class DescriptionGameController extends AbstractController
         $inList = false;
         $gameStatusList = $this->addGameToList($gameId);
         $reviewButtonStatus = ['outline-', 'outline-'];
+        $statusGame = [];
+        $isGet = true;
+        $checked = $this->statusController->getCheckedRequestGet($id);
         if ($this->userModel->isConnected()) {
             $inList = $this->gameModel->gameIsAlreadyInUserList($id, $this->gameModel->getUserId());
             if ($this->userModel->isConnected() && $inList) {
-                $this->reviewManager($id);
-                $userReview = $this->gameModel->selectGameReviewFromUserId($id, $this->gameModel->getUserId());
-                if (!$userReview) {
-                    $reviewButtonStatus = ['outline-', 'outline-'];
-                } elseif ($userReview['like'] === 'like') {
-                    $reviewButtonStatus = ['', 'outline-'];
-                } else {
-                    $reviewButtonStatus = ['outline-', ''];
+                if (!isset($_POST['like']) && !isset($_POST['dislike']) && !isset($_POST['submit_commentaire'])) {
+                    $isGet = $this->statusController->changeStatusGame($id);
+                    $statusGame = $this->statusController->getStatusGame($id);
                 }
+                $this->reviewManager($id);
+                $reviewButtonStatus = $this->statusController->getStatusGameReview($id);
             }
         }
-        $statusGame = $this->changeStatusGame($id);
         $error = $this->addComment();
         $getAllCommentsByGame = $this->gameModel->selectAllCommentsByGame();
         return $this->twig->render(
@@ -69,6 +70,8 @@ class DescriptionGameController extends AbstractController
                 'error' => $error,
                 'gameStatusList' => $gameStatusList,
                 'getAllCommentsByGame' => $getAllCommentsByGame,
+                'isGet' => $isGet,
+                'checked' => $checked
             ]
         );
     }
@@ -121,21 +124,6 @@ class DescriptionGameController extends AbstractController
                     $this->gameModel->insertIntoComment($commentaire, $getGameId, $getUserId);
                 } elseif (empty($_POST['commentaire'])) {
                     return "Votre commentaire ne doit pas être vide";
-                }
-            }
-        }
-    }
-
-    public function changeStatusGame($gameId)
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userReview = $this->gameModel->selectGameReviewFromUserId($gameId, $this->gameModel->getUserId());
-            if (isset($_POST['statusChoice'])) {
-                $status = $_POST['statusChoice'];
-                if (!$userReview) {
-                    $this->gameModel->addStatusGameByUserId($status, $gameId, $this->gameModel->getUserId());
-                } else {
-                    $this->gameModel->updateStatusGameByUserId($status, $gameId, $this->gameModel->getUserId());
                 }
             }
         }
