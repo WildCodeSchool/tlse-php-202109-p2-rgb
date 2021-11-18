@@ -11,7 +11,7 @@ class HomeModel extends AbstractManager
     public function getBestGamesByLikes()
     {
         $statement = $this->pdo->prepare(
-            "SELECT game_id, `like`, `like`.id, game.picture, 
+            "SELECT game_id, `like`, game.picture, 
             SUM(case when `like` = 'like' then 1 end) as sumlike
             FROM game
             JOIN `like`
