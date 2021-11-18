@@ -9,6 +9,7 @@ class AdminModel extends AbstractManager
     public function addGameOnDatabase(array $informations)
     {
         $releaseDate = date("now");
+        // $description = filter_var($informations['description'], FILTER_SANITIZE_STRING);
         $query =
         "INSERT INTO `game` (`name`, `date_release`, `description`, `picture`)
         VALUE (:titleGame, $releaseDate, :descriptionGame, :picture);";
