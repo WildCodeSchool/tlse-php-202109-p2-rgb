@@ -5,94 +5,51 @@
 	<link rel="stylesheet" href="/assets/css/List_my_games.css">
 {% endblock %}
 {% block content %}
-<section class="SearchBarMyGames">
-	<div>
+	<section class="SearchBarMyGames">
 		<div class="searchBar">
 			{% include 'ListMyGames/_Search_Bar_List_My_Games.html.twig' %}
 		</div>
-		<div>
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-					Trier par:
-				</button>
-				<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-					<li>
-						<a class="dropdown-item active" href="#">Mes envies</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="#">En cours</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="#">Jeu terminé</a>
-					</li>
-				</ul>
+		<div class="tags">
+			<div>
+				<a href="{{ path }}&tags=action" class="tags__label">Action</a>
+				<a href="{{ path }}&tags=aventure" class="tags__label" for="aventure">Aventure</a>
+				<a href="{{ path }}&tags=RPG" class="tags__label" for="RPG">RPG</a>
+			</div>
+			<div>
+				<a href="{{ path }}&tags=simulation" class="tags__label" for="simulation">Simulation</a>
+				<a href="{{ path }}&tags=strategie" class="tags__label" for="strategie">Strategie</a>
+				<a href="{{ path }}&tags=sport_course" class="tags__label" for="sport_course">Sport & Course</a>
 			</div>
 		</div>
+	</section>
+	<div class="yourList">
+		<p>Voici ta liste de jeu !</p>
 	</div>
-	<div class="tags">
-		<div>
-			<a href="{{ path }}&tags=action" class="tags__label">Action</a>
-			<a href="{{ path }}&tags=aventure" class="tags__label" for="aventure">Aventure</a>
-			<a href="{{ path }}&tags=RPG" class="tags__label" for="RPG">RPG</a>
-		</div>
-		<div>
-			<a href="{{ path }}&tags=simulation" class="tags__label" for="simulation">Simulation</a>
-			<a href="{{ path }}&tags=strategie" class="tags__label" for="strategie">Strategie</a>
-			<a href="{{ path }}&tags=sport_course" class="tags__label" for="sport_course">Sport & Course</a>
-		</div>
-	</div>	
-</section>
-<div class="yourList">
-	<div>
-		{% if userList %}
-			<p>Voici la liste de jeu de {{ userList }} !</p>
-		{% else %}	
-			<p>Voici ta liste de jeu {{link.username}} !</p>
-		{% endif %}
-	</div>
-{% for gameByUser in gamesByUser %}
-	<div class="a-box">
-		<div class="img-container">
-			<div class="img-inner">
-				<div class="inner-skew">
-					<a href="/descriptionGame?id={{ gameByUser['id'] }}"><img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}></a>
+	<section class="mobile">
+		{% for gameByUser in gamesByUser %}
+			<div class="a-box">
+				<div class="img-container">
+					<div class="img-inner">
+						<div class="inner-skew">
+							<a href="/descriptionGame?id={{ gameByUser['id'] }}"><img src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}></a>
+						</div>
+					</div>
+				</div>
+				<div class="text-container">
+					<h3>{{gameByUser['name']}}</h3>
 				</div>
 			</div>
-		</div>
-		<div class="text-container">
-			<h3>{{gameByUser['name']}}</h3>
-			<div>
-				<p>% positive</p>
-				<p>% negative</p>
+		{% endfor %}
+	</section>
+	<section class="desktop">
+		{% for gameByUser in gamesByUser %}
+			<div class="image">
+				<figure>
+					<a href="/descriptionGame?id={{ gameByUser['id'] }}"><img class="imgMyGame" src="/assets/images/pictures_game/covers/{{ gameByUser.picture }}" alt={{ gameByUser.name }}></a>
+					<figcaption>{{gameByUser['name']}}
+					</figcaption>
+				</figure>
 			</div>
-		</div>
-	</div>
-	<div class="page__section page__custom-settings">
-		<div class="page__toggle">
-			<label class="toggle">
-				<input class="toggle__input" type="checkbox" value="wished" checked>
-				<span class="toggle__label">
-					<span class="toggle__text">A faire</span>
-				</span>
-			</label>
-		</div>
-		<div class="page__toggle">
-			<label class="toggle">
-				<input class="toggle__input" type="checkbox" value="in progress" checked>
-				<span class="toggle__label">
-					<span class="toggle__text">En cours</span>
-				</span>
-			</label>
-		</div>
-		<div class="page__toggle">
-			<label class="toggle">
-				<input class="toggle__input" type="checkbox" value="finished">
-				<span class="toggle__label">
-					<span class="toggle__text">Terminé</span>
-				</span>
-			</label>
-		</div>
-	</div>
-</div>
-{% endfor %}
+		{% endfor %}
+	</section>
 {% endblock %}
