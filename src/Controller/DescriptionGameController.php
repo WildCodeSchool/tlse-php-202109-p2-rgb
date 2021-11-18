@@ -26,6 +26,7 @@ class DescriptionGameController extends AbstractController
     private DescriptionGameModel $gameModel;
     private CategoryManager $gameCategory;
     private UserConnectionModel $userModel;
+    private GameStatusController $statusController;
 
     public function __construct()
     {
@@ -33,6 +34,7 @@ class DescriptionGameController extends AbstractController
         $this->gameModel = new DescriptionGameModel();
         $this->gameCategory = new CategoryManager();
         $this->userModel = new UserConnectionModel();
+        $this->statusController = new GameStatusController();
     }
     public function index(int $id, int $gameId = null)
     {
@@ -40,18 +42,18 @@ class DescriptionGameController extends AbstractController
         $inList = false;
         $gameStatusList = $this->addGameToList($gameId);
         $reviewButtonStatus = ['outline-', 'outline-'];
+        $statusGame = [];
+        $isGet = true;
+        $checked = $this->statusController->getCheckedRequestGet($id);
         if ($this->userModel->isConnected()) {
             $inList = $this->gameModel->gameIsAlreadyInUserList($id, $this->gameModel->getUserId());
             if ($this->userModel->isConnected() && $inList) {
-                $this->reviewManager($id);
-                $userReview = $this->gameModel->selectGameReviewFromUserId($id, $this->gameModel->getUserId());
-                if (!$userReview) {
-                    $reviewButtonStatus = ['outline-', 'outline-'];
-                } elseif ($userReview['like'] === 'like') {
-                    $reviewButtonStatus = ['', 'outline-'];
-                } else {
-                    $reviewButtonStatus = ['outline-', ''];
+                if (!isset($_POST['like']) && !isset($_POST['dislike']) && !isset($_POST['submit_commentaire'])) {
+                    $isGet = $this->statusController->changeStatusGame($id);
+                    $statusGame = $this->statusController->getStatusGame($id);
                 }
+                $this->reviewManager($id);
+                $reviewButtonStatus = $this->statusController->getStatusGameReview($id);
             }
         }
         $getAllCommentsByGame = $this->gameModel->selectAllCommentsByGame();
@@ -64,9 +66,12 @@ class DescriptionGameController extends AbstractController
                 'tags' => $nameTags,
                 'inList' => $inList,
                 'reviewStatus' => $reviewButtonStatus,
+                'gameStatus' => $statusGame,
                 'error' => $error,
                 'getAllCommentsByGame' => $getAllCommentsByGame,
                 'gameStatusList' => $gameStatusList
+                'isGet' => $isGet,
+                'checked' => $checked
             ]
         );
     }

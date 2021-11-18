@@ -135,7 +135,7 @@ class UserConnectionModel extends AbstractManager
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(":userId", $this->getUserId(), PDO::PARAM_INT);
         $statement->execute();
-        return $statement->fetch();
+        return $statement->fetch()['avatar'];
     }
 
     /**
