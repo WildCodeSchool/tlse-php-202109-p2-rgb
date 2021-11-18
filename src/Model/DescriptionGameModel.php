@@ -148,11 +148,11 @@ class DescriptionGameModel extends AbstractManager
         foreach ($reviews as $key => $value) {
             if ($like >= $key) {
                 if ($like >= 10) {
-                    return [$value, 'green', $likes];
+                    return [$value, 'positive', $likes];
                 } elseif ($like > -10) {
-                    return [$value, 'yellow', $likes];
+                    return [$value, 'neutral', $likes];
                 } else {
-                    return [$value, 'red', $likes];
+                    return [$value, 'nagative', $likes];
                 }
             }
         }
