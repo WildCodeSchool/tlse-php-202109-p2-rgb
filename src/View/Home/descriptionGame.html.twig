@@ -55,14 +55,6 @@
 				<div class="commentContent">
 					<p>{{getCommentsByGame['content']}}</p>
 				</div>
-				{% if link.username == getCommentsByGame['nickname'] %}
-					{% if getCommentsByGame['id'] == getCommentsByGame['id'] %}
-						<form method="POST">
-							<input class="Comment" type="submit" value="Changer mon commentaire" name="changeComment"/>
-						</form>
-					{% endif %}
-				{% endif %}
-				<p class="temporary">{{error}}</p>
 			</div>
 		</section>
 	{% endfor %}

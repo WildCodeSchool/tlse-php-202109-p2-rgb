@@ -1,3 +1,6 @@
+.desktop {
+  display: none;
+}
 
 body {
   margin: 0;
@@ -143,6 +146,37 @@ button.dislike {
   border-color: rgb(245, 10, 10);
   border-width: 1px;
   font-size: 15px;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.tags {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 0.3rem;
+}
+
+.tags a {
+  font-size: 0.8rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.tags__label {
+  height: 2rem;
+  width: 5.3rem;
+  border: 1px solid black;
+  padding: 0.3em;
+  margin-left: 0.3em;
+  border-radius: 5px;
+  background-color: #493fdb;
 }
 
 .buttonlike {
