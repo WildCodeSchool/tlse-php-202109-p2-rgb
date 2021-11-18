@@ -42,6 +42,10 @@
     background-color: #493fdb;
   }
 
+  .tags__label:hover {
+    box-shadow: inset 0px 0px 3px 4px white;
+  }
+
   .container {
     position: relative;
     margin-top: 2rem;
@@ -69,7 +73,6 @@
   }
 
   .container .card:before {
-    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -115,6 +118,7 @@
     transform: translate(-50%, -70%);
     width: 350px;
     border-radius: 10px;
+    border: 3px solid #212529;
   }
 
   .container .card .contentBx {
@@ -235,7 +239,23 @@
   }
 
   .container .card .contentBx a button {
+    height: 2rem;
+    width: 8rem;
+    border: 1px solid black;
+    padding: 0.5em;
+    margin-left: 0.5em;
+    border-radius: 5px;
     background-color: #493fdb;
+    color: #fff;
+  }
+
+  .container .card .contentBx a button:hover {
+    box-shadow: inset 0px 0px 3px 4px white;
+  }
+
+  .container .card .contentBx a {
+    font-size: 0.8rem;
+    color: #fff;
   }
 
   .container .card:hover .contentBx a {
