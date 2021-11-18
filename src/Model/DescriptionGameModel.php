@@ -64,8 +64,14 @@ class DescriptionGameModel extends AbstractManager
     }
     public function getUserId()
     {
+        if (isset($_GET["user"])) {
+            $user = $_GET["user"];
+        } else {
+            $user = $_SESSION['username'];
+        }
+
         $statement = $this->pdo->prepare("SELECT * from user where nickname = :username");
-        $statement->bindValue(":username", $_SESSION['username'], PDO::PARAM_STR);
+        $statement->bindValue(":username", $user, PDO::PARAM_STR);
         $statement->execute();
         $statement = $statement->fetch();
         return intval($statement['id']);
