@@ -60,6 +60,23 @@ a {
     margin-left: 1em;
 }
 
+.form-profile {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 25rem;
+}
+
+.avatar {
+    width: 10rem;
+}
+
+.profile {
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+}
+
 @media screen and (min-width: 992px) {
 
     .nav__logo__a__img {
