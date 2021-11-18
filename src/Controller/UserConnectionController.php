@@ -59,6 +59,7 @@ class UserConnectionController extends AbstractController
             }
             $_SESSION['username'] = $_POST['nickname'];
             $_SESSION['userId'] = $userConnection->getUserId();
+            $_SESSION['avatar'] = $userConnection->getUserAvatar();
             if (isset($_SESSION['previousUrl'])) {
                 header("Location: " . $_SESSION['previousUrl']);
             } else {
@@ -134,7 +135,7 @@ class UserConnectionController extends AbstractController
         if ($userConnection->isConnected()) {
             $avatar = $userConnection->getUserAvatar();
             if ($avatar !== false) {
-                $_SESSION["avatar"] = $avatar['avatar'];
+                $_SESSION["avatar"] = $avatar;
                 return $this->twig->render('Home/profile.html.twig');
             }
         }

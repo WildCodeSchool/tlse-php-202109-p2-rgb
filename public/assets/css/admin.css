@@ -1,0 +1,42 @@
+.category {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.category legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 8px;
+    align-content: space-around;
+    text-align: right;
+}
+
+.checkbox {
+    width: 11rem;
+} 
+
+.checkbox input {
+    margin-left: 0.5em;;
+}
+
+@media screen and (min-width: 950px) {
+    .checkbox {
+        width: 15rem;
+    }
+}
+@media screen and (min-width: 1280px) {
+    .checkbox {
+        width: 20rem;
+    }
+}
+@media screen and (min-width: 1680px) {
+    .checkbox {
+        width: 25rem;
+    }
+}

@@ -98,51 +98,55 @@
 			</div>
 		</div>
 		{% if result %}
-			{% for gameInfo in result %}
-				{% set i = ( i | default(0) ) + 1 %}
-				<div class="container">
-					<div class="card">
-						<div class="imgBx">
-							<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
-						</div>
-						<div class="contentBx">
-							<h3>{{ gameInfo.name }}</h3>
-							<div class="size">
-								<p>
-									Reviews :
-									<q style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
-								</p>
+			<section class="cards">
+				{% for gameInfo in result %}
+					{% set i = ( i | default(0) ) + 1 %}
+					<div class="container">
+						<div class="card">
+							<div class="imgBx">
+								<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
 							</div>
-							<a href='descriptionGame?id={{ gameInfo.game_id }}'>
-								<button type="button">Plus d'infos</button>
-							</a>
+							<div class="contentBx">
+								<h3>{{ gameInfo.name }}</h3>
+								<div class="size">
+									<p>
+										Reviews :
+										<q style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+									</p>
+								</div>
+								<a href='descriptionGame?id={{ gameInfo.game_id }}'>
+									<button type="button">Plus d'infos</button>
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
-			{% endfor %}
+				{% endfor %}
+			</section>
 		{% else %}
-			{% for gameInfo in gameInfos %}
-				{% set i = ( i | default(0) ) + 1 %}
-				<div class="container">
-					<div class="card">
-						<div class="imgBx">
-							<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
-						</div>
-						<div class="contentBx">
-							<h3>{{ gameInfo.name }}</h3>
-							<div class="size">
-								<p>
-									Reviews :
-									<q style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
-								</p>
+			<section class="cards">
+				{% for gameInfo in gameInfos %}
+					{% set i = ( i | default(0) ) + 1 %}
+					<div class="container">
+						<div class="card">
+							<div class="imgBx">
+								<img src="/assets/images/pictures_game/covers/{{ gameInfo.picture }}" alt={{ gameInfo.name }}>
 							</div>
-							<a href='descriptionGame?id={{ gameInfo.game_id }}'>
-								<button type="button">Plus d'infos</button>
-							</a>
+							<div class="contentBx">
+								<h3>{{ gameInfo.name }}</h3>
+								<div class="size">
+									<p>
+										Reviews :
+										<q style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+									</p>
+								</div>
+								<a href='descriptionGame?id={{ gameInfo.game_id }}'>
+									<button type="button">Plus d'infos</button>
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
-			{% endfor %}
+				{% endfor %}
+			</section>
 		{% endif %}
 	</section>
 {% endblock %}

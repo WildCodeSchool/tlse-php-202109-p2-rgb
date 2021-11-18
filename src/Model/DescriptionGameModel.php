@@ -64,8 +64,14 @@ class DescriptionGameModel extends AbstractManager
     }
     public function getUserId()
     {
+        if (isset($_GET['user'])) {
+            $user = $_GET['user'];
+        } else {
+            $user = $_SESSION['username'];
+        }
+
         $statement = $this->pdo->prepare("SELECT * from user where nickname = :username");
-        $statement->bindValue(":username", $_SESSION['username'], PDO::PARAM_STR);
+        $statement->bindValue(":username", $user, PDO::PARAM_STR);
         $statement->execute();
         $statement = $statement->fetch();
         return intval($statement['id']);
@@ -148,15 +154,15 @@ class DescriptionGameModel extends AbstractManager
         foreach ($reviews as $key => $value) {
             if ($like >= $key) {
                 if ($like >= 10) {
-                    return [$value, 'green', $likes];
+                    return [$value, 'positive', $likes];
                 } elseif ($like > -10) {
-                    return [$value, 'yellow', $likes];
+                    return [$value, 'neutral', $likes];
                 } else {
-                    return [$value, 'red', $likes];
+                    return [$value, 'negative', $likes];
                 }
             }
         }
-        return ['Conquistador', 'red', $likes];
+        return ['Conquistador', 'negative', $likes];
     }
 
     public function selectLikeById(int $id)
