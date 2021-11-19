@@ -100,7 +100,7 @@ class UserConnectionModel extends AbstractManager
         $passwordUser = $this->cleanData($data['passwordUser']);
         $passwordUser = password_hash($passwordUser, PASSWORD_DEFAULT);
         $query =
-            "INSERT INTO `rgb_team_wild`.`user` (`nickname`, `password`, `mail`)
+            "INSERT INTO `user` (`nickname`, `password`, `mail`)
             VALUES (:nickname, :passwordUser, :mail);";
         $statement = $pdo->prepare($query);
         $statement->bindValue(':nickname', $data['nickname'], \PDO::PARAM_STR);
@@ -130,7 +130,6 @@ class UserConnectionModel extends AbstractManager
      */
     public function getUserAvatar()
     {
-
         $query = "SELECT `avatar` FROM `user` WHERE user.id = :userId;";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(":userId", $this->getUserId(), PDO::PARAM_INT);
