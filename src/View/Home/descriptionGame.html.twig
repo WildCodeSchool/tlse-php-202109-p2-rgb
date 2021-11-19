@@ -4,113 +4,120 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="/assets/css/descriptionGame.css">
 {% endblock %}
+
 {% block title %}Jeu{% endblock %}
+
 {% block content %}
-  <div class='d-flex flex-column align-items-center gap-4'>
-    <h2>{{ game['name'] }}</h2>
-    {% if inList %}
-      <div>
-        <form action="/descriptionGame?id={{ game['id'] }}" method="POST">
-          <input class="btn btn-{{ reviewStatus[0] }}primary" type="submit" value="👍" name="like" style="border-radius:50%;">
-          <input class="btn btn-{{ reviewStatus[1] }}primary" type="submit" value="👎" name="dislike" style="border-radius:50%;">
-        </form>
-      </div>
-    {% endif %}
-    <img src="/assets/images/pictures_game/covers/{{ game['picture'] }}" alt={{ game['name'] }}>
-    <div class="d-flex flex-row gap-1">
-      {% for tag in tags %}
-          <span class="badge bg-primary">{{ tag['name'] }}</span> 
-      {% endfor %}
-    </div>    
-    <p>{{ game['description'] }}</p>
-    <div class="d-flex flex-row gap-1 align-items-center">
-      <p>
-        Reviews:<br>
-        <q class="review-{{ like[1] }}" >{{ like[0] }}</q>
-      </p>
-      <p>
-        Date de Sortie:<br>
-        <strong>{{ game['date_release']|date('d-m-Y')  }}</strong>
-      </p>
-    </div>    
-    {% if not inList %}
-      <a href="/descriptionGame?id={{ game['id'] }}&gameId={{ game['id'] }}">
-        <button type="button" class="btn-lg btn-primary" id="liveAlertBtn"data-toggle="button" aria-pressed="false" autocomplete="off">
-          ajouter
-        </button>
-      </a>
-    {% elseif not inList is empty %}
-      <h3> Statut du Jeu </h3>
-      <form action="/descriptionGame?id={{ game['id'] }}" method="POST">
-        <div class="d-flex flex-row gap-5">
-          {% if isGet %}
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="wished" id="flexRadioDefault1" onchange="submit(this.form)" {{ checked[0] }}>
-              <label class="form-check-label" for="flexRadioDefault1">
-                A Faire
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="in progress" id="flexRadioDefault2" onchange="submit(this.form)" {{ checked[1] }}>
-              <label class="form-check-label" for="flexRadioDefault2">
-                En Cours
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="finished" id="flexRadioDefault3" onchange="submit(this.form)" {{ checked[2] }}>
-              <label class="form-check-label" for="flexRadioDefault3">
-                Terminé 
-              </label>
-            </div>
-          {% else %}
-            {% for status in gameStatus %}
-              {% set i = ( i | default(0) ) + 1 %}
-              {% if status[0] == "checked" %}
-                {% set whoChecked = i - 1 %}
-              {% endif %}
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="{{ status[2] }}" id="flexRadioDefault{{ i }}" onchange="submit(this.form)" {{ status[0] }}>
-                <label class="form-check-label" for="flexRadioDefault{{ i }}">
-                  {{ status[1] }}
-                </label>
-              </div>
-            {% endfor %}
-          {% endif %}  
-        </div>  
-      </form>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated {{ progress[whoChecked][0] }}" role="progressbar" style="width: {{ progress[whoChecked][1] }}%;" aria-valuenow="{{ progress[whoChecked][1] }}" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-    {% endif %}
-    <h3> Section Commentaire</h3>
-  </div>
-  {% for getCommentsByGame in getAllCommentsByGame %}
-			<section class="comment">
-				<figure>
-					<img src="{{getCommentsByGame['avatar']}}">
-					<figcaption>
-						<a href="/ListMyGames?user={{ getCommentsByGame['nickname'] }}">{{getCommentsByGame['nickname']}}</a>
-          </figcaption>
-				</figure>
-				<div class="commentText">
-					<p>Posté le:
-						{{getCommentsByGame['date_submitted']}}
-          </p>
-					<div class="commentContent">
-						<p>{{getCommentsByGame['content']}}</p>
+	<section class="allContent">
+		<div class='d-flex flex-column align-items-center gap-4'>
+			<h2>{{ game['name'] }}</h2>
+			{% if inList %}
+				<div>
+					<form action="/descriptionGame?id={{ game['id'] }}" method="POST">
+						<input class="btn btn-{{ reviewStatus[0] }}primary" type="submit" value="👍" name="like" style="border-radius:50%;">
+						<input class="btn btn-{{ reviewStatus[1] }}primary" type="submit" value="👎" name="dislike" style="border-radius:50%;">
+					</form>
+				</div>
+			{% endif %}
+			<img class="imgGame" src="/assets/images/pictures_game/covers/{{ game['picture'] }}" alt={{ game['name'] }}>
+			<div class="d-flex flex-row gap-1">
+				{% for tag in tags %}
+					<span class="badge bg-primary">{{ tag['name'] }}</span>
+				{% endfor %}
+			</div>
+			<p>{{ game['description'] }}</p>
+			<div class="d-flex flex-row gap-1 align-items-center">
+				<p>
+					Reviews:<br>
+					<q class="review-{{ like[1] }}">{{ like[0] }}</q>
+				</p>
+				<p>
+					Date de Sortie:<br>
+					<strong>{{ game['date_release'] }}</strong>
+				</p>
+			</div>
+			{% if not inList %}
+				<a href="/descriptionGame?id={{ game['id'] }}&gameId={{ game['id'] }}">
+					<button type="button" class="btn-lg btn-primary" id="liveAlertBtn" data-toggle="button" aria-pressed="false" autocomplete="off">
+						ajouter
+					</button>
+				</a>
+			{% elseif not inList is empty %}
+				<h3>
+					Statut du Jeu
+				</h3>
+				<form action="/descriptionGame?id={{ game['id'] }}" method="POST">
+					<div class="d-flex flex-row gap-5">
+						{% if isGet %}
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="wished" id="flexRadioDefault1" onchange="submit(this.form)" {{ checked[0] }}>
+								<label class="form-check-label" for="flexRadioDefault1">
+									A Faire
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="in progress" id="flexRadioDefault2" onchange="submit(this.form)" {{ checked[1] }}>
+								<label class="form-check-label" for="flexRadioDefault2">
+									En Cours
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="finished" id="flexRadioDefault3" onchange="submit(this.form)" {{ checked[2] }}>
+								<label class="form-check-label" for="flexRadioDefault3">
+									Terminé
+								</label>
+							</div>
+						{% else %}
+							{% for status in gameStatus %}
+								{% set i = ( i | default(0) ) + 1 %}
+								{% if status[0] == "checked" %}
+									{% set whoChecked = i - 1 %}
+								{% endif %}
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="{{ status[2] }}" id="flexRadioDefault{{ i }}" onchange="submit(this.form)" {{ status[0] }}>
+									<label class="form-check-label" for="flexRadioDefault{{ i }}">
+										{{ status[1] }}
+									</label>
+								</div>
+							{% endfor %}
+						{% endif %}
 					</div>
-  			</div>
-		  </section>
-	{% endfor %}
-	{% if link.username %}
-		<div class="commentaire">
-			<form action="/descriptionGame?id={{ game["id"] }}" method="POST">
-				<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
-				<input type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
-			</form>
-			<p class="temporary">
-				{{error}}
-			</p>
+				</form>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped progress-bar-animated {{ progress[whoChecked][0] }}" role="progressbar" style="width: {{ progress[whoChecked][1] }}%;" aria-valuenow="{{ progress[whoChecked][1] }}" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+			{% endif %}
 		</div>
-	{% endif %}
+		<section class="spaceComment">
+			{% if link.username %}
+				<div class="commentaire">
+					<h3>Espace commentaire</h3>
+					<form method="POST">
+						<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
+						<input class="postComment" type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
+					</form>
+					<p class="temporary">
+						{{error}}
+					</p>
+				</div>
+			{% endif %}
+			{% for getCommentsByGame in getAllCommentsByGame %}
+				<section class="comment">
+					<figure>
+						<img src="{{getCommentsByGame['avatar']}}">
+						<figcaption>
+							<a href="/ListMyGames?user={{ getCommentsByGame['nickname'] }}">{{getCommentsByGame['nickname']}}</a>
+						</figcaption>
+					</figure>
+					<div class="commentText">
+						<p>Posté le:
+							{{getCommentsByGame['date_submitted']}}</p>
+						<div class="commentContent">
+							<p>{{getCommentsByGame['content']}}</p>
+						</div>
+					</div>
+				</section>
+			{% endfor %}
+		</section>
+	</section>
 {% endblock %}

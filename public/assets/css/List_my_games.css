@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap");
-
 ol,
 ul {
   padding-left: 0;
@@ -7,6 +5,10 @@ ul {
 
 p {
   margin: 0;
+}
+
+.desktop {
+  display: none;
 }
 
 .SearchBarMyGames {
@@ -153,159 +155,6 @@ p {
   font-size: 18px;
 }
 
-.toggle {
-  --uiToggleSize: var(--toggleSize, 1.25rem);
-  --uiToggleBorderWidth: var(--toggleBorderWidth, 2px);
-  --uiToggleColor: var(--toggleColor, #222);
-
-  display: var(--toggleDisplay, inline-flex);
-  position: relative;
-}
-
-.toggle__input {
-  width: var(--uiToggleSize);
-  height: var(--uiToggleSize);
-  opacity: 0;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-}
-
-.toggle__label {
-  display: inline-flex;
-  min-height: var(--uiToggleSize);
-  padding-left: calc(var(--uiToggleSize) + var(--toggleIndent, 0.3em));
-}
-
-.toggle__input:not(:disabled) ~ .toggle__label {
-  cursor: pointer;
-}
-
-.toggle__label::after {
-  content: "";
-  box-sizing: border-box;
-  width: 1em;
-  height: 1em;
-  font-size: var(--uiToggleSize); /* 1 */
-
-  background-color: transparent;
-  border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
-
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 2;
-}
-
-.toggle__input:checked ~ .toggle__label::after {
-  background-color: var(--uiToggleColor);
-}
-
-.toggle__text {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.toggle__label::before {
-  content: "";
-  width: 0;
-  height: 0;
-  font-size: var(--uiToggleSize);
-
-  border-left-width: 0;
-  border-bottom-width: 0;
-  border-left-style: solid;
-  border-bottom-style: solid;
-  border-color: var(--toggleArrowColor, #fff);
-
-  position: absolute;
-  top: 0.5428em;
-  left: 0.25em;
-  z-index: 3;
-
-  transform-origin: left top;
-  transform: rotate(-40deg) skew(10deg);
-}
-
-.toggle__input:checked ~ .toggle__label::before {
-  --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
-
-  width: 0.4em;
-  height: 0.2em;
-  border-left-width: var(--uiToggleArrowWidth);
-  border-bottom-width: var(--uiToggleArrowWidth);
-}
-
-.toggle:focus-within {
-  outline: var(--toggleOutlineWidthFocus, 3px) solid
-    var(--toggleOutlineColorFocus, currentColor);
-  outline-offset: var(--toggleOutlineOffsetFocus, 5px);
-}
-
-.toggle__input:disabled ~ .toggle__label {
-  opacity: var(--toggleOpacityDisabled, 0.24);
-  cursor: var(--toggleCursorDisabled, not-allowed);
-  user-select: none;
-}
-
-.toggle__input:not(:disabled) ~ .toggle__label::before {
-  will-change: width, height;
-  opacity: 0;
-}
-
-.toggle__input:not(:disabled):checked ~ .toggle__label::before {
-  opacity: 1;
-  transition: opacity 0.1s ease-out 0.25s, width 0.1s ease-out 0.5s,
-    height 0.2s ease-out 0.3s;
-}
-
-.toggle__input:not(:disabled) ~ .toggle__label::after {
-  will-change: background-color;
-  transition: background-color 0.2s ease-out;
-}
-
-.page__custom-settings {
-  --toggleColor: #0c0c0c;
-  --toggleOutlineColorFocus: #0d0d0e;
-  --toggleSize: 1.2rem;
-  margin-left: 0.4rem;
-  border-bottom: 2px solid black;
-}
-
-.page {
-  box-sizing: border-box;
-  max-width: 45rem;
-  padding: 2.75rem 2rem 2.5rem;
-  margin: auto;
-
-  background-color: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-}
-
-.page__section {
-  display: flex;
-  font-weight: 700;
-}
-
-.page__name {
-  width: 100%;
-}
-
-.page__name::first-letter {
-  text-transform: uppercase;
-}
-
-.page__toggle {
-  margin-left: 0.5rem;
-  margin-top: 1.8rem;
-  margin-right: 1rem;
-  font-size: var(--pageToggleTextFontSize);
-}
-
 @keyframes rotateIMG {
   0% {
     transform: skew(0deg, -3deg);
@@ -348,4 +197,113 @@ p {
 
 .tags__label input {
   display: none;
+}
+
+@media screen and (min-width: 976px) {
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    margin: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .image {
+    display: flex;
+    margin-top: 30px;
+    transition: all 0.8s;
+    flex-flow: row wrap;
+    flex-direction: row;
+    animation-name: rotateIMG;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: ease-in-out;
+  }
+
+  .image:nth-of-type(even) {
+    margin-top: 150px;
+  }
+
+  .tags__label:hover {
+    box-shadow: inset 0px 0px 3px 4px white;
+  }
+
+  .image:hover {
+    animation-name: transformscale;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transition: ease-in-out;
+  }
+
+  .image:hover figcaption {
+    transform: scale(1.1);
+    opacity: 1;
+    transition: opacity 0.8s;
+  }
+
+  figure {
+    color: #282828;
+    margin-bottom: 30px;
+  }
+
+  .imgMyGame {
+    border: 1px solid grey;
+    width: 25rem;
+    height: 18rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px black;
+  }
+
+  figcaption {
+    opacity: 0;
+    text-align: center;
+  }
+
+  span {
+    font-style: italic;
+    font-size: 15px;
+  }
+  span:before {
+    content: " - ";
+  }
+
+  a {
+    text-decoration: none;
+    color: #52618d;
+  }
+
+  @keyframes transformscale {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes rotateIMG {
+    0% {
+      transform: skewY(-3deg);
+      opacity: 0.9;
+    }
+
+    50% {
+      transform: skewY(0deg);
+      opacity: 1;
+    }
+
+    100% {
+      transform: skewY(3deg);
+      opacity: 0.9;
+    }
+  }
 }
