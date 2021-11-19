@@ -73,9 +73,6 @@
     animation-iteration-count: infinite;
   }
 
-.container:nth-of-type(even) {
-  }
-
   .container .card:before {
     position: absolute;
     top: 0;

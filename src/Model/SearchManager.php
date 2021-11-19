@@ -6,8 +6,10 @@ use PDO;
 
 class SearchManager extends AbstractManager
 {
+
     public function selectByTitleGame(string $id): ?array
     {
+        $user = new UserConnectionModel();
         $statement = $this->pdo->prepare("SELECT * 
         FROM game 
         JOIN list_user 
@@ -15,7 +17,7 @@ class SearchManager extends AbstractManager
         WHERE game.id=game_id
         AND game.name LIKE :search ");
         $statement->bindValue(':search', "%$id%", PDO::PARAM_STR);
-        $statement->bindValue(':userId', $_SESSION['userId'], \PDO::PARAM_STR);
+        $statement->bindValue(':userId', $user->getUserId(), \PDO::PARAM_STR);
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -32,6 +34,7 @@ class SearchManager extends AbstractManager
 
     public function searchByTag(string $tag)
     {
+        $user = new UserConnectionModel();
         $idTag = intval($this->getTagId($tag)['id'], 10);
         $query = "SELECT * 
         FROM game
@@ -42,7 +45,7 @@ class SearchManager extends AbstractManager
         ON game_genre.genre_id = :idTag
         AND game_genre.game_id = list_user.game_id;";
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue(":userId", intval($_SESSION['userId'], 10), PDO::PARAM_INT);
+        $statement->bindValue(":userId", intval($user->getUserId(), 10), PDO::PARAM_INT);
         $statement->bindValue(":idTag", intVal($idTag), PDO::PARAM_INT);
         $statement->execute();
 

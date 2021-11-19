@@ -8,12 +8,13 @@ class AdminModel extends AbstractManager
 {
     public function addGameOnDatabase(array $informations)
     {
-        $releaseDate = date("now");
+        $releaseDate = $informations['release_date'];
         $query =
         "INSERT INTO `game` (`name`, `date_release`, `description`, `picture`)
-        VALUE (:titleGame, $releaseDate, :descriptionGame, :picture);";
+        VALUE (:titleGame, :releaseDate, :descriptionGame, :picture);";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':titleGame', $informations['name'], PDO::PARAM_STR);
+        $statement->bindValue(':releaseDate', $releaseDate, PDO::PARAM_STR);
         $statement->bindValue(':descriptionGame', $informations['description'], PDO::PARAM_STR);
         $statement->bindValue(':picture', $_FILES['picture']['name'], PDO::PARAM_STR);
         $statement->execute();
