@@ -33,7 +33,7 @@
 				</p>
 				<p>
 					Date de Sortie:<br>
-					<strong>{{ game['date_release'] }}</strong>
+					<strong>{{ game['date_release']|date('d-m-Y') }}</strong>
 				</p>
 			</div>
 			{% if not inList %}
@@ -92,7 +92,7 @@
 			{% if link.username %}
 				<div class="commentaire">
 					<h3>Espace commentaire</h3>
-					<form method="POST">
+					<form action="/descriptionGame?id={{ game["id"] }}" method="POST">
 						<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
 						<input class="postComment" type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
 					</form>
