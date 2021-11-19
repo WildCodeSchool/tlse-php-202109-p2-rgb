@@ -135,6 +135,13 @@ p {
   gap: 0.4rem;
 }
 
+.TitleYourList p {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
 .text-container div p:nth-child(1) {
   background-color: green;
   color: aliceblue;

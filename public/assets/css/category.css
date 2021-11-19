@@ -135,6 +135,13 @@ button.like {
   margin-bottom: 0.6rem;
 }
 
+.TitleYourList p {
+  margin-top: 2 rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
 button.dislike {
   width: 30px;
   height: 30px;
