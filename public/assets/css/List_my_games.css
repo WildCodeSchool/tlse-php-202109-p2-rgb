@@ -232,6 +232,13 @@ p {
     margin-top: 150px;
   }
 
+  .TitleYourList {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+  }
+
   .tags__label:hover {
     box-shadow: inset 0px 0px 3px 4px white;
   }
