@@ -60,6 +60,7 @@
   }
 
   .container .card {
+    margin-bottom: 2rem;
     position: relative;
     width: 400px;
     height: 450px;
@@ -70,6 +71,9 @@
     animation-duration: 2.5s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
+  }
+
+.container:nth-of-type(even) {
   }
 
   .container .card:before {
@@ -142,6 +146,7 @@
     color: #212529;
     margin: 0;
     margin-bottom: 1rem;
+    font-size: 1.3rem;
   }
 
   .container .card .contentBx .size,

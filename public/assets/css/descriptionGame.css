@@ -95,6 +95,17 @@ body h3 {
   margin-top: 0.4rem;
 }
 
+.imgGame {
+  border-radius: 10px;
+  animation-name: rotateIMG;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-duration: 3s;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: ease-in-out;
+}
+
 .commentText {
   display: flex;
   flex-direction: column;
@@ -117,6 +128,23 @@ body h3 {
   justify-content: flex-start;
   font-style: normal;
   font-size: 1rem;
+}
+
+@keyframes rotateIMG {
+  0% {
+    transform: skewY(-2deg);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: skewY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: skewY(2deg);
+    opacity: 0.9;
+  }
 }
 
 @keyframes example {
