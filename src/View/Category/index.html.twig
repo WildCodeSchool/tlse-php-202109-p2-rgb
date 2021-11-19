@@ -39,7 +39,8 @@
 								<div>
 									<p>
 										Reviews :
-										<q style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+										{{ gameReviews[i-1][1] }}
+										<q class="{{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
 									</p>
 								</div>
 								<a href='descriptionGame?id={{ gameInfo.game_id }}'>
@@ -111,7 +112,7 @@
 								<div class="size">
 									<p>
 										Reviews :
-										<q style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+										<q class="{{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
 									</p>
 								</div>
 								<a href='descriptionGame?id={{ gameInfo.game_id }}'>
@@ -136,7 +137,7 @@
 								<div class="size">
 									<p>
 										Reviews :
-										<q style="color : {{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
+										<q class="{{ gameReviews[i-1][1] }}">{{ gameReviews[i-1][0] }}</q>
 									</p>
 								</div>
 								<a href='descriptionGame?id={{ gameInfo.game_id }}'>

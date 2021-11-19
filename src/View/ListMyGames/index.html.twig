@@ -22,8 +22,12 @@
 			</div>
 		</div>
 	</section>
-	<div class="yourList">
-		<p>Voici ta liste de jeu !</p>
+	<div class="TitleYourList">
+		{% if userList %}
+			<p>Voici ta liste de jeu de {{ userList }} !</p>
+		{% else %}	
+			<p>Voici ta liste de jeu {{link.username}} !</p>
+		{% endif %}
 	</div>
 	<section class="mobile">
 		{% for gameByUser in gamesByUser %}
