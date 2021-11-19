@@ -9,7 +9,7 @@
 
 {% block content %}
 	<section class="allContent">
-		<div class='d-flex flex-column align-items-center gap-4'>
+		<div class='d-flex flex-column align-items-center gap-4 gameBlock'>
 			<h2>{{ game['name'] }}</h2>
 			{% if inList %}
 				<div>
@@ -20,9 +20,9 @@
 				</div>
 			{% endif %}
 			<img class="imgGame" src="/assets/images/pictures_game/covers/{{ game['picture'] }}" alt={{ game['name'] }}>
-			<div class="d-flex flex-row gap-1">
+			<div class="d-flex flex-row gap-1 tagBar">
 				{% for tag in tags %}
-					<span class="badge bg-primary">{{ tag['name'] }}</span>
+					<span class="badge bg-primary tag">{{ tag['name'] }}</span>
 				{% endfor %}
 			</div>
 			<p>{{ game['description'] }}</p>
@@ -90,8 +90,8 @@
 			{% if link.username %}
 				<div class="commentaire">
 					<h3>Espace commentaire</h3>
-					<form action="/descriptionGame?id={{ game["id"] }}" method="POST">
-						<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..."></textarea><br/>
+					<form action="/descriptionGame?id={{ game["id"] }}" method="POST" class="form form-control">
+						<textarea name="commentaire" minlength="5" cols="35" rows="7" wrap="hard" placeholder="Votre commentaire..." class="textarea"></textarea><br/>
 						<input class="postComment" type="submit" value="Poster mon commentaire" name="submit_commentaire"/>
 					</form>
 					<p class="temporary">
